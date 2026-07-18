@@ -5,6 +5,7 @@ import {
   ChartNoAxesCombined,
   Code2,
   Compass,
+  GraduationCap,
   Lightbulb,
   MessageSquareText,
   Play,
@@ -14,6 +15,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import './styles.css';
+import LearningPage from './learning/LearningPage.jsx';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
@@ -26,7 +28,10 @@ async function api(path, options) {
   return response.json();
 }
 
-function App() {
+// ─────────────────────────────────────────────────────────────────────────────
+//  ORIGINAL PYBE APP (untouched)
+// ─────────────────────────────────────────────────────────────────────────────
+function OriginalApp() {
   const [scenarios, setScenarios] = useState([]);
   const [selected, setSelected] = useState(null);
   const [sessions, setSessions] = useState([]);
@@ -38,10 +43,13 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  const concepts = useMemo(() => [...new Set(scenarios.flatMap((scenario) => scenario.concepts || []))].sort(), [scenarios]);
+  const concepts = useMemo(
+    () => [...new Set(scenarios.flatMap((s) => s.concepts || []))].sort(),
+    [scenarios]
+  );
 
   async function refresh() {
-    const params = new URLSearchParams(Object.entries(filters).filter(([, value]) => value));
+    const params = new URLSearchParams(Object.entries(filters).filter(([, v]) => v));
     const [scenarioData, sessionData, analyticsData, roadmapData] = await Promise.all([
       api(`/scenarios?${params}`),
       api('/sessions'),
@@ -52,13 +60,11 @@ function App() {
     setSessions(sessionData);
     setAnalytics(analyticsData);
     setRoadmap(roadmapData);
-    setSelected((current) => current || scenarioData[0] || null);
+    setSelected((cur) => cur || scenarioData[0] || null);
     setLoading(false);
   }
 
-  useEffect(() => {
-    refresh().catch(console.error);
-  }, [filters.q, filters.difficulty, filters.concept]);
+  useEffect(() => { refresh().catch(console.error); }, [filters.q, filters.difficulty, filters.concept]);
 
   async function submitSession(event) {
     event.preventDefault();
@@ -94,21 +100,21 @@ function App() {
           <Search size={18} />
           <input
             value={filters.q}
-            onChange={(event) => setFilters({ ...filters, q: event.target.value })}
+            onChange={(e) => setFilters({ ...filters, q: e.target.value })}
             placeholder="Search scenarios"
           />
         </label>
 
-        <select value={filters.difficulty} onChange={(event) => setFilters({ ...filters, difficulty: event.target.value })}>
+        <select value={filters.difficulty} onChange={(e) => setFilters({ ...filters, difficulty: e.target.value })}>
           <option value="">All levels</option>
           <option>Beginner</option>
           <option>Explorer</option>
           <option>Builder</option>
         </select>
 
-        <select value={filters.concept} onChange={(event) => setFilters({ ...filters, concept: event.target.value })}>
+        <select value={filters.concept} onChange={(e) => setFilters({ ...filters, concept: e.target.value })}>
           <option value="">All concepts</option>
-          {concepts.map((concept) => <option key={concept}>{concept}</option>)}
+          {concepts.map((c) => <option key={c}>{c}</option>)}
         </select>
 
         <div className="scenario-list">
@@ -116,10 +122,7 @@ function App() {
             <button
               key={scenario._id}
               className={selected?._id === scenario._id ? 'scenario active' : 'scenario'}
-              onClick={() => {
-                setSelected(scenario);
-                setActiveResult(null);
-              }}
+              onClick={() => { setSelected(scenario); setActiveResult(null); }}
             >
               <span>{scenario.difficulty}</span>
               <strong>{scenario.title}</strong>
@@ -137,17 +140,14 @@ function App() {
           </div>
           <div className="hero-stats">
             <span>{analytics?.scenarioCount || 0}<small>Scenarios</small></span>
-            <span>{analytics?.sessionCount || 0}<small>Sessions</small></span>
+            <span>{analytics?.sessionCount  || 0}<small>Sessions</small></span>
             <span>{analytics?.averagePromptScore || 0}<small>Prompt score</small></span>
           </div>
         </header>
 
         <div className="main-grid">
           <section className="panel learning-panel">
-            <div className="section-title">
-              <Compass size={20} />
-              <h2>{selected?.title}</h2>
-            </div>
+            <div className="section-title"><Compass size={20} /><h2>{selected?.title}</h2></div>
             <p className="context">{selected?.context}</p>
             <div className="objective-row">
               {selected?.objectives.map((item) => <span key={item}>{item}</span>)}
@@ -155,28 +155,15 @@ function App() {
             <form onSubmit={submitSession} className="learning-form">
               <label>
                 Your reasoning
-                <textarea
-                  required
-                  value={form.reasoning}
-                  onChange={(event) => setForm({ ...form, reasoning: event.target.value })}
-                  placeholder={selected?.prompt}
-                />
+                <textarea required value={form.reasoning} onChange={(e) => setForm({ ...form, reasoning: e.target.value })} placeholder={selected?.prompt} />
               </label>
               <label>
                 Prompt you would give an AI mentor
-                <textarea
-                  value={form.promptText}
-                  onChange={(event) => setForm({ ...form, promptText: event.target.value })}
-                  placeholder="Explain my approach step by step, then show the Python concept and code..."
-                />
+                <textarea value={form.promptText} onChange={(e) => setForm({ ...form, promptText: e.target.value })} placeholder="Explain my approach step by step, then show the Python concept and code..." />
               </label>
               <label>
                 Reflection
-                <textarea
-                  value={form.reflection}
-                  onChange={(event) => setForm({ ...form, reflection: event.target.value })}
-                  placeholder="What did you notice about your thinking?"
-                />
+                <textarea value={form.reflection} onChange={(e) => setForm({ ...form, reflection: e.target.value })} placeholder="What did you notice about your thinking?" />
               </label>
               <button className="primary" disabled={submitting}>
                 <Send size={18} />{submitting ? 'Mapping...' : 'Map My Reasoning'}
@@ -185,10 +172,7 @@ function App() {
           </section>
 
           <section className="panel result-panel">
-            <div className="section-title">
-              <Sparkles size={20} />
-              <h2>AI Mentor Output</h2>
-            </div>
+            <div className="section-title"><Sparkles size={20} /><h2>AI Mentor Output</h2></div>
             {!activeResult ? <EmptyResult /> : <Result result={activeResult} />}
           </section>
         </div>
@@ -256,13 +240,15 @@ function Analytics({ analytics }) {
   const concepts = Object.entries(analytics?.conceptCounts || {});
   return (
     <div className="analytics-list">
-      {concepts.length ? concepts.map(([name, count]) => (
-        <div key={name}>
-          <span>{name}</span>
-          <meter min="0" max="10" value={count}></meter>
-          <strong>{count}</strong>
-        </div>
-      )) : <p>No learning sessions yet.</p>}
+      {concepts.length
+        ? concepts.map(([name, count]) => (
+            <div key={name}>
+              <span>{name}</span>
+              <meter min="0" max="10" value={count}></meter>
+              <strong>{count}</strong>
+            </div>
+          ))
+        : <p>No learning sessions yet.</p>}
     </div>
   );
 }
@@ -287,17 +273,51 @@ function Roadmap({ roadmap }) {
 function SessionList({ sessions }) {
   return (
     <div className="sessions">
-      {sessions.length ? sessions.slice(0, 6).map((session) => (
-        <article key={session._id}>
-          <Play size={16} />
-          <div>
-            <strong>{session.scenario?.title}</strong>
-            <span>{session.masterySignals.join(' / ')}</span>
-          </div>
-        </article>
-      )) : <p>No sessions yet.</p>}
+      {sessions.length
+        ? sessions.slice(0, 6).map((session) => (
+            <article key={session._id}>
+              <Play size={16} />
+              <div>
+                <strong>{session.scenario?.title}</strong>
+                <span>{session.masterySignals.join(' / ')}</span>
+              </div>
+            </article>
+          ))
+        : <p>No sessions yet.</p>}
     </div>
   );
 }
 
-createRoot(document.getElementById('root')).render(<App />);
+// ─────────────────────────────────────────────────────────────────────────────
+//  ROOT — nav tab strip toggling between the two pages
+// ─────────────────────────────────────────────────────────────────────────────
+function Root() {
+  const [activePage, setActivePage] = useState('app'); // 'app' | 'learning'
+
+  const tabStyle = (page) => ({
+    background: 'none', border: 'none', padding: '0.8rem 1.5rem',
+    color: activePage === page ? '#d8f07c' : '#b9c7bf',
+    fontWeight: activePage === page ? 700 : 400,
+    fontSize: '0.9rem', cursor: 'pointer', fontFamily: 'inherit',
+    borderBottom: activePage === page ? '2px solid #d8f07c' : '2px solid transparent',
+    display: 'flex', alignItems: 'center', gap: '0.5rem',
+    transition: 'color .2s ease',
+  });
+
+  return (
+    <>
+      <nav style={{ display: 'flex', gap: 0, background: '#16231f', borderBottom: '1px solid #253d37', position: 'sticky', top: 0, zIndex: 100 }}>
+        <button style={tabStyle('app')} onClick={() => setActivePage('app')}>
+          <Brain size={16} /> Scenario Explorer
+        </button>
+        <button style={tabStyle('learning')} onClick={() => setActivePage('learning')}>
+          <GraduationCap size={16} /> Case Study Learning
+        </button>
+      </nav>
+
+      {activePage === 'app' ? <OriginalApp /> : <LearningPage />}
+    </>
+  );
+}
+
+createRoot(document.getElementById('root')).render(<Root />);
