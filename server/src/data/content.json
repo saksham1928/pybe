@@ -13,7 +13,7 @@
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Tell the computer to repeat one action a fixed number of times — like saying 'do this 100 times.'",
+                  "text": "Tell the computer to repeat one action a fixed number of times like saying 'do this 100 times.'",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -48,10 +48,10 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "Think about what you actually need — do you need to *save* the message somewhere for later, or just show it, right now, 100 times?",
+                  "prompt": "Think about what you actually need do you need to *save* the message somewhere for later, or just show it, right now, 100 times?",
                   "attempt2": [
                     {
-                      "text": "Just repeat the display action itself 100 times — no need to store anything.",
+                      "text": "Just repeat the display action itself 100 times no need to store anything.",
                       "status": "correct"
                     },
                     {
@@ -61,10 +61,10 @@
                   ]
                 },
                 "reflection_3": {
-                  "prompt": "That works — but you have to remember to increase your counter yourself, every single time. Since you already know it's exactly 100 up front, is there an approach that handles the counting *for* you?",
+                  "prompt": "That works but you have to remember to increase your counter yourself, every single time. Since you already know it's exactly 100 up front, is there an approach that handles the counting *for* you?",
                   "attempt2": [
                     {
-                      "text": "Yes — something built for 'repeat a known number of times' that manages the counting automatically.",
+                      "text": "Yes something built for 'repeat a known number of times' that manages the counting automatically.",
                       "status": "correct"
                     },
                     {
@@ -76,7 +76,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "The idea you landed on — 'repeat a fixed number of times' — is written in Python as a **`for` loop** with **`range()`**. Breaking it down piece by piece:\n- `for` starts a repeating block.\n- `i` is just a name Python gives to each round — you could call it anything.\n- `in` means 'take each value, one at a time, from…'\n- `range(100)` produces the numbers 0 through 99 — that's 100 rounds total.\n- The colon `:` and the indented line below it mark what happens *inside* the repeat."
+              "conceptReveal": "The idea you landed on 'repeat a fixed number of times' is written in Python as a **`for` loop** with **`range()`**. Breaking it down piece by piece:\n- `for` starts a repeating block.\n- `i` is just a name Python gives to each round you could call it anything.\n- `in` means 'take each value, one at a time, from…'\n- `range(100)` produces the numbers 0 through 99 that's 100 rounds total.\n- The colon `:` and the indented line below it mark what happens *inside* the repeat."
             },
             "stage3": {
               "codeTemplate": "_____:\n    print(\"Happy Birthday!\")",
@@ -88,12 +88,12 @@
                 {
                   "value": "for i on range(100)",
                   "correct": false,
-                  "hint": "Almost — Python uses `in`, not `on`, and round brackets `()`, not square ones."
+                  "hint": "Almost Python uses `in`, not `on`, and round brackets `()`, not square ones."
                 },
                 {
                   "value": "for i in range[100]",
                   "correct": false,
-                  "hint": "Almost — Python uses `in`, not `on`, and round brackets `()`, not square ones."
+                  "hint": "Almost Python uses `in`, not `on`, and round brackets `()`, not square ones."
                 }
               ]
             }
@@ -127,7 +127,7 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "Picture the output — does a countdown go 1, 2, 3… or 10, 9, 8…? What does 'countdown' actually mean?",
+                  "prompt": "Picture the output does a countdown go 1, 2, 3… or 10, 9, 8…? What does 'countdown' actually mean?",
                   "attempt2": [
                     {
                       "text": "Countdown means the numbers *decrease* each round, starting high and ending low.",
@@ -143,7 +143,7 @@
                   "prompt": "You already know an approach that repeats a fixed number of times *and* can use the changing number itself. Would you need that actual counting number to show 10, 9, 8… correctly?",
                   "attempt2": [
                     {
-                      "text": "Yes — I need the real repeating number itself, not just the action, since the number is what's being displayed.",
+                      "text": "Yes I need the real repeating number itself, not just the action, since the number is what's being displayed.",
                       "status": "correct"
                     },
                     {
@@ -155,7 +155,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "`range()` can take three numbers: where to start, where to stop, and how big a step to take each round. A *negative* step means counting down. And unlike Level 1, this time the loop's own counting number is exactly what you want to print — so `i` is now real data, not just plumbing."
+              "conceptReveal": "`range()` can take three numbers: where to start, where to stop, and how big a step to take each round. A *negative* step means counting down. And unlike Level 1, this time the loop's own counting number is exactly what you want to print so `i` is now real data, not just plumbing."
             },
             "stage3": {
               "codeTemplate": "for i in range(___, ___, ___):\n    print(i)\nprint(\"Liftoff!\")",
@@ -208,10 +208,10 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "That works for exactly 4 names — but what if the guest list grows to 200 people next year? You'd need to keep the count perfectly in sync with the list. Is there a way to just say 'for every name in this list,' directly, without counting first?",
+                  "prompt": "That works for exactly 4 names but what if the guest list grows to 200 people next year? You'd need to keep the count perfectly in sync with the list. Is there a way to just say 'for every name in this list,' directly, without counting first?",
                   "attempt2": [
                     {
-                      "text": "Yes — go through the list itself, item by item, with no separate counting step needed.",
+                      "text": "Yes go through the list itself, item by item, with no separate counting step needed.",
                       "status": "correct"
                     },
                     {
@@ -221,7 +221,7 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "Imagine the guest list had 200 names — would you still write a separate line for each one? What repeats an action automatically for every item in a collection?",
+                  "prompt": "Imagine the guest list had 200 names would you still write a separate line for each one? What repeats an action automatically for every item in a collection?",
                   "attempt2": [
                     {
                       "text": "Something that walks through the list automatically, one item at a time.",
@@ -236,7 +236,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is written as `for name in guest_list:` — `in` here means 'take each item, one at a time, directly from this list.' No counting, no index numbers — the loop variable `name` simply *becomes* each guest in turn."
+              "conceptReveal": "This is written as `for name in guest_list:` `in` here means 'take each item, one at a time, directly from this list.' No counting, no index numbers the loop variable `name` simply *becomes* each guest in turn."
             },
             "stage3": {
               "codeTemplate": "guest_list = [\"Aditi\", \"Ravi\", \"Meera\", \"Kabir\"]\n_____________:\n    print(\"Hello,\", name)",
@@ -264,7 +264,7 @@
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Keep repeating until a condition becomes true — I don't know in advance how many coins it'll take.",
+                  "text": "Keep repeating until a condition becomes true I don't know in advance how many coins it'll take.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -284,7 +284,7 @@
                   "prompt": "What happens if someone inserts a ₹10 coin? Would repeating exactly 20 times still make sense if coins aren't always ₹1?",
                   "attempt2": [
                     {
-                      "text": "No — I don't actually know the *number of coins* in advance, only the *total amount* I'm waiting for.",
+                      "text": "No I don't actually know the *number of coins* in advance, only the *total amount* I'm waiting for.",
                       "status": "correct"
                     },
                     {
@@ -294,10 +294,10 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "That relies on the user knowing and honestly reporting how many coins they'll use — which defeats the point of the machine tracking it itself. Is there a way to repeat 'until a condition is met' without asking the user to predict anything?",
+                  "prompt": "That relies on the user knowing and honestly reporting how many coins they'll use which defeats the point of the machine tracking it itself. Is there a way to repeat 'until a condition is met' without asking the user to predict anything?",
                   "attempt2": [
                     {
-                      "text": "Yes — keep repeating automatically, checking the running total against the target every single round.",
+                      "text": "Yes keep repeating automatically, checking the running total against the target every single round.",
                       "status": "correct"
                     },
                     {
@@ -309,10 +309,10 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a `while` loop: `while total < 20:`. Unlike `for`, `while` doesn't know or care how many rounds it'll take — it just re-checks the same yes/no question before every round, and stops the instant the answer becomes false."
+              "conceptReveal": "This is a `while` loop: `while total < 20:`. Unlike `for`, `while` doesn't know or care how many rounds it'll take it just re-checks the same yes/no question before every round, and stops the instant the answer becomes false."
             },
             "stage3": {
-              "codeTemplate": "total = 0\n_____________:\n    coin = get_coin_inserted()\n    total = total + coin\nprint(\"Thank you!\")",
+              "codeTemplate": "coins = [5, 10, 5, 2, 5, 1, 2]  # coins being inserted one by one\nidx = 0\ntotal = 0\n_____________:\n    coin = coins[idx]; idx += 1\n    total = total + coin\nprint(\"Thank you!\")",
               "tokens": [
                 {
                   "value": "while total < 20",
@@ -321,7 +321,7 @@
                 {
                   "value": "while total > 20",
                   "correct": false,
-                  "hint": "Think about the direction — this would never run."
+                  "hint": "Think about the direction this would never run."
                 },
                 {
                   "value": "until total < 20",
@@ -339,11 +339,11 @@
         "caseStudies": [
           {
             "id": "l3_c1",
-            "scenario": "Ask for a PIN. If correct, proceed. If wrong, ask again — but lock after 3 total wrong tries.",
+            "scenario": "Ask for a PIN. If correct, proceed. If wrong, ask again but lock after 3 total wrong tries.",
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Keep asking, repeating until *either* the correct PIN is entered *or* 3 total attempts are used — whichever happens first.",
+                  "text": "Keep asking, repeating until *either* the correct PIN is entered *or* 3 total attempts are used whichever happens first.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -363,7 +363,7 @@
                   "prompt": "If someone gets it right on their first try, should the machine really ask two more times anyway? What are the *two separate things* that could end this loop?",
                   "attempt2": [
                     {
-                      "text": "There are two stopping conditions — a correct PIN, or reaching 3 tries — and the loop should stop the instant either one happens.",
+                      "text": "There are two stopping conditions a correct PIN, or reaching 3 tries and the loop should stop the instant either one happens.",
                       "status": "correct"
                     },
                     {
@@ -373,10 +373,10 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "What happens if someone keeps guessing wrong forever — does your approach ever stop? A real ATM needs a *second* condition alongside 'is the PIN correct.' What would that be?",
+                  "prompt": "What happens if someone keeps guessing wrong forever does your approach ever stop? A real ATM needs a *second* condition alongside 'is the PIN correct.' What would that be?",
                   "attempt2": [
                     {
-                      "text": "I need to track how many attempts have happened, and stop once that hits 3 — even if the PIN is still wrong.",
+                      "text": "I need to track how many attempts have happened, and stop once that hits 3 even if the PIN is still wrong.",
                       "status": "correct"
                     },
                     {
@@ -388,10 +388,10 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This combines two things you already know: a `while` loop tracking attempts, and a brand-new keyword, **`break`** — which means 'leave the loop immediately, right now, even though its main condition would normally keep it going.' You reach for `break` exactly when a *second* condition (success) needs to end things early."
+              "conceptReveal": "This combines two things you already know: a `while` loop tracking attempts, and a brand-new keyword, **`break`** which means 'leave the loop immediately, right now, even though its main condition would normally keep it going.' You reach for `break` exactly when a *second* condition (success) needs to end things early."
             },
             "stage3": {
-              "codeTemplate": "tries = 0\n_____________:\n    pin = ask_for_pin()\n    tries = tries + 1\n    if pin == correct_pin:\n        print(\"Access granted\")\n        _____",
+              "codeTemplate": "correct_pin = \"1234\"\nguesses = [\"0000\", \"9999\", \"1234\"]  # simulated PIN attempts\nidx = 0\ntries = 0\n_____________:\n    pin = guesses[idx]; idx += 1\n    tries = tries + 1\n    if pin == correct_pin:\n        print(\"Access granted\")\n        _____",
               "tokens": [
                 {
                   "value": "while tries < 3",
@@ -409,7 +409,7 @@
                 {
                   "value": "continue",
                   "correct": false,
-                  "hint": "That would ask again even after getting it right — you want to *leave*, not repeat."
+                  "hint": "That would ask again even after getting it right you want to *leave*, not repeat."
                 }
               ]
             }
@@ -426,7 +426,7 @@
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Repeat over each table, and *inside that*, repeat over each seat at that table — a repeat inside a repeat.",
+                  "text": "Repeat over each table, and *inside that*, repeat over each seat at that table a repeat inside a repeat.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -443,10 +443,10 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "That works because every table happens to have exactly 4 seats. What if table 3 had 6 seats and table 4 had only 2 — would your math for figuring out which table a seat belongs to still hold up?",
+                  "prompt": "That works because every table happens to have exactly 4 seats. What if table 3 had 6 seats and table 4 had only 2 would your math for figuring out which table a seat belongs to still hold up?",
                   "attempt2": [
                     {
-                      "text": "I need a separate repeat per table, and inside each one, its own repeat for that table's seats — so table sizes can differ freely.",
+                      "text": "I need a separate repeat per table, and inside each one, its own repeat for that table's seats so table sizes can differ freely.",
                       "status": "correct"
                     },
                     {
@@ -456,7 +456,7 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "This worked at 5 tables. What about 50 tables at a big wedding hall — at what point does writing each one out by hand stop being realistic?",
+                  "prompt": "This worked at 5 tables. What about 50 tables at a big wedding hall at what point does writing each one out by hand stop being realistic?",
                   "attempt2": [
                     {
                       "text": "A repeat inside a repeat handles any number of tables and any number of seats automatically.",
@@ -471,7 +471,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **nested loop** — literally one `for` loop written inside another. The outer loop moves through tables one at a time; for *each* table, the entire inner loop runs completely before moving to the next table. It's not a new mechanic — it's two loops you already know, one running inside the other."
+              "conceptReveal": "This is a **nested loop** literally one `for` loop written inside another. The outer loop moves through tables one at a time; for *each* table, the entire inner loop runs completely before moving to the next table. It's not a new mechanic it's two loops you already know, one running inside the other."
             },
             "stage3": {
               "codeTemplate": "tables = 5\nseats_per_table = 4\n_____________:\n    ___________:\n        print(\"Table\", t, \"Seat\", s)",
@@ -487,7 +487,7 @@
                 {
                   "value": "for all_seats in range(20)",
                   "correct": false,
-                  "hint": "This flattens two separate repeats into one — it'll break the moment table sizes differ."
+                  "hint": "This flattens two separate repeats into one it'll break the moment table sizes differ."
                 }
               ]
             }
@@ -500,7 +500,7 @@
         "caseStudies": [
           {
             "id": "l5_c1",
-            "scenario": "Design a new case study — for `break` vs `continue` — for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), and the syntax token set for the guided build afterward.",
+            "scenario": "Design a new case study for `break` vs `continue` for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), and the syntax token set for the guided build afterward.",
             "stage1": {
               "attempt1": [
                 {
@@ -512,7 +512,7 @@
               "reflections": {}
             },
             "stage2": {
-              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself — logic test, concept reveal, and guided build. You're not just solving the scaffold, you're designing it."
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build. You're not just solving the scaffold, you're designing it."
             },
             "stage3": {
               "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
@@ -542,7 +542,7 @@
                   "routesTo": "reveal"
                 },
                 {
-                  "text": "Make two completely separate apps — one for adults, one for kids — and let the customer pick which one to use.",
+                  "text": "Make two completely separate apps one for adults, one for kids and let the customer pick which one to use.",
                   "status": "incorrect",
                   "routesTo": "reflection_1"
                 },
@@ -559,23 +559,23 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "In both of those approaches, the *program itself* never actually makes a decision — it either avoids the problem or blindly trusts the user. But a real ticket system needs to *look at a piece of data* (the age) and *choose a different action* based on what it finds. What would that kind of 'look, then choose' step be called?",
+                  "prompt": "In both of those approaches, the *program itself* never actually makes a decision it either avoids the problem or blindly trusts the user. But a real ticket system needs to *look at a piece of data* (the age) and *choose a different action* based on what it finds. What would that kind of 'look, then choose' step be called?",
                   "attempt2": [
                     {
-                      "text": "A conditional check — the program inspects the data and takes a different path depending on what it sees.",
+                      "text": "A conditional check the program inspects the data and takes a different path depending on what it sees.",
                       "status": "correct"
                     },
                     {
-                      "text": "A loop — the program keeps asking until it gets the right answer.",
+                      "text": "A loop the program keeps asking until it gets the right answer.",
                       "status": "incorrect"
                     }
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "Filtering a list works when you have a huge crowd of people — but right now there's just *one* customer standing at the counter. You don't need to process a group; you need a single yes-or-no gate. What's the simplest way to say 'under this one condition, do A; otherwise, do B'?",
+                  "prompt": "Filtering a list works when you have a huge crowd of people but right now there's just *one* customer standing at the counter. You don't need to process a group; you need a single yes-or-no gate. What's the simplest way to say 'under this one condition, do A; otherwise, do B'?",
                   "attempt2": [
                     {
-                      "text": "A single yes/no check — one person, one condition, two possible paths.",
+                      "text": "A single yes/no check one person, one condition, two possible paths.",
                       "status": "correct"
                     },
                     {
@@ -587,7 +587,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "The logic you chose — checking a condition and taking one of two paths — is written using **`if`** and **`else`**.\n\n`if age >= 18:`\n`    print(\"Enjoy the movie!\")`\n`else:`\n`    print(\"Sorry, you must be 18+.\")`\n\nLet's break down the symbols:\n- **`if`**: Tells Python a decision is coming.\n- **`>=`**: Means 'greater than or equal to'.\n- **`:` (colon)**: Extremely important! It means 'if the check is true, do the indented block that comes next.'\n- **`else:`**: Catches everything that *didn't* pass the `if` check. It also ends with a colon."
+              "conceptReveal": "The logic you chose checking a condition and taking one of two paths is written using **`if`** and **`else`**.\n\n`if age >= 18:`\n`    print(\"Enjoy the movie!\")`\n`else:`\n`    print(\"Sorry, you must be 18+.\")`\n\nLet's break down the symbols:\n- **`if`**: Tells Python a decision is coming.\n- **`>=`**: Means 'greater than or equal to'.\n- **`:` (colon)**: Extremely important! It means 'if the check is true, do the indented block that comes next.'\n- **`else:`**: Catches everything that *didn't* pass the `if` check. It also ends with a colon."
             },
             "stage3": {
               "codeTemplate": "age = 14  # change this to test different ages\n___________:\n    print(\"Enjoy the movie!\")\n_____:\n    print(\"Sorry, you must be 18+.\")",
@@ -608,7 +608,7 @@
                 {
                   "value": "elif",
                   "correct": false,
-                  "hint": "You only have two paths here — old enough or not. That other keyword is for when there are *more than two* possibilities."
+                  "hint": "You only have two paths here old enough or not. That other keyword is for when there are *more than two* possibilities."
                 }
               ],
               "correctOrder": [
@@ -634,7 +634,7 @@
                   "routesTo": "reveal"
                 },
                 {
-                  "text": "Drive through no matter what — the car is smart enough to dodge other cars.",
+                  "text": "Drive through no matter what the car is smart enough to dodge other cars.",
                   "status": "incorrect",
                   "routesTo": "reflection_1"
                 },
@@ -646,23 +646,23 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "What happens when the light is red and another car is crossing? Your car needs to *inspect the signal* and *choose* — drive or stop. What kind of logic makes that kind of either/or choice?",
+                  "prompt": "What happens when the light is red and another car is crossing? Your car needs to *inspect the signal* and *choose* drive or stop. What kind of logic makes that kind of either/or choice?",
                   "attempt2": [
                     {
-                      "text": "A conditional choice — check the light once, then take one of two paths.",
+                      "text": "A conditional choice check the light once, then take one of two paths.",
                       "status": "correct"
                     },
                     {
-                      "text": "A repeating cycle — keep driving until the light turns green.",
+                      "text": "A repeating cycle keep driving until the light turns green.",
                       "status": "incorrect"
                     }
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "Your approach uses two separate checks — but can a single light bulb be *both* green and red at the exact same time? Since these two outcomes can never happen together, is there a cleaner way to say 'if this is true, do A; if not, do B' as a single decision?",
+                  "prompt": "Your approach uses two separate checks but can a single light bulb be *both* green and red at the exact same time? Since these two outcomes can never happen together, is there a cleaner way to say 'if this is true, do A; if not, do B' as a single decision?",
                   "attempt2": [
                     {
-                      "text": "Yes — treat it as a single decision with two branches, so if the first is true, it doesn't even bother checking the second.",
+                      "text": "Yes treat it as a single decision with two branches, so if the first is true, it doesn't even bother checking the second.",
                       "status": "correct"
                     },
                     {
@@ -715,12 +715,12 @@
                   "routesTo": "reveal"
                 },
                 {
-                  "text": "Create five separate, independent checks — one for each possible grade.",
+                  "text": "Create five separate, independent checks one for each possible grade.",
                   "status": "incorrect",
                   "routesTo": "reflection_1"
                 },
                 {
-                  "text": "Use a single binary check — either they pass or they fail.",
+                  "text": "Use a single binary check either they pass or they fail.",
                   "status": "incorrect",
                   "routesTo": "reflection_2"
                 }
@@ -730,7 +730,7 @@
                   "prompt": "If you have five separate checks, what happens if someone scores 95? Your code sees they are above 90 (gets an A), then it checks if they are above 80 (also true, gets a B!), then above 70 (gets a C!). They get labeled A, B, *and* C! What structure ensures that once the FIRST match is found, the remaining checks are ignored?",
                   "attempt2": [
                     {
-                      "text": "A connected chain of conditions — once the first matching condition triggers, all the remaining checks are skipped automatically.",
+                      "text": "A connected chain of conditions once the first matching condition triggers, all the remaining checks are skipped automatically.",
                       "status": "correct"
                     },
                     {
@@ -740,7 +740,7 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "Pass or fail is a yes/no question — but grades have *five* different buckets (A through F), not two. A simple binary check only gives you two paths. How do you create a decision with *more* than two branches?",
+                  "prompt": "Pass or fail is a yes/no question but grades have *five* different buckets (A through F), not two. A simple binary check only gives you two paths. How do you create a decision with *more* than two branches?",
                   "attempt2": [
                     {
                       "text": "Start with a primary check, add intermediate checks for the middle grades, and end with a final catch-all alternative.",
@@ -755,7 +755,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "To create a decision with more than two branches, Python uses **`elif`** (short for 'else if').\n\n`if score >= 90:`\n`    grade = \"A\"`\n`elif score >= 80:`\n`    grade = \"B\"`\n\nLet's break it down:\n- **`elif`**: It adds a new branch *without* starting a completely new decision.\n- Python checks them in order top-to-bottom. Crucially, the instant it finds one that is True, it runs that block and **skips the rest of the chain completely**.\n- Because it skips the rest, the check for `score >= 80` doesn't need to say 'and less than 90' — if the score was 90, the first branch would have already caught it!"
+              "conceptReveal": "To create a decision with more than two branches, Python uses **`elif`** (short for 'else if').\n\n`if score >= 90:`\n`    grade = \"A\"`\n`elif score >= 80:`\n`    grade = \"B\"`\n\nLet's break it down:\n- **`elif`**: It adds a new branch *without* starting a completely new decision.\n- Python checks them in order top-to-bottom. Crucially, the instant it finds one that is True, it runs that block and **skips the rest of the chain completely**.\n- Because it skips the rest, the check for `score >= 80` doesn't need to say 'and less than 90' if the score was 90, the first branch would have already caught it!"
             },
             "stage3": {
               "codeTemplate": "score = 73  # try different values\n___________:\n    grade = \"A\"\n___________:\n    grade = \"B\"\n___________:\n    grade = \"C\"\n___________:\n    grade = \"D\"\n_____:\n    grade = \"F\"\nprint(\"Your grade:\", grade)",
@@ -788,7 +788,7 @@
                 {
                   "value": "elif score > 70",
                   "correct": false,
-                  "hint": "Close — but a score of exactly 70 should be a C. Use the symbol that includes equality."
+                  "hint": "Close but a score of exactly 70 should be a C. Use the symbol that includes equality."
                 }
               ],
               "correctOrder": [
@@ -802,7 +802,7 @@
           },
           {
             "id": "c2_c3",
-            "scenario": "A smart thermostat reads the room temperature. If it's below 18°C, turn the heater ON. If it's above 26°C, turn the AC ON. If it's between 18 and 26, do nothing — the room is comfortable.",
+            "scenario": "A smart thermostat reads the room temperature. If it's below 18°C, turn the heater ON. If it's above 26°C, turn the AC ON. If it's between 18 and 26, do nothing the room is comfortable.",
             "stage1": {
               "attempt1": [
                 {
@@ -823,10 +823,10 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "Your two separate checks happen to work here because 'cold' and 'hot' can never be true at the same time. But imagine adding a third rule later — 'if it's above 22, turn on a fan.' Now some temperatures could trigger *two* rules. What structure guarantees that only ONE rule is ever applied?",
+                  "prompt": "Your two separate checks happen to work here because 'cold' and 'hot' can never be true at the same time. But imagine adding a third rule later 'if it's above 22, turn on a fan.' Now some temperatures could trigger *two* rules. What structure guarantees that only ONE rule is ever applied?",
                   "attempt2": [
                     {
-                      "text": "A connected chain of branches — once the first match is found, no other rule is even checked.",
+                      "text": "A connected chain of branches once the first match is found, no other rule is even checked.",
                       "status": "correct"
                     },
                     {
@@ -836,7 +836,7 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "What about a room that's 15°C — it's not exactly 18, but it's definitely cold! And a room at 30°C isn't exactly 26, but it's hot. Instead of checking for exact numbers, what kind of comparison would cover *all* the temperatures in a zone?",
+                  "prompt": "What about a room that's 15°C it's not exactly 18, but it's definitely cold! And a room at 30°C isn't exactly 26, but it's hot. Instead of checking for exact numbers, what kind of comparison would cover *all* the temperatures in a zone?",
                   "attempt2": [
                     {
                       "text": "Use 'less than' and 'greater than' concepts to check entire ranges instead of exact matches.",
@@ -871,7 +871,7 @@
                 {
                   "value": "if temp == 18",
                   "correct": false,
-                  "hint": "This only catches *exactly* 18°C — what about 15°C? Use the operator for 'less than'."
+                  "hint": "This only catches *exactly* 18°C what about 15°C? Use the operator for 'less than'."
                 },
                 {
                   "value": "elif temp = 26",
@@ -894,16 +894,16 @@
         "caseStudies": [
           {
             "id": "c3_c1",
-            "scenario": "An online store has these discount rules: Members get 10% off. If a member's cart is over ₹1000, they get 20% off instead. Non-members get no discount — unless their cart is over ₹2000, in which case they get 5% off.",
+            "scenario": "An online store has these discount rules: Members get 10% off. If a member's cart is over ₹1000, they get 20% off instead. Non-members get no discount unless their cart is over ₹2000, in which case they get 5% off.",
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Check membership first. Then *inside* that path, check the cart total — a decision inside a decision. Do the same for the non-member path.",
+                  "text": "Check membership first. Then *inside* that path, check the cart total a decision inside a decision. Do the same for the non-member path.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
                 {
-                  "text": "Create four independent, separate checks — one for each possible discount.",
+                  "text": "Create four independent, separate checks one for each possible discount.",
                   "status": "incorrect",
                   "routesTo": "reflection_1"
                 },
@@ -915,10 +915,10 @@
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "What happens when a member has a ₹1500 cart? Your first check gives them 10% (they're a member). Your second check *also* gives them 20% (cart is over ₹1000). They've gotten two discounts stacked! The rules aren't independent — membership matters *first*, and the cart amount only matters *within* that context. How do you structure decisions that depend on each other?",
+                  "prompt": "What happens when a member has a ₹1500 cart? Your first check gives them 10% (they're a member). Your second check *also* gives them 20% (cart is over ₹1000). They've gotten two discounts stacked! The rules aren't independent membership matters *first*, and the cart amount only matters *within* that context. How do you structure decisions that depend on each other?",
                   "attempt2": [
                     {
-                      "text": "Put one decision inside another — first decide if they're a member, and only *then* decide based on the cart total.",
+                      "text": "Put one decision inside another first decide if they're a member, and only *then* decide based on the cart total.",
                       "status": "correct"
                     },
                     {
@@ -928,10 +928,10 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "A flat chain works — but notice how membership and cart total aren't independent. A member with ₹500 gets 10%, a member with ₹1500 gets 20%, and a non-member with ₹500 gets 0%. The cart check *depends on* the membership result. Is there a way to show this dependency explicitly by putting one decision *inside* another?",
+                  "prompt": "A flat chain works but notice how membership and cart total aren't independent. A member with ₹500 gets 10%, a member with ₹1500 gets 20%, and a non-member with ₹500 gets 0%. The cart check *depends on* the membership result. Is there a way to show this dependency explicitly by putting one decision *inside* another?",
                   "attempt2": [
                     {
-                      "text": "Yes — put the cart-total check physically inside the membership check, so it only runs in the right context.",
+                      "text": "Yes put the cart-total check physically inside the membership check, so it only runs in the right context.",
                       "status": "correct"
                     },
                     {
@@ -943,7 +943,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "When one decision *depends on the outcome* of a previous decision, you **nest** them — literally putting one `if` block inside another.\n\n`if is_member:`\n`    if cart_total > 1000:`\n`        discount = 20`\n\n- **Indentation matters!** By indenting the second `if` further to the right, you tell Python that it belongs *inside* the first `if`.\n- The inner decision only even gets asked if the outer decision was True. This is how you model layered, context-dependent logic."
+              "conceptReveal": "When one decision *depends on the outcome* of a previous decision, you **nest** them literally putting one `if` block inside another.\n\n`if is_member:`\n`    if cart_total > 1000:`\n`        discount = 20`\n\n- **Indentation matters!** By indenting the second `if` further to the right, you tell Python that it belongs *inside* the first `if`.\n- The inner decision only even gets asked if the outer decision was True. This is how you model layered, context-dependent logic."
             },
             "stage3": {
               "codeTemplate": "is_member = True   # try False too\ncart = 1500        # try 500, 2500\n___________:\n    ___________:\n        discount = 0.20\n    _____:\n        discount = 0.10\n_____:\n    ___________:\n        discount = 0.05\n    _____:\n        discount = 0\nprint(\"Discount:\", discount * 100, \"%\")",
@@ -972,7 +972,7 @@
                 {
                   "value": "if cart > 100",
                   "correct": false,
-                  "hint": "Look at the numbers in the scenario — members get the higher discount at ₹1000, not ₹100."
+                  "hint": "Look at the numbers in the scenario members get the higher discount at ₹1000, not ₹100."
                 }
               ],
               "correctOrder": [
@@ -993,11 +993,11 @@
         "caseStudies": [
           {
             "id": "c4_c1",
-            "scenario": "A signup form requires passwords to be at least 8 characters long AND contain at least one digit. The user entered 'hello' — should the system accept or reject it, and can it tell the user *what's wrong*?",
+            "scenario": "A signup form requires passwords to be at least 8 characters long AND contain at least one digit. The user entered 'hello' should the system accept or reject it, and can it tell the user *what's wrong*?",
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Check both requirements together in a single rule — length AND digit — and provide specific feedback based on which ones passed or failed.",
+                  "text": "Check both requirements together in a single rule length AND digit and provide specific feedback based on which ones passed or failed.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -1007,14 +1007,14 @@
                   "routesTo": "reflection_1"
                 },
                 {
-                  "text": "Just check the length — if it's 8+ characters, it's secure enough.",
+                  "text": "Just check the length if it's 8+ characters, it's secure enough.",
                   "status": "incorrect",
                   "routesTo": "reflection_2"
                 }
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "Your two separate checks work — but what if you wanted to say 'accept *only if* BOTH rules pass' in a single clean line? Programming languages have specific words for combining multiple requirements into one question. What word would link two mandatory rules?",
+                  "prompt": "Your two separate checks work but what if you wanted to say 'accept *only if* BOTH rules pass' in a single clean line? Programming languages have specific words for combining multiple requirements into one question. What word would link two mandatory rules?",
                   "attempt2": [
                     {
                       "text": "Use the word 'and' to link the two rules, meaning both must be true.",
@@ -1027,7 +1027,7 @@
                   ]
                 },
                 "reflection_2": {
-                  "prompt": "What about the password 'abcdefgh' — it's 8 characters, but has no numbers. Would your system accept it even though the rules say a digit is required? What's the *second* rule you're missing, and how would you enforce *both* at the exact same time?",
+                  "prompt": "What about the password 'abcdefgh' it's 8 characters, but has no numbers. Would your system accept it even though the rules say a digit is required? What's the *second* rule you're missing, and how would you enforce *both* at the exact same time?",
                   "attempt2": [
                     {
                       "text": "I need to check both rules simultaneously, linking them with 'and' so the password must pass both.",
@@ -1045,7 +1045,7 @@
               "conceptReveal": "To ask complex questions, Python uses **Boolean Operators** to combine conditions:\n\n`if length >= 8 and has_digit:`\n\n- **`and`**: BOTH sides must be true for the whole thing to be true.\n- **`or`**: AT LEAST ONE side must be true.\n- **`not`**: Reverses the truth (True becomes False, False becomes True).\n\nThese let you combine simple rules into sophisticated logic, all within a single `if` statement."
             },
             "stage3": {
-              "codeTemplate": "pw = \"hello\"  # try \"hello123\", \"hi1\", \"abcdefgh\"\nhas_digit = any(ch.isdigit() for ch in pw)\n___________:\n    print(\"Password accepted!\")\n___________:\n    print(\"Too short — need 8+ characters\")\n___________:\n    print(\"Need at least one digit\")\n_____:\n    print(\"Too short AND no digit\")",
+              "codeTemplate": "pw = \"hello\"  # try \"hello123\", \"hi1\", \"abcdefgh\"\nhas_digit = any(ch.isdigit() for ch in pw)\n___________:\n    print(\"Password accepted!\")\n___________:\n    print(\"Too short need 8+ characters\")\n___________:\n    print(\"Need at least one digit\")\n_____:\n    print(\"Too short AND no digit\")",
               "tokens": [
                 {
                   "value": "if len(pw) >= 8 and has_digit",
@@ -1066,7 +1066,7 @@
                 {
                   "value": "if len(pw) >= 8 or has_digit",
                   "correct": false,
-                  "hint": "That linking word means *either one is enough* — but both rules are mandatory. Use the word that requires both."
+                  "hint": "That linking word means *either one is enough* but both rules are mandatory. Use the word that requires both."
                 },
                 {
                   "value": "elif len(pw) > 8",
@@ -1104,17 +1104,17 @@
                   "routesTo": "reflection_1"
                 },
                 {
-                  "text": "Just print the raw scores — grades can be assigned manually by a human looking at the numbers.",
+                  "text": "Just print the raw scores grades can be assigned manually by a human looking at the numbers.",
                   "status": "incorrect",
                   "routesTo": "reflection_2"
                 }
               ],
               "reflections": {
                 "reflection_1": {
-                  "prompt": "Your approach makes three separate trips through the student list. But notice — at the exact moment you're looking at a single student's score in the first loop, you already have all the information you need to assign their grade, check if they passed, AND add to the running total. Could you do all three tasks at the same time?",
+                  "prompt": "Your approach makes three separate trips through the student list. But notice at the exact moment you're looking at a single student's score in the first loop, you already have all the information you need to assign their grade, check if they passed, AND add to the running total. Could you do all three tasks at the same time?",
                   "attempt2": [
                     {
-                      "text": "Yes — put all the decision logic *inside* a single loop to handle grading, pass/fail, and the running total in one pass.",
+                      "text": "Yes put all the decision logic *inside* a single loop to handle grading, pass/fail, and the running total in one pass.",
                       "status": "correct"
                     },
                     {
@@ -1131,7 +1131,7 @@
                       "status": "correct"
                     },
                     {
-                      "text": "Just use a loop without any decisions — print the raw scores and let the teacher decide.",
+                      "text": "Just use a loop without any decisions print the raw scores and let the teacher decide.",
                       "status": "incorrect"
                     }
                   ]
@@ -1139,7 +1139,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is the payoff! By putting **conditionals inside loops**, you unlock real automation.\n\n- The **Loop** handles the *repetition* — going through every student with `for name, score in students:`.\n  - Notice the two variables `name, score` on the left — Python automatically unpacks each tuple from the list into those two variables each round.\n- The **Conditionals** inside it handle the *decisions* — what grade they get, and whether they passed.\n\nTogether, they let your program process massive amounts of data and make intelligent, specific choices about every single piece, entirely automatically."
+              "conceptReveal": "This is the payoff! By putting **conditionals inside loops**, you unlock real automation.\n\n- The **Loop** handles the *repetition* going through every student with `for name, score in students:`.\n  - Notice the two variables `name, score` on the left Python automatically unpacks each tuple from the list into those two variables each round.\n- The **Conditionals** inside it handle the *decisions* what grade they get, and whether they passed.\n\nTogether, they let your program process massive amounts of data and make intelligent, specific choices about every single piece, entirely automatically."
             },
             "stage3": {
               "codeTemplate": "students = [(\"Aditi\", 92), (\"Ravi\", 67), (\"Meera\", 45), (\"Kabir\", 88), (\"Priya\", 73)]\ntotal = 0\npassed = 0\n_____________:\n    total = total + score\n    ___________:\n        grade = \"A\"\n    ___________:\n        grade = \"B\"\n    ___________:\n        grade = \"C\"\n    ___________:\n        grade = \"D\"\n    _____:\n        grade = \"F\"\n    ___________:\n        passed = passed + 1\n    print(name, \":\", grade)\nprint(\"Average:\", total / len(students))\nprint(\"Passed:\", passed)",
@@ -1175,7 +1175,7 @@
                 {
                   "value": "for score in students",
                   "correct": false,
-                  "hint": "Each item in the list has two pieces of data (name, score) — you need variables for both."
+                  "hint": "Each item in the list has two pieces of data (name, score) you need variables for both."
                 },
                 {
                   "value": "elif score >= 60",
@@ -1204,7 +1204,7 @@
     "levels": [
       {
         "levelId": 1,
-        "title": "Level 1: Numbers — int vs float",
+        "title": "Level 1: Numbers int vs float",
         "caseStudies": [
           {
             "id": "dt1_c1",
@@ -1263,7 +1263,7 @@
                   "prompt": "Can you add '78' and '85' together the way you add 78 and 85? What happens when you try arithmetic on text instead of a number?",
                   "attempt2": [
                     {
-                      "text": "No — text has to be converted into a real number type before any math can be done on it.",
+                      "text": "No text has to be converted into a real number type before any math can be done on it.",
                       "status": "correct"
                     },
                     {
@@ -1275,7 +1275,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "You were right that scores need to allow a non-whole result. In Python, whole numbers like `78` are automatically the **`int`** type. The moment a number includes a decimal point — like `86.8` — Python treats it as a **`float`**, entirely automatically, just from how it's written.\n\nDividing two numbers with `/` always produces a `float` in Python, even if the answer happens to be whole (`5/1` gives `5.0`, not `5`).\n\n```python\nscores = [78, 85, 92, 88, 91]   # list of ints\naverage = sum(scores) / len(scores) # produces a float: 86.8\n```\n\nKey symbols:\n- **`sum(scores)`**: adds all items in the list\n- **`len(scores)`**: counts how many items\n- **`/`**: always gives a float result"
+              "conceptReveal": "You were right that scores need to allow a non-whole result. In Python, whole numbers like `78` are automatically the **`int`** type. The moment a number includes a decimal point like `86.8` Python treats it as a **`float`**, entirely automatically, just from how it's written.\n\nDividing two numbers with `/` always produces a `float` in Python, even if the answer happens to be whole (`5/1` gives `5.0`, not `5`).\n\n```python\nscores = [78, 85, 92, 88, 91]   # list of ints\naverage = sum(scores) / len(scores) # produces a float: 86.8\n```\n\nKey symbols:\n- **`sum(scores)`**: adds all items in the list\n- **`len(scores)`**: counts how many items\n- **`/`**: always gives a float result"
             },
             "stage3": {
               "codeTemplate": "scores = [78, 85, 92, 88, 91]\ntotal = sum(scores)\ncount = len(scores)\naverage = ______\nprint(\"Average score:\", average)",
@@ -1288,7 +1288,7 @@
                 {
                   "value": "total // count",
                   "correct": false,
-                  "hint": "`//` is floor division — it chops off the decimal you actually want."
+                  "hint": "`//` is floor division it chops off the decimal you actually want."
                 },
                 {
                   "value": "total / count()",
@@ -1336,14 +1336,14 @@
               ],
               "reflections": {
                 "reflection_a": {
-                  "prompt": "Try picturing 'Prakash' as a number — what number would that even be? What kind of data is text, if not a number?",
+                  "prompt": "Try picturing 'Prakash' as a number what number would that even be? What kind of data is text, if not a number?",
                   "attempt2": [
                     {
                       "text": "Every kind of data can technically become a number somehow.",
                       "status": "incorrect"
                     },
                     {
-                      "text": "Text isn't numeric at all — it needs its own type built for holding letters and words.",
+                      "text": "Text isn't numeric at all it needs its own type built for holding letters and words.",
                       "status": "correct"
                     }
                   ]
@@ -1352,7 +1352,7 @@
                   "prompt": "If the quote was a full sentence with 40 letters, would you want 40 separate variables? Is there a type built to hold a whole sequence of characters together?",
                   "attempt2": [
                     {
-                      "text": "Yes — one type that holds a whole sequence of characters as a single piece of data.",
+                      "text": "Yes one type that holds a whole sequence of characters as a single piece of data.",
                       "status": "correct"
                     },
                     {
@@ -1365,7 +1365,7 @@
                   "prompt": "True and False can say whether something exists, but can they hold the actual name 'Prakash' itself? What's the difference between knowing something exists and storing what it says?",
                   "attempt2": [
                     {
-                      "text": "True/False only says yes-or-no — it can't hold the actual words. I need a type built to hold the words themselves.",
+                      "text": "True/False only says yes-or-no it can't hold the actual words. I need a type built to hold the words themselves.",
                       "status": "correct"
                     },
                     {
@@ -1377,7 +1377,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "Text in Python is a **string** (`str`) — any sequence of characters wrapped in quotation marks, single `'` or double `\"`. A string can be one letter, one word, or a whole paragraph — Python treats it as one connected piece of data, not separate characters.\n\n```python\nname = \"Prakash\"      # str\nquote = \"Stay curious.\"  # str\nprint(\"Hello,\", name, \"! Your quote:\", quote)\n```\n\nKey points:\n- **`\"text\"`** or **`'text'`**: both work, just be consistent\n- Without quotes, Python thinks it's a variable name, not text"
+              "conceptReveal": "Text in Python is a **string** (`str`) any sequence of characters wrapped in quotation marks, single `'` or double `\"`. A string can be one letter, one word, or a whole paragraph Python treats it as one connected piece of data, not separate characters.\n\n```python\nname = \"Prakash\"      # str\nquote = \"Stay curious.\"  # str\nprint(\"Hello,\", name, \"! Your quote:\", quote)\n```\n\nKey points:\n- **`\"text\"`** or **`'text'`**: both work, just be consistent\n- Without quotes, Python thinks it's a variable name, not text"
             },
             "stage3": {
               "codeTemplate": "name = ______\nquote = ______\nprint(\"Hello,\", name, \"! Your quote:\", quote)",
@@ -1385,7 +1385,7 @@
                 {
                   "value": "\"Prakash\"",
                   "correct": true,
-                  "hint": "Correct — double quotes make it a string."
+                  "hint": "Correct double quotes make it a string."
                 },
                 {
                   "value": "Prakash",
@@ -1395,12 +1395,12 @@
                 {
                   "value": "\"Stay curious.\"",
                   "correct": true,
-                  "hint": "Correct — this is a properly quoted string."
+                  "hint": "Correct this is a properly quoted string."
                 },
                 {
                   "value": "'Stay curious.\"",
                   "correct": false,
-                  "hint": "Opening and closing quote marks must match — you can't mix `'` and `\"`."
+                  "hint": "Opening and closing quote marks must match you can't mix `'` and `\"`."
                 }
               ],
               "correctOrder": [
@@ -1415,7 +1415,7 @@
           },
           {
             "id": "dt2_c2",
-            "scenario": "Your app needs to track whether a student has submitted their homework — yes or no, nothing in between. What type should you use?",
+            "scenario": "Your app needs to track whether a student has submitted their homework yes or no, nothing in between. What type should you use?",
             "stage1": {
               "attempt1": [
                 {
@@ -1441,10 +1441,10 @@
               ],
               "reflections": {
                 "reflection_a": {
-                  "prompt": "1 and 0 can represent yes/no, but they're still regular numbers — you could accidentally add 5 to one and get 5, which makes no sense for a submission status. Is there a type built specifically to mean only 'yes' or 'no', nothing else?",
+                  "prompt": "1 and 0 can represent yes/no, but they're still regular numbers you could accidentally add 5 to one and get 5, which makes no sense for a submission status. Is there a type built specifically to mean only 'yes' or 'no', nothing else?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type that can only ever be exactly one of two values: True or False.",
+                      "text": "Yes a type that can only ever be exactly one of two values: True or False.",
                       "status": "correct"
                     },
                     {
@@ -1457,7 +1457,7 @@
                   "prompt": "What if someone types 'Yes' with a capital Y, or 'yeah'? Would your code still recognize it? Is there a type built to have only two possible values, guaranteed?",
                   "attempt2": [
                     {
-                      "text": "A type with exactly two fixed possible values — no risk of typos creating a third, unrecognized option.",
+                      "text": "A type with exactly two fixed possible values no risk of typos creating a third, unrecognized option.",
                       "status": "correct"
                     },
                     {
@@ -1482,7 +1482,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is the **boolean** type (`bool`) — a value that can only ever be **`True`** or **`False`**, capitalized exactly like that, with no quotation marks (they're not text). Booleans are what every yes/no, on/off, submitted/pending question in your code should be stored as.\n\n```python\nhomework_submitted = True   # bool\nif homework_submitted:\n    print(\"Submitted, thank you!\")\nelse:\n    print(\"Still pending.\")\n```\n\nKey points:\n- **`True`** / **`False`**: capital first letter, no quotes\n- **`\"True\"`**: that's the *text* \"True\", not the boolean — completely different\n- **`1`**: a number, not a boolean — use the dedicated type for clarity"
+              "conceptReveal": "This is the **boolean** type (`bool`) a value that can only ever be **`True`** or **`False`**, capitalized exactly like that, with no quotation marks (they're not text). Booleans are what every yes/no, on/off, submitted/pending question in your code should be stored as.\n\n```python\nhomework_submitted = True   # bool\nif homework_submitted:\n    print(\"Submitted, thank you!\")\nelse:\n    print(\"Still pending.\")\n```\n\nKey points:\n- **`True`** / **`False`**: capital first letter, no quotes\n- **`\"True\"`**: that's the *text* \"True\", not the boolean completely different\n- **`1`**: a number, not a boolean use the dedicated type for clarity"
             },
             "stage3": {
               "codeTemplate": "homework_submitted = ______\nif homework_submitted:\n    print(\"Submitted, thank you!\")\nelse:\n    print(\"Still pending.\")",
@@ -1490,17 +1490,17 @@
                 {
                   "value": "True",
                   "correct": true,
-                  "hint": "Correct — this is the boolean True, no quotes needed."
+                  "hint": "Correct this is the boolean True, no quotes needed."
                 },
                 {
                   "value": "\"True\"",
                   "correct": false,
-                  "hint": "That's the text 'True', not the boolean — quotes make it a string."
+                  "hint": "That's the text 'True', not the boolean quotes make it a string."
                 },
                 {
                   "value": "1",
                   "correct": false,
-                  "hint": "A number, not a boolean — use the dedicated True/False type."
+                  "hint": "A number, not a boolean use the dedicated True/False type."
                 }
               ],
               "validation": {
@@ -1537,10 +1537,10 @@
               ],
               "reflections": {
                 "reflection_a": {
-                  "prompt": "An empty string is still text — a valid, if blank, answer. But what if a subject was later literally named an empty string by mistake? Is there a way to represent 'nothing assigned at all', separate from any possible text value?",
+                  "prompt": "An empty string is still text a valid, if blank, answer. But what if a subject was later literally named an empty string by mistake? Is there a way to represent 'nothing assigned at all', separate from any possible text value?",
                   "attempt2": [
                     {
-                      "text": "Yes — a special value meaning 'no value has been assigned here,' different from any real answer, even an empty one.",
+                      "text": "Yes a special value meaning 'no value has been assigned here,' different from any real answer, even an empty one.",
                       "status": "correct"
                     },
                     {
@@ -1578,7 +1578,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "Python has a special value called **`None`** — it means 'there is genuinely no value here,' distinct from an empty string, from zero, from False. It's the standard way to say 'this variable exists, but nothing meaningful has been put in it yet.'\n\n```python\nfavorite_subject = None   # None type\nif favorite_subject is None:\n    print(\"No subject chosen yet.\")\nelse:\n    print(\"Favorite subject:\", favorite_subject)\n```\n\nKey points:\n- **`None`**: capital N, no quotes\n- **`\"None\"`**: that's the *text* \"None\" — completely different\n- **`is None`**: the correct way to test for None in Python (not `== None`)"
+              "conceptReveal": "Python has a special value called **`None`** it means 'there is genuinely no value here,' distinct from an empty string, from zero, from False. It's the standard way to say 'this variable exists, but nothing meaningful has been put in it yet.'\n\n```python\nfavorite_subject = None   # None type\nif favorite_subject is None:\n    print(\"No subject chosen yet.\")\nelse:\n    print(\"Favorite subject:\", favorite_subject)\n```\n\nKey points:\n- **`None`**: capital N, no quotes\n- **`\"None\"`**: that's the *text* \"None\" completely different\n- **`is None`**: the correct way to test for None in Python (not `== None`)"
             },
             "stage3": {
               "codeTemplate": "favorite_subject = ______\nif favorite_subject is None:\n    print(\"No subject chosen yet.\")\nelse:\n    print(\"Favorite subject:\", favorite_subject)",
@@ -1586,12 +1586,12 @@
                 {
                   "value": "None",
                   "correct": true,
-                  "hint": "Correct — None is Python's way of saying 'no value assigned yet'."
+                  "hint": "Correct None is Python's way of saying 'no value assigned yet'."
                 },
                 {
                   "value": "\"None\"",
                   "correct": false,
-                  "hint": "That's the text 'None', not the actual value — remove the quotes."
+                  "hint": "That's the text 'None', not the actual value remove the quotes."
                 },
                 {
                   "value": "0",
@@ -1617,7 +1617,7 @@
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Store each item in its own separate variable — item1, item2, item3...",
+                  "text": "Store each item in its own separate variable item1, item2, item3...",
                   "status": "incorrect",
                   "routesTo": "reflection_a"
                 },
@@ -1642,7 +1642,7 @@
                   "prompt": "If the cart grows to 15 items, would you create 15 separate variables by hand? Is there a type built to hold many related items together, that can grow or shrink?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type that holds many items together in order, and can grow or shrink.",
+                      "text": "Yes a type that holds many items together in order, and can grow or shrink.",
                       "status": "correct"
                     },
                     {
@@ -1668,7 +1668,7 @@
                   "prompt": "The cart needs items added and removed constantly. If your chosen type could never be changed once created, would that actually work here?",
                   "attempt2": [
                     {
-                      "text": "No — I specifically need one that CAN change after creation, since the cart's contents change constantly.",
+                      "text": "No I specifically need one that CAN change after creation, since the cart's contents change constantly.",
                       "status": "correct"
                     },
                     {
@@ -1680,7 +1680,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **list** — square brackets `[ ]`, holding multiple items in order, separated by commas. Lists are **mutable**, meaning you can add, remove, or change items after the list already exists — exactly what a constantly-changing shopping cart needs.\n\n```python\ncart = [\"Pen\", \"Eraser\", \"Ruler\"]  # list\ncart.append(\"Notebook\")  # adds to end\ncart.remove(\"Eraser\")    # removes by value\nprint(cart)  # ['Pen', 'Ruler', 'Notebook']\n```\n\nKey symbols:\n- **`[ ]`**: square brackets — always means list\n- **`.append(item)`**: adds an item to the end\n- **`.remove(item)`**: removes the first matching item"
+              "conceptReveal": "This is a **list** square brackets `[ ]`, holding multiple items in order, separated by commas. Lists are **mutable**, meaning you can add, remove, or change items after the list already exists exactly what a constantly-changing shopping cart needs.\n\n```python\ncart = [\"Pen\", \"Eraser\", \"Ruler\"]  # list\ncart.append(\"Notebook\")  # adds to end\ncart.remove(\"Eraser\")    # removes by value\nprint(cart)  # ['Pen', 'Ruler', 'Notebook']\n```\n\nKey symbols:\n- **`[ ]`**: square brackets always means list\n- **`.append(item)`**: adds an item to the end\n- **`.remove(item)`**: removes the first matching item"
             },
             "stage3": {
               "codeTemplate": "cart = ______\ncart.append(\"Notebook\")\ncart.remove(\"Eraser\")\nprint(cart)",
@@ -1688,7 +1688,7 @@
                 {
                   "value": "[\"Pen\", \"Eraser\", \"Ruler\"]",
                   "correct": true,
-                  "hint": "Correct — square brackets make a mutable list."
+                  "hint": "Correct square brackets make a mutable list."
                 },
                 {
                   "value": "(\"Pen\", \"Eraser\", \"Ruler\")",
@@ -1709,7 +1709,7 @@
           },
           {
             "id": "dt3_c2",
-            "scenario": "Your app stores each student's date of birth as day, month, and year — three numbers that, once recorded, should never change. What type should you use?",
+            "scenario": "Your app stores each student's date of birth as day, month, and year three numbers that, once recorded, should never change. What type should you use?",
             "stage1": {
               "attempt1": [
                 {
@@ -1738,7 +1738,7 @@
                   "prompt": "A birth date, once entered, shouldn't accidentally get edited elsewhere in the app. Does an editable type protect against that, or actually allow it?",
                   "attempt2": [
                     {
-                      "text": "It allows editing, which is exactly what I don't want — I need something that locks the values in place once created.",
+                      "text": "It allows editing, which is exactly what I don't want I need something that locks the values in place once created.",
                       "status": "correct"
                     },
                     {
@@ -1748,7 +1748,7 @@
                   ]
                 },
                 "reflection_c": {
-                  "prompt": "If you wanted to pass this whole birth date around together — say, to a formatting function — would three separate unconnected variables travel together easily? Is there a type that keeps related, fixed values grouped as one unit?",
+                  "prompt": "If you wanted to pass this whole birth date around together say, to a formatting function would three separate unconnected variables travel together easily? Is there a type that keeps related, fixed values grouped as one unit?",
                   "attempt2": [
                     {
                       "text": "A type that groups fixed, related values together as a single unit.",
@@ -1776,7 +1776,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **tuple** — round brackets `( )`, holding multiple items in order, like a list. But tuples are **immutable**: once created, the values inside can never be changed, added to, or removed. That permanence fits a birth date, which should be fixed forever once recorded.\n\n```python\nbirth_date = (15, 8, 2005)  # tuple\nprint(\"Year of birth:\", birth_date[2])  # 2005\n```\n\nKey symbols:\n- **`( )`**: round brackets — always means tuple\n- **`birth_date[2]`**: access by position (0-indexed, so index 2 is the third item)\n- Cannot use `.append()` or `.remove()` — the tuple is permanently locked"
+              "conceptReveal": "This is a **tuple** round brackets `( )`, holding multiple items in order, like a list. But tuples are **immutable**: once created, the values inside can never be changed, added to, or removed. That permanence fits a birth date, which should be fixed forever once recorded.\n\n```python\nbirth_date = (15, 8, 2005)  # tuple\nprint(\"Year of birth:\", birth_date[2])  # 2005\n```\n\nKey symbols:\n- **`( )`**: round brackets always means tuple\n- **`birth_date[2]`**: access by position (0-indexed, so index 2 is the third item)\n- Cannot use `.append()` or `.remove()` the tuple is permanently locked"
             },
             "stage3": {
               "codeTemplate": "birth_date = ______\nprint(\"Year of birth:\", birth_date[2])",
@@ -1784,7 +1784,7 @@
                 {
                   "value": "(15, 8, 2005)",
                   "correct": true,
-                  "hint": "Correct — round brackets make an immutable tuple."
+                  "hint": "Correct round brackets make an immutable tuple."
                 },
                 {
                   "value": "[15, 8, 2005]",
@@ -1794,7 +1794,7 @@
                 {
                   "value": "{15, 8, 2005}",
                   "correct": false,
-                  "hint": "Curly braces make a set, which has no order — birth_date[2] wouldn't work at all."
+                  "hint": "Curly braces make a set, which has no order birth_date[2] wouldn't work at all."
                 }
               ],
               "validation": {
@@ -1811,7 +1811,7 @@
         "caseStudies": [
           {
             "id": "dt4_c1",
-            "scenario": "You're storing a student's profile: name, age, and city — each piece of information should be looked up by a clear label, not by position. What type should you use?",
+            "scenario": "You're storing a student's profile: name, age, and city each piece of information should be looked up by a clear label, not by position. What type should you use?",
             "stage1": {
               "attempt1": [
                 {
@@ -1840,7 +1840,7 @@
                   "prompt": "If someone reorders the list, or you forget position 0 is the name and position 2 is the city, what happens? Is there a type where each value is looked up by a clear label instead of a position?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type where every value is attached to a named label, so you look things up by name, not position.",
+                      "text": "Yes a type where every value is attached to a named label, so you look things up by name, not position.",
                       "status": "correct"
                     },
                     {
@@ -1863,10 +1863,10 @@
                   ]
                 },
                 "reflection_c": {
-                  "prompt": "A tuple still means looking things up by position — does that solve the 'label instead of position' problem you actually need? And profiles sometimes get updated too — does a tuple allow that?",
+                  "prompt": "A tuple still means looking things up by position does that solve the 'label instead of position' problem you actually need? And profiles sometimes get updated too does a tuple allow that?",
                   "attempt2": [
                     {
-                      "text": "No — I need something looked up by label, not position, and something that can also be updated later.",
+                      "text": "No I need something looked up by label, not position, and something that can also be updated later.",
                       "status": "correct"
                     },
                     {
@@ -1878,7 +1878,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **dictionary** (`dict`) — curly braces `{ }`, holding key-value pairs. Each value has a named key, like `\"name\": \"Prakash\"`, and you look values up by that key directly, not by remembering a position. Dictionaries are also mutable — values can be added, changed, or removed after creation.\n\n```python\nstudent = {\"name\": \"Meera\", \"age\": 20, \"city\": \"Pune\"}\nprint(\"City:\", student[\"city\"])  # City: Pune\n```\n\nKey symbols:\n- **`{ }`**: curly braces — means dict (or set)\n- **`\"key\": value`**: a colon connects each key to its value\n- **`student[\"city\"]`**: look up by key name, not position"
+              "conceptReveal": "This is a **dictionary** (`dict`) curly braces `{ }`, holding key-value pairs. Each value has a named key, like `\"name\": \"Prakash\"`, and you look values up by that key directly, not by remembering a position. Dictionaries are also mutable values can be added, changed, or removed after creation.\n\n```python\nstudent = {\"name\": \"Meera\", \"age\": 20, \"city\": \"Pune\"}\nprint(\"City:\", student[\"city\"])  # City: Pune\n```\n\nKey symbols:\n- **`{ }`**: curly braces means dict (or set)\n- **`\"key\": value`**: a colon connects each key to its value\n- **`student[\"city\"]`**: look up by key name, not position"
             },
             "stage3": {
               "codeTemplate": "student = ______\nprint(\"City:\", student[\"city\"])",
@@ -1886,7 +1886,7 @@
                 {
                   "value": "{\"name\": \"Meera\", \"age\": 20, \"city\": \"Pune\"}",
                   "correct": true,
-                  "hint": "Correct — curly braces with key: value pairs make a dict."
+                  "hint": "Correct curly braces with key: value pairs make a dict."
                 },
                 {
                   "value": "[\"name\": \"Meera\", \"age\": 20, \"city\": \"Pune\"]",
@@ -1907,11 +1907,11 @@
           },
           {
             "id": "dt4_c2",
-            "scenario": "You're collecting the unique list of subjects across all students' choices — no subject should ever appear twice, no matter how many students picked it. What type should you use?",
+            "scenario": "You're collecting the unique list of subjects across all students' choices no subject should ever appear twice, no matter how many students picked it. What type should you use?",
             "stage1": {
               "attempt1": [
                 {
-                  "text": "Store all subject choices in a type that automatically enforces uniqueness — duplicates simply can't exist in it.",
+                  "text": "Store all subject choices in a type that automatically enforces uniqueness duplicates simply can't exist in it.",
                   "status": "correct",
                   "routesTo": "reveal"
                 },
@@ -1936,7 +1936,7 @@
                   "prompt": "Manual checking works, but you'd have to remember to check it every single time, forever. Is there a type where duplicates are automatically impossible, with no manual checking needed?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type that automatically prevents duplicates by design.",
+                      "text": "Yes a type that automatically prevents duplicates by design.",
                       "status": "correct"
                     },
                     {
@@ -1946,10 +1946,10 @@
                   ]
                 },
                 "reflection_c": {
-                  "prompt": "A dictionary needs a value paired with every key — but here you don't actually need to pair anything with the subject name, you just need to know it exists, once. Is there a simpler type built purely for 'unique items, no paired values needed'?",
+                  "prompt": "A dictionary needs a value paired with every key but here you don't actually need to pair anything with the subject name, you just need to know it exists, once. Is there a simpler type built purely for 'unique items, no paired values needed'?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type built purely for holding unique items, without pairing each one to a separate value.",
+                      "text": "Yes a type built purely for holding unique items, without pairing each one to a separate value.",
                       "status": "correct"
                     },
                     {
@@ -1962,7 +1962,7 @@
                   "prompt": "Does a tuple actually stop you from putting the same subject in twice, or does it just hold whatever you put into it, duplicates included? Is there a type that structurally can't contain duplicates?",
                   "attempt2": [
                     {
-                      "text": "A tuple doesn't prevent duplicates at all — I need a type that structurally can't hold duplicates, guaranteed.",
+                      "text": "A tuple doesn't prevent duplicates at all I need a type that structurally can't hold duplicates, guaranteed.",
                       "status": "correct"
                     },
                     {
@@ -1974,7 +1974,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **set** — curly braces `{ }` like a dictionary, but holding single unique values instead of key-value pairs. Sets automatically discard duplicates the moment you try to add one — the same value can never appear twice inside a set.\n\n```python\nchoices = [\"Math\", \"Science\", \"Math\", \"Art\", \"Science\"]\nunique_subjects = set(choices)  # set\nprint(unique_subjects)  # {'Math', 'Science', 'Art'} (order varies)\n```\n\nKey points:\n- **`set(iterable)`**: converts a list to a set, auto-dropping duplicates\n- Sets have no guaranteed order — don't rely on position\n- **`{ }`** alone can be a set literal OR a dict — use `set()` to be unambiguous"
+              "conceptReveal": "This is a **set** curly braces `{ }` like a dictionary, but holding single unique values instead of key-value pairs. Sets automatically discard duplicates the moment you try to add one the same value can never appear twice inside a set.\n\n```python\nchoices = [\"Math\", \"Science\", \"Math\", \"Art\", \"Science\"]\nunique_subjects = set(choices)  # set\nprint(unique_subjects)  # {'Math', 'Science', 'Art'} (order varies)\n```\n\nKey points:\n- **`set(iterable)`**: converts a list to a set, auto-dropping duplicates\n- Sets have no guaranteed order don't rely on position\n- **`{ }`** alone can be a set literal OR a dict use `set()` to be unambiguous"
             },
             "stage3": {
               "codeTemplate": "choices = [\"Math\", \"Science\", \"Math\", \"Art\", \"Science\"]\nunique_subjects = ______\nprint(sorted(unique_subjects))",
@@ -1982,17 +1982,17 @@
                 {
                   "value": "set(choices)",
                   "correct": true,
-                  "hint": "Correct — set() converts the list and auto-removes duplicates."
+                  "hint": "Correct set() converts the list and auto-removes duplicates."
                 },
                 {
                   "value": "list(choices)",
                   "correct": false,
-                  "hint": "list() keeps every duplicate — you need something that removes them automatically."
+                  "hint": "list() keeps every duplicate you need something that removes them automatically."
                 },
                 {
                   "value": "dict(choices)",
                   "correct": false,
-                  "hint": "dict() expects key-value pairs, not plain items — this would error here."
+                  "hint": "dict() expects key-value pairs, not plain items this would error here."
                 }
               ],
               "validation": {
@@ -2005,11 +2005,11 @@
       },
       {
         "levelId": 5,
-        "title": "Level 5: Relational — Combining Types",
+        "title": "Level 5: Relational Combining Types",
         "caseStudies": [
           {
             "id": "dt5_c1",
-            "scenario": "You're building a contact book. Each contact (name + phone number) must NEVER change once saved, but you also want to reject any exact duplicate contact entries. This requires two properties at once — what's your approach?",
+            "scenario": "You're building a contact book. Each contact (name + phone number) must NEVER change once saved, but you also want to reject any exact duplicate contact entries. This requires two properties at once what's your approach?",
             "stage1": {
               "attempt1": [
                 {
@@ -2038,7 +2038,7 @@
                   "prompt": "Manual checking works but takes effort every time, and a list still lets each contact itself be edited later by accident. Is there a way to get 'no duplicates automatically' AND 'each saved contact can't accidentally change,' at the same time?",
                   "attempt2": [
                     {
-                      "text": "Yes — combine something immutable for each individual contact, held inside something that automatically prevents duplicates.",
+                      "text": "Yes combine something immutable for each individual contact, held inside something that automatically prevents duplicates.",
                       "status": "correct"
                     },
                     {
@@ -2051,7 +2051,7 @@
                   "prompt": "Does putting contacts in a list stop the same contact from being added twice? Does a dictionary stop its own values from being edited later? Which of your two actual requirements does this solve?",
                   "attempt2": [
                     {
-                      "text": "Neither, really — I need something immutable for each contact AND something that auto-prevents duplicates for the whole collection.",
+                      "text": "Neither, really I need something immutable for each contact AND something that auto-prevents duplicates for the whole collection.",
                       "status": "correct"
                     },
                     {
@@ -2064,7 +2064,7 @@
                   "prompt": "How would you cleanly separate one contact's name and number from the next inside one long piece of text, and reliably detect an exact duplicate? Wouldn't dedicated types for 'fixed pair' and 'no duplicates' do this more reliably?",
                   "attempt2": [
                     {
-                      "text": "Yes — a fixed pair type for each contact, inside a type that inherently can't hold duplicates.",
+                      "text": "Yes a fixed pair type for each contact, inside a type that inherently can't hold duplicates.",
                       "status": "correct"
                     },
                     {
@@ -2076,7 +2076,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is where two types combine: each contact becomes a **tuple**, like `(\"Meera\", \"9876543210\")` — fixed and unchangeable once created. All the contacts together go into a **set**, which automatically rejects any tuple that exactly duplicates one already inside it.\n\n```python\ncontacts = {(\"Ravi\", \"9123456780\")}\ncontacts.add((\"Meera\", \"9876543210\"))  # added\ncontacts.add((\"Meera\", \"9876543210\"))  # silently ignored\nprint(len(contacts))  # 2\n```\n\nWhy this combination:\n- **Tuple**: protects each individual contact from edits\n- **Set**: protects the whole collection from duplicates\n- Note: lists can't go inside sets — only immutable types (like tuples) can"
+              "conceptReveal": "This is where two types combine: each contact becomes a **tuple**, like `(\"Meera\", \"9876543210\")` fixed and unchangeable once created. All the contacts together go into a **set**, which automatically rejects any tuple that exactly duplicates one already inside it.\n\n```python\ncontacts = {(\"Ravi\", \"9123456780\")}\ncontacts.add((\"Meera\", \"9876543210\"))  # added\ncontacts.add((\"Meera\", \"9876543210\"))  # silently ignored\nprint(len(contacts))  # 2\n```\n\nWhy this combination:\n- **Tuple**: protects each individual contact from edits\n- **Set**: protects the whole collection from duplicates\n- Note: lists can't go inside sets only immutable types (like tuples) can"
             },
             "stage3": {
               "codeTemplate": "contacts = ______\ncontacts.add((\"Meera\", \"9876543210\"))\ncontacts.add((\"Meera\", \"9876543210\"))\nprint(len(contacts))",
@@ -2084,7 +2084,7 @@
                 {
                   "value": "{(\"Ravi\", \"9123456780\")}",
                   "correct": true,
-                  "hint": "Correct — a set containing one tuple to start."
+                  "hint": "Correct a set containing one tuple to start."
                 },
                 {
                   "value": "[(\"Ravi\", \"9123456780\")]",
@@ -2094,7 +2094,7 @@
                 {
                   "value": "{[\"Ravi\", \"9123456780\"]}",
                   "correct": false,
-                  "hint": "A list can't go inside a set — sets can only hold immutable items like tuples; this errors."
+                  "hint": "A list can't go inside a set sets can only hold immutable items like tuples; this errors."
                 }
               ],
               "validation": {
@@ -2105,7 +2105,7 @@
           },
           {
             "id": "dt5_c2",
-            "scenario": "You want to store multiple pieces of information about ONE student — but unlike the contact book, here you need to look each piece up by a clear name, not worry about duplicates across many students. Which type now, and why is it different from the contact book?",
+            "scenario": "You want to store multiple pieces of information about ONE student but unlike the contact book, here you need to look each piece up by a clear name, not worry about duplicates across many students. Which type now, and why is it different from the contact book?",
             "stage1": {
               "attempt1": [
                 {
@@ -2134,7 +2134,7 @@
                   "prompt": "If a new field like 'email' gets added in the middle later, would every position shift and break your assumptions? Is there a type where adding new information never disturbs the old?",
                   "attempt2": [
                     {
-                      "text": "Yes — a type where each piece of information is tied to a name, so adding new fields never disturbs the existing ones.",
+                      "text": "Yes a type where each piece of information is tied to a name, so adding new fields never disturbs the existing ones.",
                       "status": "correct"
                     },
                     {
@@ -2147,7 +2147,7 @@
                   "prompt": "If you needed to look up specifically the student's 'age', how would you pull just that one value out of a set? Does a set let you look things up by label at all?",
                   "attempt2": [
                     {
-                      "text": "No — a set has no labels or keys, it just holds loose values. I need something that pairs each value with a name.",
+                      "text": "No a set has no labels or keys, it just holds loose values. I need something that pairs each value with a name.",
                       "status": "correct"
                     },
                     {
@@ -2157,10 +2157,10 @@
                   ]
                 },
                 "reflection_d": {
-                  "prompt": "This locks the order in permanently, protecting against accidental edits — but what happens the moment you want to add one new field, like 'email', to this student's record? Can a tuple do that at all?",
+                  "prompt": "This locks the order in permanently, protecting against accidental edits but what happens the moment you want to add one new field, like 'email', to this student's record? Can a tuple do that at all?",
                   "attempt2": [
                     {
-                      "text": "No — I need something both labeled by name AND changeable, since a student's info can grow or update over time.",
+                      "text": "No I need something both labeled by name AND changeable, since a student's info can grow or update over time.",
                       "status": "correct"
                     },
                     {
@@ -2172,7 +2172,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "The dictionary is right here too — but for a **different reason** than the contact book. There, you needed a set for uniqueness. Here, you need a dict because you're describing ONE thing (a single student) with multiple named, changeable attributes.\n\n```python\nstudent = {\"name\": \"Ravi\", \"age\": 21}\nstudent[\"city\"] = \"Pune\"  # add a new field\nprint(student)  # {'name': 'Ravi', 'age': 21, 'city': 'Pune'}\n```\n\nThe lesson: **the right data type depends on what property of the data actually matters** — order, uniqueness, labels, or permanence — not on what superficially 'feels similar' to a previous case study."
+              "conceptReveal": "The dictionary is right here too but for a **different reason** than the contact book. There, you needed a set for uniqueness. Here, you need a dict because you're describing ONE thing (a single student) with multiple named, changeable attributes.\n\n```python\nstudent = {\"name\": \"Ravi\", \"age\": 21}\nstudent[\"city\"] = \"Pune\"  # add a new field\nprint(student)  # {'name': 'Ravi', 'age': 21, 'city': 'Pune'}\n```\n\nThe lesson: **the right data type depends on what property of the data actually matters** order, uniqueness, labels, or permanence not on what superficially 'feels similar' to a previous case study."
             },
             "stage3": {
               "codeTemplate": "student = {\"name\": \"Ravi\", \"age\": 21}\nstudent[\"city\"] = ______\nprint(student)",
@@ -2180,7 +2180,7 @@
                 {
                   "value": "\"Pune\"",
                   "correct": true,
-                  "hint": "Correct — a quoted string to assign as the city value."
+                  "hint": "Correct a quoted string to assign as the city value."
                 },
                 {
                   "value": "Pune",
@@ -2231,7 +2231,7 @@
                   "prompt": "`input()` in Python always hands back whatever the user typed as text, even if they typed digits. Can you directly compare the text '20' to the number 18 the way you'd compare two real numbers?",
                   "attempt2": [
                     {
-                      "text": "No — I need to convert the typed text into a real number type before comparing it to 18.",
+                      "text": "No I need to convert the typed text into a real number type before comparing it to 18.",
                       "status": "correct"
                     },
                     {
@@ -2244,7 +2244,7 @@
                   "prompt": "This avoids the type problem, but you specifically need their exact age for other parts of the app too, not just a yes/no. Does changing the question actually solve comparing typed input to a number?",
                   "attempt2": [
                     {
-                      "text": "No — I still need the actual age as a number elsewhere, so I need to properly convert the text, not avoid the problem.",
+                      "text": "No I still need the actual age as a number elsewhere, so I need to properly convert the text, not avoid the problem.",
                       "status": "correct"
                     },
                     {
@@ -2254,10 +2254,10 @@
                   ]
                 },
                 "reflection_c": {
-                  "prompt": "Compare the text '9' to the text '18' the way Python compares text — alphabetically. Does '9' come before or after '18' that way? Is that the same as comparing the actual numbers 9 and 18?",
+                  "prompt": "Compare the text '9' to the text '18' the way Python compares text alphabetically. Does '9' come before or after '18' that way? Is that the same as comparing the actual numbers 9 and 18?",
                   "attempt2": [
                     {
-                      "text": "No — comparing as text gives the wrong answer for numbers. I need an actual number type, not everything-as-text.",
+                      "text": "No comparing as text gives the wrong answer for numbers. I need an actual number type, not everything-as-text.",
                       "status": "correct"
                     },
                     {
@@ -2269,7 +2269,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "`input()` always returns a string, no matter what the user typed. To use it as a real number, you convert it explicitly using **`int()`** (whole numbers) or **`float()`** (decimals) — this is called **type casting**. Python never silently assumes text means a number; you have to say so directly.\n\n```python\nage_text = \"20\"          # str\nage_number = int(age_text)  # int — type casting!\nif age_number >= 18:\n    print(\"You may proceed.\")\nelse:\n    print(\"Sorry, you must be 18 or older.\")\n```\n\nKey symbols:\n- **`int(x)`**: converts x to a whole number\n- **`float(x)`**: converts x to a decimal number\n- **`str(x)`**: converts x to text (the reverse direction)\n- Casting fails with an error if the text can't be interpreted as a number (e.g. `int(\"hello\")` crashes)"
+              "conceptReveal": "`input()` always returns a string, no matter what the user typed. To use it as a real number, you convert it explicitly using **`int()`** (whole numbers) or **`float()`** (decimals) this is called **type casting**. Python never silently assumes text means a number; you have to say so directly.\n\n```python\nage_text = \"20\"          # str\nage_number = int(age_text)  # int type casting!\nif age_number >= 18:\n    print(\"You may proceed.\")\nelse:\n    print(\"Sorry, you must be 18 or older.\")\n```\n\nKey symbols:\n- **`int(x)`**: converts x to a whole number\n- **`float(x)`**: converts x to a decimal number\n- **`str(x)`**: converts x to text (the reverse direction)\n- Casting fails with an error if the text can't be interpreted as a number (e.g. `int(\"hello\")` crashes)"
             },
             "stage3": {
               "codeTemplate": "age_text = \"20\"\nage_number = ______\nif age_number >= 18:\n    print(\"You may proceed.\")\nelse:\n    print(\"Sorry, you must be 18 or older.\")",
@@ -2277,12 +2277,12 @@
                 {
                   "value": "int(age_text)",
                   "correct": true,
-                  "hint": "Correct — int() converts the string to an integer for comparison."
+                  "hint": "Correct int() converts the string to an integer for comparison."
                 },
                 {
                   "value": "age_text",
                   "correct": false,
-                  "hint": "Still text — comparing text to the number 18 with >= doesn't work as expected."
+                  "hint": "Still text comparing text to the number 18 with >= doesn't work as expected."
                 },
                 {
                   "value": "str(age_text)",
@@ -2333,7 +2333,7 @@
                   "prompt": "If titles, authors, and waitlist names are all just mixed together in one flat list, how would your code reliably tell which name belongs to which book's waitlist? What's missing?",
                   "attempt2": [
                     {
-                      "text": "I need each book's information kept together and labeled, then multiple of those combined into one collection — nesting one type inside another.",
+                      "text": "I need each book's information kept together and labeled, then multiple of those combined into one collection nesting one type inside another.",
                       "status": "correct"
                     },
                     {
@@ -2346,7 +2346,7 @@
                   "prompt": "People join and leave a waitlist all the time. If the whole book record is locked as an unchangeable tuple, can the waitlist actually grow or shrink inside it?",
                   "attempt2": [
                     {
-                      "text": "No — the waitlist itself needs to be a separate, changeable part, even if the title and author stay fixed.",
+                      "text": "No the waitlist itself needs to be a separate, changeable part, even if the title and author stay fixed.",
                       "status": "correct"
                     },
                     {
@@ -2359,7 +2359,7 @@
                   "prompt": "If the title is the only thing stored, where would the author's name or the waitlist even go? What does a single key-value pair actually hold room for?",
                   "attempt2": [
                     {
-                      "text": "A single key only pairs with one value — I need that one value itself to be a labeled structure holding author and waitlist together, not just the title alone.",
+                      "text": "A single key only pairs with one value I need that one value itself to be a labeled structure holding author and waitlist together, not just the title alone.",
                       "status": "correct"
                     },
                     {
@@ -2371,7 +2371,7 @@
               }
             },
             "stage2": {
-              "conceptReveal": "This is a **nested structure** — a list of dictionaries. Each dictionary is one book, with labeled fields (`title`, `author`, `waitlist`), and the `waitlist` field itself holds a list (since people join and leave it constantly).\n\n```python\nlibrary = [\n    {\"title\": \"Python Basics\", \"author\": \"R. Iyer\", \"waitlist\": [\"Aditi\", \"Kabir\"]},\n    {\"title\": \"Data Structures\", \"author\": \"S. Rao\", \"waitlist\": []}\n]\nlibrary[1][\"waitlist\"].append(\"Meera\")\nprint(library[1][\"waitlist\"])  # ['Meera']\n```\n\nData types aren't chosen in isolation — real programs **nest them inside each other**: a list of dicts, a dict where one value is itself a list, all built from exactly the same individual types you've already learned."
+              "conceptReveal": "This is a **nested structure** a list of dictionaries. Each dictionary is one book, with labeled fields (`title`, `author`, `waitlist`), and the `waitlist` field itself holds a list (since people join and leave it constantly).\n\n```python\nlibrary = [\n    {\"title\": \"Python Basics\", \"author\": \"R. Iyer\", \"waitlist\": [\"Aditi\", \"Kabir\"]},\n    {\"title\": \"Data Structures\", \"author\": \"S. Rao\", \"waitlist\": []}\n]\nlibrary[1][\"waitlist\"].append(\"Meera\")\nprint(library[1][\"waitlist\"])  # ['Meera']\n```\n\nData types aren't chosen in isolation real programs **nest them inside each other**: a list of dicts, a dict where one value is itself a list, all built from exactly the same individual types you've already learned."
             },
             "stage3": {
               "codeTemplate": "library = [\n    {\"title\": \"Python Basics\", \"author\": \"R. Iyer\", \"waitlist\": [\"Aditi\", \"Kabir\"]},\n    ______\n]\nlibrary[1][\"waitlist\"].append(\"Meera\")\nprint(library[1][\"waitlist\"])",
@@ -2379,17 +2379,17 @@
                 {
                   "value": "{\"title\": \"Data Structures\", \"author\": \"S. Rao\", \"waitlist\": []}",
                   "correct": true,
-                  "hint": "Correct — a dict with the right keys, including an empty list for the waitlist."
+                  "hint": "Correct a dict with the right keys, including an empty list for the waitlist."
                 },
                 {
                   "value": "[\"title\", \"Data Structures\", \"author\", \"S. Rao\", \"waitlist\", []]",
                   "correct": false,
-                  "hint": "A list, not a dictionary — no lookup by label like ['title'] would work."
+                  "hint": "A list, not a dictionary no lookup by label like ['title'] would work."
                 },
                 {
                   "value": "(\"title\", \"Data Structures\", \"author\", \"S. Rao\")",
                   "correct": false,
-                  "hint": "A tuple — no key: value pairs and no waitlist field."
+                  "hint": "A tuple no key: value pairs and no waitlist field."
                 }
               ],
               "validation": {
@@ -2421,10 +2421,10 @@
               ],
               "reflections": {
                 "reflection_c": {
-                  "prompt": "A flat list or dict captures one layer of data — but real-world data often has structure *within* structure. Can you think of a scenario where one item naturally contains a collection of sub-items? That's the key to nesting.",
+                  "prompt": "A flat list or dict captures one layer of data but real-world data often has structure *within* structure. Can you think of a scenario where one item naturally contains a collection of sub-items? That's the key to nesting.",
                   "attempt2": [
                     {
-                      "text": "Yes — I can think of one item that naturally holds a list of related sub-items inside it.",
+                      "text": "Yes I can think of one item that naturally holds a list of related sub-items inside it.",
                       "status": "correct"
                     },
                     {
@@ -2436,15 +2436,1569 @@
               }
             },
             "stage2": {
-              "conceptReveal": "There's no single right answer here — the point is that you can now choose the right combination of types for a scenario you designed yourself. Whether you chose a list of dicts or a dict with a list inside, you've demonstrated that data types are tools you select deliberately, not syntax you memorize.\n\nThat's the Extended Abstract level: you don't just know the types — you know *when* to combine them and *why*."
+              "conceptReveal": "There's no single right answer here the point is that you can now choose the right combination of types for a scenario you designed yourself. Whether you chose a list of dicts or a dict with a list inside, you've demonstrated that data types are tools you select deliberately, not syntax you memorize.\n\nThat's the Extended Abstract level: you don't just know the types you know *when* to combine them and *why*."
             },
             "stage3": {
-              "codeTemplate": "# Your nested structure here\n# No blanks — write it yourself or reflect on your design",
+              "codeTemplate": "# Your nested structure here\n# No blanks write it yourself or reflect on your design",
               "tokens": [],
               "validation": {
                 "type": "exact",
                 "expected": ""
               }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "functions",
+    "topicName": "Functions (def/return)",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: Report Card Averages",
+        "caseStudies": [
+          {
+            "id": "f1_c1",
+            "scenario": "You need to calculate the average test score for 5 different students. Each time, you write out the same three lines of math add up the scores, then divide by how many there are just swapping in different numbers for each student.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Write the steps once, give the whole process a name, and reuse that name with new numbers each time instead of retyping the steps.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Copy and paste the same three lines of math for each student, changing only the numbers.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Put every student's scores in one list, then use a loop to repeat the calculation automatically.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                },
+                {
+                  "text": "Write the formula as a comment above the code so you remember it correctly next time.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_3"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Imagine the school later decides averages should round to one decimal place. If you copy-pasted the same three lines five times, how many places would you now have to go back and fix?",
+                  "attempt2": [
+                    {
+                      "text": "Package the steps once under one name, so fixing it in one place fixes it everywhere it's used.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "Just be extra careful to edit all five copies correctly.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That handles these 5 students in this one script. But what if a different part of your program a report card page, a parent email also needs to calculate an average? Would you write the same math a third time?",
+                  "attempt2": [
+                    {
+                      "text": "Give the calculation its own reusable name, so any part of the program can call it, not just this one loop.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "Yes, I'd rewrite the same three lines wherever it's needed.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_3": {
+                  "prompt": "A comment is just text for humans to read does Python ever actually run it as code? If you 'forget' to retype the math correctly, would the comment stop that mistake?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the actual steps saved as something Python can run and reuse, not just a note beside it.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, comments are close enough to remind me.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'package the steps once, give it a name, reuse it' is written in Python as a **function**, using the **`def`** keyword. Breaking it down piece by piece:\n- `def` tells Python you're defining a reusable block.\n- `calculate_average` is the name you're giving it you choose this.\n- `(scores)` is a **parameter** a placeholder for whatever list of numbers gets handed to it later.\n- The colon `:` and the indented lines below mark what happens *inside* the function.\n- `return` sends a result back out to wherever the function was called from."
+            },
+            "stage3": {
+              "codeTemplate": "_____________________:\n    return sum(scores) / len(scores)\n\nprint(calculate_average([85, 90, 78]))",
+              "tokens": [
+                {
+                  "value": "def calculate_average(scores)",
+                  "correct": true
+                },
+                {
+                  "value": "def calculate_average(scores);",
+                  "correct": false,
+                  "hint": "Almost Python defines functions with `def`, and the line ends with a colon `:`, not a semicolon."
+                },
+                {
+                  "value": "function calculate_average(scores)",
+                  "correct": false,
+                  "hint": "Almost Python defines functions with `def`, not `function`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "f2_c1",
+            "scenario": "Print a welcome message on screen every time someone opens the app the message itself never needs to be used anywhere else afterward, it just needs to be shown.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Package the action itself the act of displaying something without needing to hand any result back afterward.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Package it so it hands back the message as a result, in case something later needs to reuse that exact text.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Just write the print line directly every time the app opens, without wrapping it in anything reusable.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Nothing in this scenario ever needs to reuse the welcome text afterward it's only ever displayed once, right there. Does handing back a result actually serve a purpose here?",
+                  "attempt2": [
+                    {
+                      "text": "No since nothing downstream needs the message as data, the function can just perform the action and be done.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "Yes, it's safer to always hand something back just in case.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "What if five different screens in the app all need to show this same welcome message? Would writing the print line separately on each screen create the same maintenance problem as before?",
+                  "attempt2": [
+                    {
+                      "text": "Yes wrapping it in a reusable, named block means every screen calls the same one place.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, it's just one line, it's fine to repeat.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is a function with no `return` at all it performs an action (like printing) and simply finishes. Not every function needs to hand a result back; some exist purely to *do* something, like `def show_welcome(): print('Welcome to PyBe!')`."
+            },
+            "stage3": {
+              "codeTemplate": "______________________:\n    print(\"Welcome to PyBe!\")\n\nshow_welcome()",
+              "tokens": [
+                {
+                  "value": "def show_welcome()",
+                  "correct": true
+                },
+                {
+                  "value": "def show_welcome() return",
+                  "correct": false,
+                  "hint": "This function doesn't need to hand anything back no `return` needed."
+                },
+                {
+                  "value": "def show_welcome[]",
+                  "correct": false,
+                  "hint": "Wrong brackets use parentheses `()`, not square brackets."
+                }
+              ]
+            }
+          },
+          {
+            "id": "f2_c2",
+            "scenario": "Calculate the tip amount for a restaurant bill the amount changes every time depending on the bill total and what percentage the customer chooses, and the result needs to be used afterward to print the final total.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Package the calculation so it accepts the bill and the percentage as inputs, and hands back the tip amount as a result to use afterward.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Package the calculation so it prints the tip directly inside itself, without handing anything back.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Package the calculation with the bill and percentage typed directly inside it, fixed in place.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "You also need to add the tip to the bill afterward to show a grand total. If the function only prints the tip and never hands it back, is that number available anywhere else in your program?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the actual number returned, so I can use it in further calculations, not just displayed.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just retype the tip amount by hand after reading what got printed.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Every customer's bill and desired tip percentage is different. If the numbers are fixed inside the function itself, does it still work for the next customer with a different bill?",
+                  "attempt2": [
+                    {
+                      "text": "No the bill and percentage need to be inputs the function accepts, not fixed numbers baked inside it.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd just rewrite the function each time with new fixed numbers.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This function takes **two parameters** `bill` and `percent` and uses `return` to hand back a calculated result: `def calculate_tip(bill, percent): return bill * (percent / 100)`. Whatever the function returns can then be stored, printed, or used in further math wherever it's called."
+            },
+            "stage3": {
+              "codeTemplate": "def calculate_tip(bill, percent):\n    ________________________\n\ntip = calculate_tip(500, 15)\nprint(tip)",
+              "tokens": [
+                {
+                  "value": "return bill * (percent / 100)",
+                  "correct": true
+                },
+                {
+                  "value": "print bill * (percent / 100)",
+                  "correct": false,
+                  "hint": "This shows the number but doesn't hand it back `tip` outside the function would have nothing to store."
+                },
+                {
+                  "value": "return bill * percent / 100 / 100",
+                  "correct": false,
+                  "hint": "This double-divides by 100 wrong math."
+                }
+              ]
+            }
+          },
+          {
+            "id": "f2_c3",
+            "scenario": "Send a shipping confirmation message for every order. Almost every order ships via 'Standard' delivery, but a rare few customers pay extra for 'Express' right now you have to type the shipping method for every single order, even though it's 'Standard' almost every time.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Give the shipping-method input an automatic fallback value that's used whenever nothing different is specified, so you only type something when it's actually different.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Require the shipping method to be typed in every single time, even when it's almost always the same value.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Write two separate, nearly identical functions one for Standard orders and one for Express orders.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If 95% of orders are 'Standard,' how much repeated, unnecessary typing does requiring it every single time create for a value that almost never actually changes?",
+                  "attempt2": [
+                    {
+                      "text": "A lot there should be a way to assume 'Standard' automatically unless told otherwise.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "That's fine, typing it every time isn't a big deal.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Both functions would share almost every line except the shipping method itself. If you later need to fix a typo in the confirmation message, would you have to fix it in two separate places?",
+                  "attempt2": [
+                    {
+                      "text": "Yes better to have one function where only the shipping method can optionally change.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "That's fine, I don't mind maintaining two copies.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This uses a **default parameter value**: `def confirm_shipping(order_id, method=\"Standard\")`. If nothing is passed in for `method`, Python automatically uses `\"Standard\"` but you can still override it by passing something else, like `\"Express\"`, when needed."
+            },
+            "stage3": {
+              "codeTemplate": "def confirm_shipping(order_id, ______________):\n    print(\"Order\", order_id, \"shipping via\", method)\n\nconfirm_shipping(101)\nconfirm_shipping(102, \"Express\")",
+              "tokens": [
+                {
+                  "value": "method=\"Standard\"",
+                  "correct": true
+                },
+                {
+                  "value": "method = Standard",
+                  "correct": false,
+                  "hint": "`Standard` needs quotes around it, `\"Standard\"`, or Python reads it as a variable name that doesn't exist."
+                },
+                {
+                  "value": "\"Standard\"=method",
+                  "correct": false,
+                  "hint": "The parameter name comes first, then `=`, then its default value."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: Movie Ticket Pricing",
+        "caseStudies": [
+          {
+            "id": "f3_c1",
+            "scenario": "Calculate a movie ticket price based on the customer's age. But if someone accidentally enters a negative age, the function shouldn't try to calculate a price at all it should immediately stop and report that the age is invalid.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Check the age first if it's invalid, immediately hand back an error and stop right there, without running any of the pricing logic below it.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Calculate the ticket price as normal first, and only check afterward whether the age made sense.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Calculate the price using the age as given, and let a negative price simply show up as the result.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If the age is negative, is there ever a version of 'ticket price for a negative age' that actually makes sense? Wouldn't it be better to catch the problem *before* doing any pricing math at all?",
+                  "attempt2": [
+                    {
+                      "text": "Yes the invalid check should happen first, before any pricing calculation even runs.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine to calculate first and just double check the result looks reasonable after.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Would a customer ever actually see a negative price on a real receipt? What should happen instead the moment an impossible input like that is detected?",
+                  "attempt2": [
+                    {
+                      "text": "The function should immediately exit with an error message the moment it detects an impossible input, rather than continuing on to calculate anything.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just tell the customer to ignore a negative number if they see one.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'stop immediately if something's wrong, before doing the rest' uses an **early `return`**. Inside a function, `return` doesn't just hand back a result; it also immediately **exits** the function right there, skipping every line after it even if there's more code below. So placing a `return` inside an `if` at the top of a function lets you handle bad input and leave immediately, before the real logic runs."
+            },
+            "stage3": {
+              "codeTemplate": "def ticket_price(age):\n    if age < 0:\n        _______________________________\n    if age < 12:\n        return 100\n    return 250\n\nprint(ticket_price(-5))   # should show Invalid age\nprint(ticket_price(8))    # should show 100\nprint(ticket_price(20))   # should show 250",
+              "tokens": [
+                {
+                  "value": "return \"Invalid age\"",
+                  "correct": true
+                },
+                {
+                  "value": "print(\"Invalid age\")",
+                  "correct": false,
+                  "hint": "This displays the message, but the function keeps going and still calculates a price below it. `return` is what stops it."
+                },
+                {
+                  "value": "break",
+                  "correct": false,
+                  "hint": "`break` only works inside loops. Inside a function, `return` is what exits early."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Order Total Calculator (Functions Calling Functions)",
+        "caseStudies": [
+          {
+            "id": "f4_c1",
+            "scenario": "Calculate the final total for an online order: the subtotal (price × quantity), the tax on that subtotal, and the two added together but the tax calculation depends entirely on the subtotal already being calculated first.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Write a separate, smaller function for each piece one for the subtotal, one for the tax and have a third function call both of them and combine their results.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Write one large function that does the subtotal math, the tax math, and the combining, all typed out together in a single block.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Calculate the subtotal and tax separately by hand each time, and only write a function for adding the two together.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What if a different part of the app a receipt screen needs *just* the tax amount on its own, without the subtotal or the total? If everything is bundled into one function, can that piece be reused by itself?",
+                  "attempt2": [
+                    {
+                      "text": "No each calculation should be its own separate, reusable function, even if one calls another.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "That's fine, I'd just copy the tax math out separately wherever it's needed again.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "The subtotal and tax calculations are exactly the kind of repeatable logic functions are meant to handle. If they're done by hand outside any function, does the combining function actually have a subtotal and tax to work with automatically?",
+                  "attempt2": [
+                    {
+                      "text": "No the subtotal and tax should each be their own functions too, so the combining function can call them directly instead of relying on numbers typed in by hand.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I'll always calculate those two by hand right before calling the combining function.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is **function composition** one function calling another. It isn't a new keyword; it's two things you already know (`def` and `return`) used together: `calculate_total()` calls `calculate_subtotal()` to get one result, calls `calculate_tax()` using that result to get a second, and returns their sum. Each function stays focused on exactly one job, and can still be reused on its own elsewhere."
+            },
+            "stage3": {
+              "codeTemplate": "def calculate_subtotal(price, quantity):\n    return price * quantity\n\ndef calculate_tax(subtotal):\n    return subtotal * 0.08\n\ndef calculate_total(price, quantity):\n    subtotal = ___________________________\n    tax = ______________________\n    return subtotal + tax\n\nprint(calculate_total(200, 3))  # price=200, qty=3 → subtotal=600, tax=48, total=648",
+              "tokens": [
+                {
+                  "value": "calculate_subtotal(price, quantity)",
+                  "correct": true
+                },
+                {
+                  "value": "calculate_tax(subtotal)",
+                  "correct": true
+                },
+                {
+                  "value": "calculate_subtotal(price)",
+                  "correct": false,
+                  "hint": "`calculate_subtotal` needs both `price` and `quantity` to run it's missing one."
+                },
+                {
+                  "value": "calculate_tax(price, quantity)",
+                  "correct": false,
+                  "hint": "`calculate_tax` expects the `subtotal`, not the raw `price` and `quantity`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "f5_c1",
+            "scenario": "Design a new case study for **keyword arguments** (calling a function using `name=value` pairs, like `calculate_tip(bill=500, percent=15)`, instead of relying on position order) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I am ready to build my own case study.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for keyword arguments. You're not just solving the scaffold, you're designing how to teach a new way of calling functions."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "string-manipulation",
+    "topicName": "String Manipulation",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: Conference Badge Initials",
+        "caseStudies": [
+          {
+            "id": "s1_c1",
+            "scenario": "Print just the first letter of each attendee's name on their conference badge for hundreds of attendees, you're currently looking at each name and manually typing just its first letter yourself.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Grab the character sitting at a specific position in the text the very first one directly, instead of retyping it by hand.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Read the whole name and manually copy just the first letter for each person.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Keep a separate list of everyone's initials, prepared in advance, and print from that instead.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                },
+                {
+                  "text": "Delete every letter except the first one, using a text editor, for each name.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_3"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "With hundreds of attendees registering right up until the event, would manually reading and retyping each name's first letter still be realistic on the day?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the computer to grab that one position automatically, for any name, without me reading it myself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I'll just work faster.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That list has to be built by doing this same manual work in advance, for every single name. Does preparing the list ahead of time actually avoid the original problem, or just move it earlier?",
+                  "attempt2": [
+                    {
+                      "text": "It just moves the same manual work earlier I still need a way to grab the first character automatically, for any name, at any time.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, doing it in advance is good enough.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_3": {
+                  "prompt": "That still requires opening and editing every single name by hand, one at a time. How is that different in effort from typing each initial yourself?",
+                  "attempt2": [
+                    {
+                      "text": "It isn't really different I need the position of the first character grabbed automatically, not edited by hand.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's a bit faster, so it's fine.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'grab the character at a specific position' is written in Python using **indexing** with square brackets. Breaking it down:\n- Every character in a string has a **position**, called an index, starting from `0` not `1`.\n- `name[0]` means 'give me the character at position 0' the very first one.\n- Square brackets `[ ]` are how Python accesses a position in a string."
+            },
+            "stage3": {
+              "codeTemplate": "name = \"Aditi\"\ninitial = _____\nprint(initial)",
+              "tokens": [
+                {
+                  "value": "name[0]",
+                  "correct": true
+                },
+                {
+                  "value": "name[1]",
+                  "correct": false,
+                  "hint": "Off-by-one this gives the second letter, not the first. Positions start at 0."
+                },
+                {
+                  "value": "name(0)",
+                  "correct": false,
+                  "hint": "Wrong brackets Python uses square brackets `[ ]` for indexing, not parentheses."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "s2_c1",
+            "scenario": "Extract the area code the first 3 digits from a phone number like '9876543210' for every customer record, instead of manually counting and copying the first three digits each time.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Grab a whole range of characters at once from the start up to (but not including) a certain position directly.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Grab each of the first three characters one at a time, individually, and join them back together.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Manually count and copy the first three digits from each phone number by eye.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "You already know how to grab a single character by its position. If you need three characters that sit right next to each other, is there a way to ask for that whole *range* in one step, instead of three separate ones?",
+                  "attempt2": [
+                    {
+                      "text": "Yes ask for a whole range of positions at once, instead of grabbing each character separately.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, I'll always grab them one at a time and join them.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "With thousands of customer records, would counting and copying the first three digits by eye, every single time, actually be practical?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the computer to grab that range of positions automatically, for any phone number.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I'll just be careful counting each time.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is **slicing**: `phone[0:3]` means 'give me everything from position 0 up to, but not including, position 3' that's exactly three characters. The first number is where to start, the second is where to stop (without including that position)."
+            },
+            "stage3": {
+              "codeTemplate": "phone = \"9876543210\"\narea_code = __________\nprint(area_code)",
+              "tokens": [
+                {
+                  "value": "phone[0:3]",
+                  "correct": true
+                },
+                {
+                  "value": "phone[0:4]",
+                  "correct": false,
+                  "hint": "Off-by-one this includes an extra digit."
+                },
+                {
+                  "value": "phone[0,3]",
+                  "correct": false,
+                  "hint": "Wrong punctuation slicing uses a colon `:`, not a comma."
+                }
+              ]
+            }
+          },
+          {
+            "id": "s2_c2",
+            "scenario": "Users type their names in all sorts of styles 'JOHN', 'john', '  John  ' with extra spaces and every name needs to look neat and consistently capitalized (like 'John') before it's saved, instead of manually retyping each one to fix it.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Use built-in text-cleanup actions to strip extra spaces and fix the capitalization automatically, for any name typed in.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Ask users to retype their name correctly if it looks wrong.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Manually open each saved record afterward and fix the spacing and capitalization by hand.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If a user doesn't notice their name looks wrong, or doesn't bother fixing it, does asking politely actually guarantee clean data gets saved?",
+                  "attempt2": [
+                    {
+                      "text": "No the cleanup should happen automatically, without depending on the user noticing or cooperating.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, most users will fix it if asked.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "New signups keep happening every day. Does fixing old records by hand do anything to stop *new* messy names from being saved tomorrow?",
+                  "attempt2": [
+                    {
+                      "text": "No the cleanup needs to happen automatically to every name, right when it's entered, not applied by hand afterward.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I'll just keep fixing records manually as they come in.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Python has built-in **string methods** for exactly this: `.strip()` removes extra spaces from the start and end, and `.title()` capitalizes the first letter of each word. Chaining them together `name.strip().title()` cleans the whole thing in one step."
+            },
+            "stage3": {
+              "codeTemplate": "name = \"  john  \"\nclean_name = name.____________.____________\nprint(clean_name)",
+              "tokens": [
+                {
+                  "value": "strip()",
+                  "correct": true
+                },
+                {
+                  "value": "title()",
+                  "correct": true
+                },
+                {
+                  "value": "Strip()",
+                  "correct": false,
+                  "hint": "Wrong capitalization Python method names are case-sensitive and lowercase."
+                },
+                {
+                  "value": "strip",
+                  "correct": false,
+                  "hint": "Methods need parentheses `()` to actually run, even with nothing inside them."
+                }
+              ]
+            }
+          },
+          {
+            "id": "s2_c3",
+            "scenario": "Automatically flag any comment that contains the word 'spam' anywhere inside it, instead of reading every single comment yourself to check.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Ask directly whether that word appears anywhere inside the comment's text.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Check only whether the comment's text exactly equals the word 'spam,' with nothing else in it.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Read through the comment character by character yourself, comparing chunks of it to the word 'spam.'",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "A real comment might be 'this looks like spam to me' the whole comment isn't just the word 'spam,' but it does contain it. Would checking for an exact match catch that comment?",
+                  "attempt2": [
+                    {
+                      "text": "No I need to check whether the word appears *anywhere inside* the comment, not whether the comment is only that word.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "That's fine, I'll assume spam comments are always just the one word.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "There's already a direct, one-step way to ask 'does this smaller piece of text appear inside this larger piece of text?' Would writing your own character-by-character comparison actually do anything that direct check doesn't already do?",
+                  "attempt2": [
+                    {
+                      "text": "No I should just use the direct built-in way of checking if one piece of text appears inside another.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll still write my own comparison, just to be thorough.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is the **`in`** operator used with text: `\"spam\" in comment` asks 'does this exact piece of text appear anywhere inside `comment`?' and gives back `True` or `False` no counting, no character-by-character comparison needed."
+            },
+            "stage3": {
+              "codeTemplate": "comment = \"this looks like spam to me\"\nis_flagged = ________________\nprint(is_flagged)",
+              "tokens": [
+                {
+                  "value": "\"spam\" in comment",
+                  "correct": true
+                },
+                {
+                  "value": "\"spam\" == comment",
+                  "correct": false,
+                  "hint": "`==` only matches if the *entire* comment is exactly `\"spam\"`. `in` checks whether it appears anywhere inside."
+                },
+                {
+                  "value": "comment in \"spam\"",
+                  "correct": false,
+                  "hint": "This checks whether the whole comment appears inside the single word 'spam,' which is backwards."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: Masked Card Number",
+        "caseStudies": [
+          {
+            "id": "s3_c1",
+            "scenario": "Show a credit card number on a receipt, but hide every digit except the last four for example, '1234567890123456' should display as '************3456'.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Grab the last four characters using position-based extraction like before, and join that with a run of asterisks placed in front of it.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Manually replace every digit except the last four, one at a time, for each card number.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Turn the entire number into asterisks first, then count from the front to place the real last four digits back in.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Card numbers can be 15 or 16 digits depending on the card type. Would manually replacing digits one at a time still work cleanly if you didn't know the length in advance?",
+                  "attempt2": [
+                    {
+                      "text": "No I need an approach that works regardless of exactly how many digits there are.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, most cards are the same length anyway.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "This depends on knowing the *exact total length* to count back in the real digits correctly. What happens if one customer's card number is a different length than you assumed?",
+                  "attempt2": [
+                    {
+                      "text": "It could place the real digits in the wrong spot. I should extract the last four directly, by position from the *end*, rather than counting from the front based on an assumed total length.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just assume every card number is exactly the same length.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "You already know slicing from position 0. Slicing also works from the **end** using negative positions: `card[-4:]` means 'give me everything from the 4th-to-last character onward' the last four digits, regardless of total length. To build the masked version, Python can also **multiply** a string `\"*\" * 12` repeats the asterisk 12 times and **join** two strings together end-to-end using `+`."
+            },
+            "stage3": {
+              "codeTemplate": "card = \"1234567890123456\"\nlast_four = card[-4:]\nmasked = _______________________________\nprint(masked)",
+              "tokens": [
+                {
+                  "value": "\"*\" * 12 + last_four",
+                  "correct": true
+                },
+                {
+                  "value": "\"*\" + 12 + last_four",
+                  "correct": false,
+                  "hint": "Python can't `+` a string and a number together directly string repetition needs `*`, like `\"*\" * 12`."
+                },
+                {
+                  "value": "\"*\" * 12 - last_four",
+                  "correct": false,
+                  "hint": "Subtraction doesn't apply to strings joining two strings together uses `+`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Business Card Formatter (Combining String Mechanics)",
+        "caseStudies": [
+          {
+            "id": "s4_c1",
+            "scenario": "Turn messy input a name typed as '  john smith  ' and a title typed as 'software engineer' into a properly formatted business card line: 'John Smith, Software Engineer' cleanly capitalized, with no extra spaces, correctly joined together.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "First remove the extra spaces and fix the capitalization on both pieces separately, then join them together with the right punctuation in between.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Join the name and title together first, exactly as typed, then try to fix the spacing and capitalization of the combined result afterward.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Just join the two pieces together with a comma, and leave the spacing and capitalization exactly as the user typed them.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Once 'john smith' and 'software engineer' are merged into one long piece of text with a comma, is it still just as easy to fix each part's capitalization individually? Or does cleaning each piece separately, *before* joining, make this simpler?",
+                  "attempt2": [
+                    {
+                      "text": "It's simpler to clean each piece separately first clean each one, and only combine them at the very end.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine either way, I'll fix the combined text afterward.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Would '  john smith  , software engineer' actually look like a properly formatted business card line to a customer?",
+                  "attempt2": [
+                    {
+                      "text": "No both pieces need their spacing and capitalization cleaned up before being joined, not left exactly as typed.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's close enough, customers won't mind.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This combines everything you already know: `.strip()` and `.title()` clean each piece individually `name.strip().title()` and `title.strip().title()` and then an **f-string** joins them into one final formatted line: `f\"{name}, {title}\"` inserts each cleaned value directly into the text, in the right place, without manually adding `+` between every piece."
+            },
+            "stage3": {
+              "codeTemplate": "name = \"  john smith  \"\ntitle = \"software engineer\"\n\nclean_name = name.strip().title()\nclean_title = title.strip().title()\n\nbusiness_card = ______________________________\nprint(business_card)",
+              "tokens": [
+                {
+                  "value": "f\"{clean_name}, {clean_title}\"",
+                  "correct": true
+                },
+                {
+                  "value": "\"clean_name, clean_title\"",
+                  "correct": false,
+                  "hint": "Without the `f` and curly braces `{}`, Python prints the literal words `clean_name` and `clean_title`, not what's stored inside them."
+                },
+                {
+                  "value": "f\"{name}, {title}\"",
+                  "correct": false,
+                  "hint": "This inserts the original, un-cleaned `name` and `title` use `clean_name` and `clean_title` instead."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "s5_c1",
+            "scenario": "Design a new case study for **f-strings versus plain `+` concatenation** (when inserting numbers or multiple values makes an f-string clearer than chaining `+` signs together) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I am ready to build my own case study.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for f-strings versus `+` concatenation. You're not just formatting text correctly, you're designing how to teach a cleaner way of doing it."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "error-handling",
+    "topicName": "Error Handling (try/except)",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: Quiz Age Crash",
+        "caseStudies": [
+          {
+            "id": "e1_c1",
+            "scenario": "A quiz app asks the user to type their age as a number. If someone accidentally types 'twenty' instead of '20,' the entire program crashes immediately with a red error message and everything else the quiz was about to do never happens.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Watch the risky part of the code specifically, and if something goes wrong there, catch it and let the program keep running with a friendly message instead of crashing.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Tell users very clearly, in big letters, to only type numbers, and hope they follow the instructions.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Check character by character whether the typed input looks like a number, before trying to use it.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                },
+                {
+                  "text": "Automatically restart the whole program whenever it crashes.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_3"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Even with clear instructions, will every single user always type exactly what's expected? What happens to the program the very first time someone doesn't?",
+                  "attempt2": [
+                    {
+                      "text": "It still crashes instructions alone don't stop bad input from reaching the program; something needs to catch it when it happens anyway.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, most users will follow instructions.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "This same crash risk could show up in dozens of different places in a program reading a file, connecting to the internet, dividing numbers. Would you rewrite a custom character-by-character check for every single one of those situations?",
+                  "attempt2": [
+                    {
+                      "text": "No I need one general way to catch something going wrong, wherever it happens, instead of custom-checking every possible mistake in advance.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "Yes, I'd write a custom check for each situation separately.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_3": {
+                  "prompt": "If the program restarts completely from scratch every time it crashes, what happens to any progress or data the user already had in that session?",
+                  "attempt2": [
+                    {
+                      "text": "It's all lost restarting doesn't preserve anything; I need the program to recover from the specific problem and keep going, not start over entirely.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "That's fine, users can just start again.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'watch for a problem and catch it instead of crashing' is written in Python as a **`try`/`except`** block. Breaking it down:\n- `try:` marks the block of code that might fail.\n- Python runs everything inside `try` normally, until (and unless) something goes wrong.\n- `except:` marks what to do *instead*, only if something inside `try` actually fails.\n- If nothing goes wrong, the `except` block is simply skipped entirely."
+            },
+            "stage3": {
+              "codeTemplate": "user_input = \"twenty\"  # simulating a bad input\n_____:\n    age = int(user_input)\n    print(\"Your age is:\", age)\n_______:\n    print(\"That's not a valid number!\")",
+              "tokens": [
+                {
+                  "value": "try",
+                  "correct": true
+                },
+                {
+                  "value": "except",
+                  "correct": true
+                },
+                {
+                  "value": "attempt",
+                  "correct": false,
+                  "hint": "Python uses `try`, not `attempt`."
+                },
+                {
+                  "value": "catch",
+                  "correct": false,
+                  "hint": "Python uses `except`, not `catch` that's from other languages like JavaScript or Java."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "e2_c1",
+            "scenario": "A calculator app divides two numbers the user types in. Typing '0' as the second number crashes it one way; typing a letter instead of a number crashes it a completely different way. Right now both crash identically, but the app should tell the user exactly what actually went wrong.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Catch each specific kind of problem separately, so a division-by-zero gets its own message, and a non-number entry gets a different one.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Catch absolutely anything that could possibly go wrong with one single, generic 'something went wrong' message, regardless of what actually happened.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Add a check specifically for division by zero, and simply ignore the possibility of someone typing a letter instead of a number.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "A user who typed a letter and a user who tried dividing by zero made two completely different mistakes. Does one identical, generic message actually help either of them understand what they did wrong?",
+                  "attempt2": [
+                    {
+                      "text": "No different kinds of problems deserve different, specific messages, so the user knows exactly what to fix.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, a generic message stops the crash, that's the important part.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If someone types a letter instead of a number, and you only prepared for division by zero, does the program still crash on that second kind of mistake?",
+                  "attempt2": [
+                    {
+                      "text": "Yes every distinct kind of problem needs its own specific check, not just the one you happened to think of first.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, dividing by zero is the only mistake I need to worry about.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Python lets you catch **specific error types** with separate `except` blocks: `except ZeroDivisionError:` catches division by zero specifically, and `except ValueError:` catches an invalid number specifically. Python checks them in order and runs whichever one actually matches what went wrong."
+            },
+            "stage3": {
+              "codeTemplate": "a = \"10\"  # try changing to \"hello\" to trigger ValueError\nb = \"0\"   # try changing to \"2\" for a clean result\ntry:\n    result = int(a) / int(b)\n    print(\"Result:\", result)\n______________________:\n    print(\"You can't divide by zero!\")\n______________________:\n    print(\"Please enter valid numbers!\")",
+              "tokens": [
+                {
+                  "value": "except ZeroDivisionError",
+                  "correct": true
+                },
+                {
+                  "value": "except ValueError",
+                  "correct": true
+                },
+                {
+                  "value": "except Error",
+                  "correct": false,
+                  "hint": "`Error` isn't a real Python error type the specific names are `ZeroDivisionError` and `ValueError`."
+                },
+                {
+                  "value": "except:",
+                  "correct": false,
+                  "hint": "This catches everything the same way again, losing the specific message for each problem."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e2_c2",
+            "scenario": "Check a user's password. If it's correct with no errors at all, print 'Login successful' but only in that clean success case, kept separate from the risky checking code itself.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Add a block that runs *only* when nothing in the risky part went wrong at all a dedicated 'everything succeeded' section.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Just put the success message as the very last line inside the risky block itself.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Print the success message right after the whole risky-and-catching section, regardless of whether an error happened or not.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If a completely unrelated risky step were added later, right above the success message inside that same block, would the success message still only print on genuine success or could it get tangled up with unrelated risky code?",
+                  "attempt2": [
+                    {
+                      "text": "It's safer to keep the 'only-on-success' message in its own separate, clearly labeled section instead of just tucking it inside the risky block.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, keeping it as the last line inside the block works well enough.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If the password check actually fails, should 'Login successful' still print? What does printing it unconditionally, no matter what happened, actually communicate to the user?",
+                  "attempt2": [
+                    {
+                      "text": "No the success message should only appear when there genuinely was no error, not automatically every single time.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, users will just ignore it if it's wrong.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This uses `try/except/else`. The **`else`** block runs *only* if nothing in `try` raised an error it's the dedicated place for 'this only happens on clean success,' kept separate from both the risky code and the error-handling code."
+            },
+            "stage3": {
+              "codeTemplate": "entered_password = \"secret123\"  # try changing to \"wrong\" to trigger the error\ncorrect_password = \"secret123\"\n\ndef check_password(pw):\n    if pw != correct_password:\n        raise ValueError(\"Wrong password\")\n\ntry:\n    check_password(entered_password)\nexcept ValueError:\n    print(\"Incorrect password!\")\n______:\n    print(\"Login successful!\")",
+              "tokens": [
+                {
+                  "value": "else",
+                  "correct": true
+                },
+                {
+                  "value": "finally",
+                  "correct": false,
+                  "hint": "`finally` always runs, even after an error. `else` is what runs only when nothing went wrong."
+                },
+                {
+                  "value": "except",
+                  "correct": false,
+                  "hint": "Another `except` still only runs when something fails `else` is for the success case."
+                }
+              ]
+            }
+          },
+          {
+            "id": "e2_c3",
+            "scenario": "Whenever a program opens a settings file, it needs to close that file when it's done whether the file was read successfully or an error happened partway through. Right now, if an error happens partway through reading, the closing step gets skipped entirely.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Add a block that always runs no matter what whether the risky part succeeded or failed specifically for cleanup steps like this.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Put the closing step as the very last line inside the risky block, right after the reading happens.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Repeat the closing step in both the success case and every single error case separately, one copy in each place.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If the error happens *while* reading the file before reaching the closing line right after it does that closing line ever actually get a chance to run?",
+                  "attempt2": [
+                    {
+                      "text": "No if the error interrupts the block before that line, the closing step never happens. I need something that runs regardless of where or whether an error occurred.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, most of the time it'll still get there.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If there are five different kinds of errors that could happen, each with its own `except` block, would you paste the same closing step into all five?",
+                  "attempt2": [
+                    {
+                      "text": "That's a lot of repetition for the exact same step. There should be one place for cleanup that always runs, regardless of which path was taken.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I don't mind repeating it in each one.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This uses `try/except/finally`. The **`finally`** block always runs whether `try` succeeded, whether an `except` caught something, or even if the error was never caught at all. It's the dedicated place for cleanup that must happen no matter what."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nsettings_file = None\ntry:\n    settings_file = io.StringIO(\"theme=dark\\nfontSize=14\")  # simulated file\n    data = settings_file.read()\n    print(\"Settings loaded:\", data)\nexcept Exception:\n    print(\"Settings file is missing!\")\n_______:\n    if settings_file:\n        settings_file.close()\n    print(\"File closed.\")",
+              "tokens": [
+                {
+                  "value": "finally",
+                  "correct": true
+                },
+                {
+                  "value": "else",
+                  "correct": false,
+                  "hint": "`else` only runs when nothing goes wrong. `finally` runs no matter what, which is what cleanup needs."
+                },
+                {
+                  "value": "except",
+                  "correct": false,
+                  "hint": "Another `except` wouldn't run at all if the file opened successfully `finally` runs either way."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: ATM Withdrawal Guard",
+        "caseStudies": [
+          {
+            "id": "e3_c1",
+            "scenario": "Withdraw money from an ATM. If the requested amount is more than the account balance, the transaction should stop immediately and show 'Insufficient funds' even though, technically, nothing was going to fail automatically on its own here; this particular problem has to be noticed and flagged deliberately.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Manually flag this specific situation as an error yourself, the moment it's detected, so it gets caught and handled the same way any other error would be.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Just print a warning message about insufficient funds, and let the withdrawal go through anyway.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Use a simple condition check to catch this case and print an error message directly, kept completely separate from how any other errors in this same code get handled.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If the withdrawal happens regardless of the warning, does the account balance end up correct afterward? What does printing a warning actually *prevent*?",
+                  "attempt2": [
+                    {
+                      "text": "Nothing the withdrawal still needs to actually be stopped, not just warned about while still going through.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, the warning is enough to inform the user.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "What if this withdrawal function also needs to handle a separate problem, like the account being frozen, which *does* trigger a real, automatic error elsewhere in the same code? Would this insufficient-funds check be handled the same consistent way as that other error?",
+                  "attempt2": [
+                    {
+                      "text": "Not automatically it would help to make insufficient funds behave like any other error too, so all the problems in this function get handled the same consistent way.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I'll just keep the two handled completely differently.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'flag this myself, so it's caught like any other error' uses the **`raise`** keyword. `raise ValueError(\"Insufficient funds\")` deliberately creates an error, even though Python itself didn't detect one on its own. Once raised, it travels to the nearest matching `except` block and gets handled exactly the same way as a built-in error would."
+            },
+            "stage3": {
+              "codeTemplate": "balance = 500  # account balance\namount = 700   # try 200 for a successful withdrawal\ntry:\n    if amount > balance:\n        _______________________________________\n    balance = balance - amount\n    print(\"Withdrawal successful. New balance:\", balance)\nexcept ValueError as e:\n    print(e)",
+              "tokens": [
+                {
+                  "value": "raise ValueError(\"Insufficient funds\")",
+                  "correct": true
+                },
+                {
+                  "value": "print(ValueError(\"Insufficient funds\"))",
+                  "correct": false,
+                  "hint": "This only prints text about an error it doesn't stop the withdrawal or get caught by `except`. `raise` is what actually triggers it."
+                },
+                {
+                  "value": "return ValueError(\"Insufficient funds\")",
+                  "correct": false,
+                  "hint": "`return` hands a value back, it doesn't trigger an error to be caught. `raise` is what actually throws it."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Complete ATM Transaction (Combining Error-Handling Mechanics)",
+        "caseStudies": [
+          {
+            "id": "e4_c1",
+            "scenario": "Build the complete ATM withdrawal flow: attempt the withdrawal, catch invalid-amount errors and insufficient-funds errors *differently* from each other, show a success message only when nothing went wrong at all, and always print the updated balance at the end no matter what happened.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Catch each kind of problem with its own specific handler, add a success-only section for the clean case, and add a final section that always runs to show the balance regardless of outcome.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Catch every possible problem with one shared, generic error handler, and print the balance right after that shared handler.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Only handle the two error cases, and skip having any dedicated success message or guaranteed final balance display.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If an invalid amount and insufficient funds both get the exact same generic message, does the customer know which specific problem actually happened? And does the balance still get shown if there was no error at all?",
+                  "attempt2": [
+                    {
+                      "text": "No to both each problem needs its own specific message, and the balance needs to show in every case, including success, not just after an error.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, one generic message covers it well enough.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If the withdrawal actually succeeds with no problems at all, does the customer see any confirmation? And is there anything guaranteeing the balance is shown, whether it succeeded or failed?",
+                  "attempt2": [
+                    {
+                      "text": "No there should be a dedicated success message for the clean case, and a guaranteed final section that always shows the balance no matter what happened.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, the customer can just check their balance separately.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This combines everything from this unit into one working flow: multiple `except` blocks catch different specific errors (`ValueError` for insufficient funds, `TypeError` for an invalid amount), `else` runs only on clean success, and `finally` always runs at the very end, regardless of which path was taken, to display the balance."
+            },
+            "stage3": {
+              "codeTemplate": "balance = 500  # account balance\namount = 700   # try 200 for success, \"abc\" for TypeError, 700 for insufficient funds\ntry:\n    if not isinstance(amount, (int, float)):\n        raise TypeError(\"Invalid amount\")\n    if amount > balance:\n        raise ValueError(\"Insufficient funds\")\n    balance = balance - amount\nexcept TypeError:\n    print(\"Please enter a valid amount.\")\nexcept ValueError:\n    print(\"Insufficient funds.\")\n______:\n    print(\"Withdrawal successful!\")\n______:\n    print(\"Current balance:\", balance)",
+              "tokens": [
+                {
+                  "value": "else",
+                  "correct": true
+                },
+                {
+                  "value": "finally",
+                  "correct": true
+                },
+                {
+                  "value": "except",
+                  "correct": false,
+                  "hint": "Another `except` only runs on failure, not success. `else` is for the clean, error-free case."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "e5_c1",
+            "scenario": "Design a new case study for **custom exception classes** (writing your own error type by inheriting from Python's built-in `Exception`, instead of relying only on `ValueError` or `TypeError`) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I am ready to build my own case study.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for custom exception classes. You're not just handling errors correctly, you're designing how to teach a program-specific way of defining them."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
             }
           }
         ]

@@ -84,7 +84,7 @@ function TerminalOutput({ output, error }) {
   );
 }
 
-// ─── Stage 3 — Guided Code Build ─────────────────────────────────────────────
+// ─── Stage 3 Guided Code Build ─────────────────────────────────────────────
 export default function Stage3CodeBuild({ caseStudy, onComplete }) {
   const { stage3 } = caseStudy;
   const { codeTemplate, tokens } = stage3;
@@ -126,7 +126,7 @@ export default function Stage3CodeBuild({ caseStudy, onComplete }) {
       setFilledValues((prev) => ({ ...prev, [currentBlankIndex]: token.value }));
       setTokenHints({});
     } else {
-      setTokenHints((prev) => ({ ...prev, [tokenIndex]: token.hint || 'Not quite — try a different option.' }));
+      setTokenHints((prev) => ({ ...prev, [tokenIndex]: token.hint || 'Not quite try a different option.' }));
     }
   };
 
@@ -148,10 +148,10 @@ export default function Stage3CodeBuild({ caseStudy, onComplete }) {
         </div>
         <p style={{ color: C.muted, fontSize: '0.88rem', margin: 0 }}>
           {isFreeForm
-            ? 'Open-ended exercise — design your own case study.'
+            ? 'Open-ended exercise design your own case study.'
             : allBlanksFilled
             ? 'All blanks filled! Run the code to see it in action.'
-            : `Fill blank ${currentBlankIndex + 1} of ${blankCount} — click the correct token below.`}
+            : `Fill blank ${currentBlankIndex + 1} of ${blankCount} click the correct token below.`}
         </p>
       </div>
 

@@ -5,7 +5,7 @@ const router = express.Router();
 
 const contentPath = path.join(__dirname, '..', 'data', 'content.json');
 
-// GET /api/topics — list all topics with level counts
+// GET /api/topics list all topics with level counts
 router.get('/', (req, res) => {
   try {
     const data = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
   }
 });
 
-// GET /api/topics/:topicId — get full topic data including all levels + case studies
+// GET /api/topics/:topicId get full topic data including all levels + case studies
 router.get('/:topicId', (req, res) => {
   try {
     const data = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));

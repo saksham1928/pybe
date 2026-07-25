@@ -4,8 +4,8 @@ import React from 'react';
 // These sit on the warm-beige (#f4f1ea) background, so they need to be dark
 // enough for comfortable reading while still feeling lighter than the headings.
 export const C = {
-  text:       '#17201d',   // headings, option text — near-black
-  body:       '#2e3a35',   // paragraph / scenario body text — readable dark green-grey
+  text:       '#17201d',   // headings, option text near-black
+  body:       '#2e3a35',   // paragraph / scenario body text readable dark green-grey
   muted:      '#516058',   // secondary labels, hints, counts
   label:      '#3d524c',   // UPPERCASE small labels (e.g. "SCENARIO", "AVAILABLE TOKENS")
   success:    '#166534',

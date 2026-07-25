@@ -51,11 +51,11 @@ Every topic follows a **5–7 level progression** mapped to SOLO stages:
 
 | SOLO Stage | Level | What the Learner Experiences |
 |---|---|---|
-| **Prestructural** | Level 1 | *The pain scenario.* Feel the absence of the concept — experience the problem that the programming construct was invented to solve. |
+| **Prestructural** | Level 1 | *The pain scenario.* Feel the absence of the concept experience the problem that the programming construct was invented to solve. |
 | **Unistructural** | Level 2 | One isolated mechanic, heavily scaffolded. Learn the single simplest version of the concept. |
 | **Multistructural** | Level 3 | Parallel scenarios with different mechanics kept separate. See variations of the concept in isolation. |
 | **Relational** | Level 4 | A scenario that **breaks** unless mechanics are combined. Force integration of multiple ideas. |
-| **Extended Abstract** | Level 5+ | **Teach-back** — design a case study for a peer, proving mastery by creating, not just consuming. |
+| **Extended Abstract** | Level 5+ | **Teach-back** design a case study for a peer, proving mastery by creating, not just consuming. |
 
 This taxonomy ensures learners don't just accumulate facts; they progressively build **structural understanding** of how concepts interconnect.
 
@@ -73,10 +73,10 @@ Each case study implements a complete Kolb cycle, doubled:
 │   └──▶ Reflective prompts that nudge without giving answers │
 │                                                             │
 │   Abstract Conceptualisation                                │
-│   └──▶ Concept Reveal — syntax explained piece by piece     │
+│   └──▶ Concept Reveal syntax explained piece by piece     │
 │                                                             │
 │   Active Experimentation                                    │
-│   └──▶ Guided Code Build — running real Python              │
+│   └──▶ Guided Code Build running real Python              │
 │                                                             │
 │   Concrete Experience (concrete)                            │
 │   └──▶ Seeing the code execute and produce output           │
@@ -88,20 +88,20 @@ Each case study implements a complete Kolb cycle, doubled:
 
 The **three-stage engine** implements scaffolded learning that fades support:
 
-- **Stage 1 (Logic Test):** Maximum scaffolding — multiple-choice options in plain English, reflective prompts on wrong answers
-- **Stage 2 (Concept Reveal):** Guided explanation — syntax introduced with full contextual breakdown
-- **Stage 3 (Code Build):** Minimum scaffolding — fill-in-the-blank with token buttons, inline corrections only (no reflective cycles)
+- **Stage 1 (Logic Test):** Maximum scaffolding multiple-choice options in plain English, reflective prompts on wrong answers
+- **Stage 2 (Concept Reveal):** Guided explanation syntax introduced with full contextual breakdown
+- **Stage 3 (Code Build):** Minimum scaffolding fill-in-the-blank with token buttons, inline corrections only (no reflective cycles)
 
-This mirrors Vygotsky's principle of *"guided practice with fading support"* — the conceptual heavy lifting is done by Stage 1; Stage 3 is pure retrieval/consolidation.
+This mirrors Vygotsky's principle of *"guided practice with fading support"* the conceptual heavy lifting is done by Stage 1; Stage 3 is pure retrieval/consolidation.
 
 ### 4. Cognitive Load Theory
 
 Case studies are designed with strict rules to manage cognitive load:
 
-- **One new mechanic per case study** — never introduce two concepts simultaneously
-- **Plain English first** — separates logical reasoning from syntax recognition, halving the cognitive load at each stage
-- **Progressive disclosure** — syntax only appears after the learner has already committed to the correct logical approach
-- **Inline corrections** (Stage 3) instead of full reflective cycles — once the concept is understood, wrong clicks get a quick fix, not a heavy redirect
+- **One new mechanic per case study** never introduce two concepts simultaneously
+- **Plain English first** separates logical reasoning from syntax recognition, halving the cognitive load at each stage
+- **Progressive disclosure** syntax only appears after the learner has already committed to the correct logical approach
+- **Inline corrections** (Stage 3) instead of full reflective cycles once the concept is understood, wrong clicks get a quick fix, not a heavy redirect
 
 ### 5. Constructivism (Piaget)
 
@@ -109,7 +109,7 @@ The entire platform is built on the constructivist principle that **knowledge is
 
 - Learners **build** understanding by encountering problems first
 - **Teach-back levels** (Level 5+) are the ultimate constructivist exercise: design a case study for a peer
-- Reflective prompts are Socratic — they **nudge** toward the answer without stating it
+- Reflective prompts are Socratic they **nudge** toward the answer without stating it
 - The platform never tells a learner they're wrong without asking *"but what about...?"*
 
 ---
@@ -147,19 +147,19 @@ Every case study in PyBe runs through the same pedagogical engine:
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│  STAGE 1 — Logic Test (Plain English)                │
+│  STAGE 1 Logic Test (Plain English)                │
 │  ┌─────────────────────────────────────────────────┐ │
 │  │  Scenario presented in everyday language         │ │
 │  │                                                  │ │
 │  │  Attempt 1: Multiple-choice logic options        │ │
-│  │  (no Python syntax — pure strategy selection)    │ │
+│  │  (no Python syntax pure strategy selection)    │ │
 │  │                                                  │ │
 │  │  ✅ Correct → advance to Stage 2                 │ │
 │  │  ❌ Wrong   → Reflective Prompt → Attempt 2      │ │
 │  │  🟡 Partial → Reflective Prompt → Attempt 2      │ │
 │  └─────────────────────────────────────────────────┘ │
 │                       ▼                              │
-│  STAGE 2 — Concept Reveal                            │
+│  STAGE 2 Concept Reveal                            │
 │  ┌─────────────────────────────────────────────────┐ │
 │  │  The Python syntax is introduced for the FIRST   │ │
 │  │  time, broken down symbol by symbol:             │ │
@@ -169,7 +169,7 @@ Every case study in PyBe runs through the same pedagogical engine:
 │  │  • What `:` and indentation do                   │ │
 │  └─────────────────────────────────────────────────┘ │
 │                       ▼                              │
-│  STAGE 3 — Guided Code Build                         │
+│  STAGE 3 Guided Code Build                         │
 │  ┌─────────────────────────────────────────────────┐ │
 │  │  Pre-written code template with blanks (___)     │ │
 │  │  Token buttons to fill the blanks                │ │
@@ -183,10 +183,10 @@ Every case study in PyBe runs through the same pedagogical engine:
 
 Every Attempt 1 option set follows strict rules:
 
-1. **One fully correct option** — maps to the concept being taught
-2. **One "not absolutely correct" (partial) option** — works but isn't the natural fit; a plausible near-miss
-3. **One or two clearly wrong options** — genuine misconceptions that real beginners hold
-4. **All options are in 100% plain English** — no Python syntax appears anywhere in Stage 1
+1. **One fully correct option** maps to the concept being taught
+2. **One "not absolutely correct" (partial) option** works but isn't the natural fit; a plausible near-miss
+3. **One or two clearly wrong options** genuine misconceptions that real beginners hold
+4. **All options are in 100% plain English** no Python syntax appears anywhere in Stage 1
 
 ### Reflective Prompt Design
 
@@ -201,26 +201,26 @@ Reflective prompts follow Socratic principles:
 
 Scenarios are chosen to be:
 
-- **Relatable** — real-world situations anyone can understand (birthday apps, vending machines, ATM PINs, movie tickets)
-- **Unambiguous** — one clear "right" approach for the concept being taught
-- **Scalable** — the scenario naturally reveals why the concept is needed (*"What about 200 names?"*)
-- **Culturally inclusive** — names and contexts drawn from diverse backgrounds
+- **Relatable** real-world situations anyone can understand (birthday apps, vending machines, ATM PINs, movie tickets)
+- **Unambiguous** one clear "right" approach for the concept being taught
+- **Scalable** the scenario naturally reveals why the concept is needed (*"What about 200 names?"*)
+- **Culturally inclusive** names and contexts drawn from diverse backgrounds
 
 ---
 
 ## 📊 4. Content Coverage
 
-### Topic 1: Loops (For/While) — 5 Levels, 7 Case Studies
+### Topic 1: Loops (For/While) 5 Levels, 7 Case Studies
 
 | Level | SOLO Stage | Title | Case Studies |
 |---|---|---|---|
-| 1 | Prestructural | Birthday App | Print "Happy Birthday!" 100 times — discover `for` + `range()` |
+| 1 | Prestructural | Birthday App | Print "Happy Birthday!" 100 times discover `for` + `range()` |
 | 2 | Unistructural | Three Case Studies | Rocket Countdown (`range(start,stop,step)`), Guest List (`for...in list`), Vending Machine (`while`) |
-| 3 | Multistructural | ATM PIN Lockout | Combine `while` + `break` — two stopping conditions |
-| 4 | Relational | Wedding Seating | Nested loops — `for` inside `for` |
+| 3 | Multistructural | ATM PIN Lockout | Combine `while` + `break` two stopping conditions |
+| 4 | Relational | Wedding Seating | Nested loops `for` inside `for` |
 | 5 | Extended Abstract | Teach-Back | Design a `break` vs `continue` case study for a peer |
 
-### Topic 2: Conditionals (If/Else) — 5 Levels, 7 Case Studies
+### Topic 2: Conditionals (If/Else) 5 Levels, 7 Case Studies
 
 | Level | SOLO Stage | Title | Case Studies |
 |---|---|---|---|
@@ -230,7 +230,7 @@ Scenarios are chosen to be:
 | 4 | Relational | Password Validator | Combine `and`/`or` with conditionals |
 | 5 | Extended Abstract | Student Report Card | Multi-condition grading + teach-back |
 
-### Topic 3: Data Types — 7 Levels, 14 Case Studies
+### Topic 3: Data Types 7 Levels, 14 Case Studies
 
 | Level | SOLO Stage | Title | Case Studies |
 |---|---|---|---|
@@ -239,7 +239,7 @@ Scenarios are chosen to be:
 | 3 | Multi (set 2) | `list`, `tuple` | Shopping Cart (lists), Coordinates (tuples) |
 | 4 | Multi (set 3) | `dict`, `set` | Phonebook (dictionaries), Badge Scanner (sets) |
 | 5 | Relational | Combining Types | Weather Station, Playlist Manager |
-| 6 | Consolidation | Type Conversion | Survey form — `int()`, `str()`, `float()` casting |
+| 6 | Consolidation | Type Conversion | Survey form `int()`, `str()`, `float()` casting |
 | 7 | Extended Abstract | Nested Structures | Library catalog (list of dicts) + Teach-back |
 
 ---
@@ -307,10 +307,10 @@ New topics (e.g., Functions, Classes) can be added by:
 | 2 | Unistructural | One isolated mechanic, heavily scaffolded |
 | 3 | Multistructural | Parallel scenarios, different mechanics kept separate |
 | 4 | Relational | A scenario that **breaks** unless mechanics are combined |
-| 5+ | Extended Abstract | **Teach-back** — design a case study for a peer |
+| 5+ | Extended Abstract | **Teach-back** design a case study for a peer |
 
 ---
 
 <p align="center">
-  <strong>Part of the PyBe platform — Python, By Experience.</strong>
+  <strong>Part of the PyBe platform Python, By Experience.</strong>
 </p>

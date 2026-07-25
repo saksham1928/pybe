@@ -115,7 +115,7 @@ function LevelCompleteScreen({ onBack, onNext }) {
   );
 }
 
-// ─── Case Study Engine — orchestrates stages across case studies ──────────────
+// ─── Case Study Engine orchestrates stages across case studies ──────────────
 export default function CaseStudyEngine({ levelData, topicLevelCount, levelId, onBack, onGoToLevel }) {
   const caseStudies     = levelData.caseStudies;
   const [caseStudyIndex, setCaseStudyIndex] = useState(0);
