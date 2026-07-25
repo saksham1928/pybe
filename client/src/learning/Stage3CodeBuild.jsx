@@ -175,7 +175,12 @@ export default function Stage3CodeBuild({ caseStudy, onComplete }) {
           </p>
           <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', alignItems: 'flex-start' }}>
             {shuffledTokens.map((token, i) => {
-              const isUsed = Object.values(filledValues).includes(token.value);
+              // How many times this token value must be placed in blanks (0 = wrong token)
+              const quota    = correctTokensInOrder.filter(t => t.value === token.value).length;
+              // How many times it has already been placed
+              const timesPlaced = Object.values(filledValues).filter(v => v === token.value).length;
+              // Only exhaust a token if it has a quota > 0 (correct tokens only)
+              const isUsed   = quota > 0 && timesPlaced >= quota;
               return (
                 <TokenButton
                   key={i}

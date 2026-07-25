@@ -14,6 +14,7 @@ import {
   Send,
   Sparkles
 } from 'lucide-react';
+import { BrowserRouter, Routes, Route as RRoute, NavLink } from 'react-router-dom';
 import './styles.css';
 import LearningPage from './learning/LearningPage.jsx';
 
@@ -29,7 +30,7 @@ async function api(path, options) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  ORIGINAL PYBE APP (untouched)
+//  ORIGINAL PYBE APP 
 // ─────────────────────────────────────────────────────────────────────────────
 function OriginalApp() {
   const [scenarios, setScenarios] = useState([]);
@@ -140,7 +141,7 @@ function OriginalApp() {
           </div>
           <div className="hero-stats">
             <span>{analytics?.scenarioCount || 0}<small>Scenarios</small></span>
-            <span>{analytics?.sessionCount  || 0}<small>Sessions</small></span>
+            <span>{analytics?.sessionCount || 0}<small>Sessions</small></span>
             <span>{analytics?.averagePromptScore || 0}<small>Prompt score</small></span>
           </div>
         </header>
@@ -242,12 +243,12 @@ function Analytics({ analytics }) {
     <div className="analytics-list">
       {concepts.length
         ? concepts.map(([name, count]) => (
-            <div key={name}>
-              <span>{name}</span>
-              <meter min="0" max="10" value={count}></meter>
-              <strong>{count}</strong>
-            </div>
-          ))
+          <div key={name}>
+            <span>{name}</span>
+            <meter min="0" max="10" value={count}></meter>
+            <strong>{count}</strong>
+          </div>
+        ))
         : <p>No learning sessions yet.</p>}
     </div>
   );
@@ -275,48 +276,49 @@ function SessionList({ sessions }) {
     <div className="sessions">
       {sessions.length
         ? sessions.slice(0, 6).map((session) => (
-            <article key={session._id}>
-              <Play size={16} />
-              <div>
-                <strong>{session.scenario?.title}</strong>
-                <span>{session.masterySignals.join(' / ')}</span>
-              </div>
-            </article>
-          ))
+          <article key={session._id}>
+            <Play size={16} />
+            <div>
+              <strong>{session.scenario?.title}</strong>
+              <span>{session.masterySignals.join(' / ')}</span>
+            </div>
+          </article>
+        ))
         : <p>No sessions yet.</p>}
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  ROOT — nav tab strip toggling between the two pages
+//  ROOT — BrowserRouter with two routes
 // ─────────────────────────────────────────────────────────────────────────────
+const navLinkStyle = ({ isActive }) => ({
+  background: 'none', border: 'none', padding: '0.8rem 1.5rem',
+  color: isActive ? '#d8f07c' : '#b9c7bf',
+  fontWeight: isActive ? 700 : 400,
+  fontSize: '0.9rem', cursor: 'pointer', fontFamily: 'inherit',
+  borderBottom: isActive ? '2px solid #d8f07c' : '2px solid transparent',
+  display: 'flex', alignItems: 'center', gap: '0.5rem',
+  transition: 'color .2s ease', textDecoration: 'none',
+});
+
 function Root() {
-  const [activePage, setActivePage] = useState('app'); // 'app' | 'learning'
-
-  const tabStyle = (page) => ({
-    background: 'none', border: 'none', padding: '0.8rem 1.5rem',
-    color: activePage === page ? '#d8f07c' : '#b9c7bf',
-    fontWeight: activePage === page ? 700 : 400,
-    fontSize: '0.9rem', cursor: 'pointer', fontFamily: 'inherit',
-    borderBottom: activePage === page ? '2px solid #d8f07c' : '2px solid transparent',
-    display: 'flex', alignItems: 'center', gap: '0.5rem',
-    transition: 'color .2s ease',
-  });
-
   return (
-    <>
+    <BrowserRouter>
       <nav style={{ display: 'flex', gap: 0, background: '#16231f', borderBottom: '1px solid #253d37', position: 'sticky', top: 0, zIndex: 100 }}>
-        <button style={tabStyle('app')} onClick={() => setActivePage('app')}>
+        <NavLink to="/" end style={navLinkStyle}>
           <Brain size={16} /> Scenario Explorer
-        </button>
-        <button style={tabStyle('learning')} onClick={() => setActivePage('learning')}>
+        </NavLink>
+        <NavLink to="/learn" style={navLinkStyle}>
           <GraduationCap size={16} /> Case Study Learning
-        </button>
+        </NavLink>
       </nav>
 
-      {activePage === 'app' ? <OriginalApp /> : <LearningPage />}
-    </>
+      <Routes>
+        <RRoute path="/" element={<OriginalApp />} />
+        <RRoute path="/learn" element={<LearningPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

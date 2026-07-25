@@ -64,8 +64,17 @@ export default function LearningPage() {
   const [view, setView]                   = useState('levels');
   const [selectedLevelId, setSelectedLevelId] = useState(null);
 
-  // Session-only completion tracking (no auth required)
-  const [completedLevels, setCompletedLevels] = useState(new Set());
+  // Per-topic completion tracking: { topicId: Set([levelId, ...]) }
+  const [topicProgress, setTopicProgress] = useState({});
+
+  // Helpers scoped to the currently selected topic
+  const completedLevels = topicProgress[selectedTopicId] ?? new Set();
+
+  const markLevelDone = (topicId, lvlId) =>
+    setTopicProgress((prev) => ({
+      ...prev,
+      [topicId]: new Set([...(prev[topicId] ?? []), lvlId]),
+    }));
 
   const levels = fullTopic?.levels ?? [];
 
@@ -118,9 +127,13 @@ export default function LearningPage() {
           levelData={levelData}
           topicLevelCount={levels.length}
           levelId={selectedLevelId}
-          onBack={() => setView('levels')}
+          onBack={() => {
+            // Mark the current level complete when returning from Level Complete screen
+            markLevelDone(selectedTopicId, selectedLevelId);
+            setView('levels');
+          }}
           onGoToLevel={(nextId) => {
-            setCompletedLevels((prev) => new Set([...prev, selectedLevelId]));
+            markLevelDone(selectedTopicId, selectedLevelId);
             setSelectedLevelId(nextId);
           }}
         />
@@ -156,7 +169,7 @@ export default function LearningPage() {
             onChange={(e) => {
               setSelectedTopicId(e.target.value);
               setView('levels');
-              setCompletedLevels(new Set());
+              // Do NOT reset progress — it is stored per-topic in topicProgress
             }}
             style={{
               background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 10,

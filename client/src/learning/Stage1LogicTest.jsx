@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { C, InlineMarkdown } from './utils.jsx';
 
 // ─── Single option button ─────────────────────────────────────────────────────
@@ -95,6 +95,25 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
   const [attempt2States, setAttempt2States]   = useState({});
   const [completing, setCompleting]           = useState(false);
 
+  // Shuffle helper
+  const shuffle = (arr) => {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  };
+
+  // Shuffle attempt1 once per case study mount
+  const shuffledAttempt1 = useMemo(() => shuffle(attempt1), [attempt1]);
+
+  // Shuffle attempt2 when a reflection becomes active
+  const shuffledAttempt2 = useMemo(
+    () => activeReflection ? shuffle(activeReflection.attempt2) : [],
+    [activeReflection]
+  );
+
   const handleAttempt1Click = (option, index) => {
     if (option.status === 'correct') {
       setOptionStates({ [index]: 'selected-correct' });
@@ -102,7 +121,7 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
       setTimeout(() => onComplete(), 1000);
     } else {
       const states = {};
-      attempt1.forEach((_, i) => { states[i] = i === index ? 'selected-incorrect' : 'dimmed'; });
+      shuffledAttempt1.forEach((_, i) => { states[i] = i === index ? 'selected-incorrect' : 'dimmed'; });
       setOptionStates(states);
       setActiveReflection(reflections[option.routesTo]);
       setPhase(2);
@@ -111,7 +130,7 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
 
   const handleAttempt2Click = (option, index) => {
     const states = {};
-    activeReflection.attempt2.forEach((_, i) => {
+    shuffledAttempt2.forEach((_, i) => {
       states[i] = i === index
         ? (option.status === 'correct' ? 'selected-correct' : 'selected-incorrect')
         : 'dimmed';
@@ -141,7 +160,7 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
         <p style={{ fontSize: '0.8rem', fontWeight: 600, color: C.label, letterSpacing: '0.08em', textTransform: 'uppercase', margin: 0 }}>
           {phase === 1 ? 'How would you approach this?' : 'Your initial choice'}
         </p>
-        {attempt1.map((option, i) => (
+        {shuffledAttempt1.map((option, i) => (
           <OptionCard
             key={i}
             option={option}
@@ -162,7 +181,7 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
             Try again — what fits better?
           </p>
 
-          {activeReflection.attempt2.map((option, i) => (
+          {shuffledAttempt2.map((option, i) => (
             <OptionCard
               key={i}
               option={option}
