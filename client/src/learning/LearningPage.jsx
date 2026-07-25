@@ -52,7 +52,7 @@ function LevelCard({ level, unlocked, completed, onClick }) {
   );
 }
 
-// ─── Learning Page — top-level view ──────────────────────────────────────────
+// ─── Learning Page top-level view ──────────────────────────────────────────
 export default function LearningPage() {
   const [topics, setTopics]               = useState([]);
   const [selectedTopicId, setSelectedTopicId] = useState('');
@@ -169,7 +169,7 @@ export default function LearningPage() {
             onChange={(e) => {
               setSelectedTopicId(e.target.value);
               setView('levels');
-              // Do NOT reset progress — it is stored per-topic in topicProgress
+              // Do NOT reset progress it is stored per-topic in topicProgress
             }}
             style={{
               background: C.cardBg, border: `1px solid ${C.border}`, borderRadius: 10,
@@ -180,7 +180,7 @@ export default function LearningPage() {
             onFocus={(e) => (e.target.style.borderColor = '#7b9f27')}
             onBlur={(e)  => (e.target.style.borderColor = C.border)}
           >
-            <option value="" disabled>— Choose a topic —</option>
+            <option value="" disabled> Choose a topic</option>
             {topics.map((t) => (
               <option key={t.topicId} value={t.topicId}>{t.topicName}</option>
             ))}

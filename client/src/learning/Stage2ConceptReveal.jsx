@@ -1,7 +1,7 @@
 import React from 'react';
 import { C, ConceptRevealText } from './utils.jsx';
 
-// ─── Stage 2 — Concept Reveal ─────────────────────────────────────────────────
+// ─── Stage 2 Concept Reveal ─────────────────────────────────────────────────
 export default function Stage2ConceptReveal({ caseStudy, onComplete }) {
   const { stage2 } = caseStudy;
 
@@ -49,7 +49,7 @@ export default function Stage2ConceptReveal({ caseStudy, onComplete }) {
           onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(23,35,31,.3)'; }}
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'translateY(0)';    e.currentTarget.style.boxShadow = 'none'; }}
         >
-          Got it — let's practice the code ⚡
+          Got it let's practice the code ⚡
         </button>
       </div>
     </div>

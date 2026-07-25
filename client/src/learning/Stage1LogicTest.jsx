@@ -84,7 +84,7 @@ function ReflectionPrompt({ prompt }) {
   );
 }
 
-// ─── Stage 1 — Logic Test ─────────────────────────────────────────────────────
+// ─── Stage 1 Logic Test ─────────────────────────────────────────────────────
 export default function Stage1LogicTest({ caseStudy, onComplete }) {
   const { stage1, scenario } = caseStudy;
   const { attempt1, reflections } = stage1;
@@ -178,7 +178,7 @@ export default function Stage1LogicTest({ caseStudy, onComplete }) {
           <ReflectionPrompt prompt={activeReflection.prompt} />
 
           <p style={{ fontSize: '0.8rem', fontWeight: 600, color: C.label, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '0.5rem', marginBottom: 0 }}>
-            Try again — what fits better?
+            Try again what fits better?
           </p>
 
           {shuffledAttempt2.map((option, i) => (

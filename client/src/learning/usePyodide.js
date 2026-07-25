@@ -1,4 +1,4 @@
-// ─── Pyodide singleton — loads once per browser session ───────────────────────
+// ─── Pyodide singleton loads once per browser session ───────────────────────
 let _pyodideInstance = null;
 let _loadPromise = null;
 
@@ -26,7 +26,7 @@ function getPyodide() {
 import { useState, useEffect } from 'react';
 
 /**
- * usePyodide — lazy-loads Pyodide and returns { pyodide, loading, error }.
+ * usePyodide lazy-loads Pyodide and returns { pyodide, loading, error }.
  * The singleton ensures Pyodide is only downloaded once per session.
  */
 export function usePyodide() {
@@ -46,7 +46,7 @@ export function usePyodide() {
 }
 
 /**
- * runPython — executes code in Pyodide, captures stdout.
+ * runPython executes code in Pyodide, captures stdout.
  * Injects stubs so fictional PyBe APIs (get_coin_inserted, ask_for_pin) work.
  * Returns { output, error }.
  */

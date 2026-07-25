@@ -290,7 +290,7 @@ function SessionList({ sessions }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  ROOT — BrowserRouter with two routes
+//  ROOT BrowserRouter with two routes
 // ─────────────────────────────────────────────────────────────────────────────
 const navLinkStyle = ({ isActive }) => ({
   background: 'none', border: 'none', padding: '0.8rem 1.5rem',
