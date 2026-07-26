@@ -4005,4 +4005,1723 @@
       }
     ]
   }
+,
+  {
+    "topicId": "lists",
+    "topicName": "Lists",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: Quiz Scoreboard",
+        "caseStudies": [
+          {
+            "id": "li1_c1",
+            "scenario": "You need to track the scores of 5 players in a quiz game. Right now you're using five separate variables: score1, score2, score3, score4, score5.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Group all the scores together into a single ordered collection, so I can work with them as one thing but still access each individually.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Keep using a separate variable for each player's score, adding a new variable every time a new player joins.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Combine all the scores into one single number, like adding them all together into a total.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                },
+                {
+                  "text": "Store all the scores in one long piece of text, separated by commas.",
+                  "status": "partial",
+                  "routesTo": "reflection_3"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What happens when your quiz game grows to 50 players? Would you want to write and manage 50 separate variable names by hand?",
+                  "attempt2": [
+                    {
+                      "text": "Use a single structure that can hold as many scores as needed, without creating a new variable name each time.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep adding new variables as needed, one per player.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If you only keep the total, can you still tell me what Player 3 individually scored?",
+                  "attempt2": [
+                    {
+                      "text": "No I need each individual score to stay accessible, not just their sum.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine, I only ever need the total anyway.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_3": {
+                  "prompt": "You could pull individual scores back out of that text, but you'd have to manually split it and convert every piece back into a number, every single time. Is there something built specifically to hold multiple individual values, ready to use, without that extra text-processing work?",
+                  "attempt2": [
+                    {
+                      "text": "Yes something built specifically to store multiple individual values in order, that I can access directly by position.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, plain text is the standard way to store multiple values in Python.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'group related values into a single ordered collection' is written in Python as a **list**. Breaking it down piece by piece: Square brackets `[ ]` mark the start and end of the collection. Commas `,` separate each individual value inside. Python numbers positions starting at **0**, not 1 so the first item is `scores[0]`. You can access any item directly using its position, called its **index**, inside square brackets."
+            },
+            "stage3": {
+              "codeTemplate": "_______________________________\nprint(scores[0])",
+              "tokens": [
+                {
+                  "value": "scores = [88, 92, 79, 95, 84]",
+                  "correct": true
+                },
+                {
+                  "value": "scores = (88, 92, 79, 95, 84)",
+                  "correct": false,
+                  "hint": "Round brackets () create a tuple, not a list. Square brackets [ ] are what create a list."
+                },
+                {
+                  "value": "scores = {88, 92, 79, 95, 84}",
+                  "correct": false,
+                  "hint": "Curly braces {} create a set. Square brackets [ ] are what create a list."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "li2_c1",
+            "scenario": "A new player joins the quiz game mid-way. Add their score, 90, to the end of the existing scores list.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Add the new value onto the end of the existing list, without creating a whole new list from scratch.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Create a brand-new list from scratch, retyping all the old scores plus the new one.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Add the new score by directly assigning it to a brand-new index number placed right after the current items.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What if there were already 500 scores in the list would you want to retype all 500 just to add one more?",
+                  "attempt2": [
+                    {
+                      "text": "No I want an approach that adds just the one new value onto the existing list, leaving everything else untouched.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still prefer to rebuild the whole list each time.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That means you'd have to know exactly how many items are already there, and get the next index number exactly right. What if you're off by one, or the list's length changes without you noticing?",
+                  "attempt2": [
+                    {
+                      "text": "I'd rather use something that automatically adds the item to the end, without me tracking index numbers myself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just carefully count the items myself each time.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is Python's `.append()` method. `scores.append(90)` tacks `90` onto the very end of the `scores` list, automatically no index counting, no rebuilding."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [88, 92, 79, 95, 84]\n_______________________________\nprint(scores)",
+              "tokens": [
+                {
+                  "value": "scores.append(90)",
+                  "correct": true
+                },
+                {
+                  "value": "scores.add(90)",
+                  "correct": false,
+                  "hint": "`.add()` is for sets, not lists. Lists use `.append()`."
+                },
+                {
+                  "value": "append(scores, 90)",
+                  "correct": false,
+                  "hint": "Wrong call order. It's called *on* the list: `scores.append(90)`."
+                }
+              ]
+            }
+          },
+          {
+            "id": "li2_c2",
+            "scenario": "Print the most recent score added to the list, without counting how many scores are in it.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Access the last item directly using a position counted backward from the end.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Count how many scores are in the list, then use that count as the index.",
+                  "status": "partial",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Guess the last index number based on how many scores you remember adding.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "That works, but it means doing an extra counting step every single time and remembering to subtract 1, since indexing starts at 0. Is there a more direct way to say 'give me the last one,' without counting first?",
+                  "attempt2": [
+                    {
+                      "text": "Yes access it directly by counting backward from the end, with no separate counting step needed.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, counting first is the only reliable way.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Relying on memory breaks the moment the list changes size without you noticing. What if instead you had a way to always land on 'the end,' automatically, no matter how long the list currently is?",
+                  "attempt2": [
+                    {
+                      "text": "Yes something that always points at the last item, regardless of the list's current length.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep track of the size in my head.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Python lets you index from the *end* using negative numbers. `scores[-1]` means 'the last item,' `scores[-2]` means 'the second-to-last,' and so on no counting or length-checking needed."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [88, 92, 79, 95, 84]\nprint(_______________)",
+              "tokens": [
+                {
+                  "value": "scores[-1]",
+                  "correct": true
+                },
+                {
+                  "value": "scores[-0]",
+                  "correct": false,
+                  "hint": "There's no separate negative zero it's the same as scores[0], the *first* item."
+                },
+                {
+                  "value": "scores[last]",
+                  "correct": false,
+                  "hint": "`last` is not valid Python syntax. Use `scores[-1]` for the last item."
+                }
+              ]
+            }
+          },
+          {
+            "id": "li2_c3",
+            "scenario": "Before announcing results, check how many players actually submitted a score.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Ask Python directly for the number of items currently in the list.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Manually count the scores by reading through the list yourself each time.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Keep a separate counter variable that you increase every time you add a score.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What happens once the list has hundreds of scores in it would counting them by eye still be practical or reliable?",
+                  "attempt2": [
+                    {
+                      "text": "No I want Python to tell me the count directly, instantly, no matter how big the list is.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep counting by eye, carefully.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That means keeping two things in sync forever the list *and* your counter and remembering to update the counter every single time the list changes. Is there a way to just ask the list itself, right when you need the number?",
+                  "attempt2": [
+                    {
+                      "text": "Yes ask directly for the current count, whenever I need it, instead of tracking it separately.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No a separate counter is the only way to know a list's size.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is Python's built-in `len()` function. `len(scores)` returns the number of items currently in `scores` always accurate, since it checks the list itself, right now."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [88, 92, 79, 95, 84]\nprint(_______________)",
+              "tokens": [
+                {
+                  "value": "len(scores)",
+                  "correct": true
+                },
+                {
+                  "value": "scores.len()",
+                  "correct": false,
+                  "hint": "`len()` is a function you call by passing the list in, not a method. Use `len(scores)`."
+                },
+                {
+                  "value": "count(scores)",
+                  "correct": false,
+                  "hint": "`count()` counts occurrences of a specific value, not the list's length. Use `len(scores)`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: Two Case Studies",
+        "caseStudies": [
+          {
+            "id": "li3_c1",
+            "scenario": "Display just the top 3 scores from a sorted list of scores, without the rest.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Take a portion of the list a slice spanning from the start up to (but not including) the 4th position.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Loop through the whole list and print only the first three items, using a check on the position each time.",
+                  "status": "partial",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Create three separate variables, one for each of the first three scores, copied by hand.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "That works, but it means writing a whole repeat structure with a counting check just to grab three items. Is there a way to grab a *chunk* of the list directly, in one step, without looping at all?",
+                  "attempt2": [
+                    {
+                      "text": "Yes take a direct slice of the list covering just those positions, no loop needed.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, looping with a check is the only way to get part of a list.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "What if the leaderboard needed the top 10 instead of the top 3 would copying each one into its own variable by hand still be practical?",
+                  "attempt2": [
+                    {
+                      "text": "No I want one instruction that grabs a range of positions at once, however many that is.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still copy each one individually, just more of them.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is called **slicing**: `scores[0:3]` means 'give me items starting at index 0, up to but not including index 3.' The end number is always *exclusive*, so `0:3` grabs exactly 3 items: indexes 0, 1, and 2."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [95, 92, 88, 84, 79]\nprint(scores[___])",
+              "tokens": [
+                {
+                  "value": "0:3",
+                  "correct": true
+                },
+                {
+                  "value": "1:3",
+                  "correct": false,
+                  "hint": "Starting at index 1 skips the very first (highest) score. Start at 0."
+                },
+                {
+                  "value": "0:4",
+                  "correct": false,
+                  "hint": "The end index is exclusive, so 0:4 grabs 4 items. Use 0:3 for exactly 3."
+                }
+              ]
+            }
+          },
+          {
+            "id": "li3_c2",
+            "scenario": "A player is disqualified. Remove their score, 79, from the list you don't know its position, just its value.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Remove the item by its actual value directly, without needing to know its position in the list.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Find the position of the value first by manually scanning the list, then delete that exact position.",
+                  "status": "partial",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Create a brand-new list that leaves out that one value, by retyping everything else.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "That means doing an extra manual search step every time, just to find a position you don't actually care about remembering. Is there a way to remove something by *what it is*, directly, skipping the position-finding step?",
+                  "attempt2": [
+                    {
+                      "text": "Yes remove it directly by its value, and let Python find and delete it.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, I'd always find the position first.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If the list had hundreds of scores, would retyping all of them minus one still make sense?",
+                  "attempt2": [
+                    {
+                      "text": "No I want to remove just that one value from the existing list, in place.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still prefer to rebuild it from scratch.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is Python's `.remove()` method. `scores.remove(79)` searches the list for the value `79` and deletes the *first* matching item it finds no position needed."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [95, 92, 88, 84, 79]\n_______________________________\nprint(scores)",
+              "tokens": [
+                {
+                  "value": "scores.remove(79)",
+                  "correct": true
+                },
+                {
+                  "value": "scores.delete(79)",
+                  "correct": false,
+                  "hint": "Lists have no `.delete()` method. Use `.remove()` to remove by value."
+                },
+                {
+                  "value": "remove(scores, 79)",
+                  "correct": false,
+                  "hint": "Wrong call order. It's called *on* the list: `scores.remove(79)`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Filtering Passing Scores",
+        "caseStudies": [
+          {
+            "id": "li4_c1",
+            "scenario": "Go through all scores and build a new list containing only the passing scores (60 or above).",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Start with an empty new list, then loop through every score, and for each one that meets the passing condition, add it to the new list.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Loop through the scores and just print out the ones that pass, without saving them anywhere new.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Build a new list manually, typing in only the scores you remember being passing ones.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If you need to *reuse* the passing scores later say, to calculate their average would printing them be enough, or do you need them saved somewhere?",
+                  "attempt2": [
+                    {
+                      "text": "I need them saved in a new list I can reuse later, not just displayed once.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "Printing is enough, I don't need to reuse them.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "What happens if the original list has 500 scores and changes every day would manually retyping the passing ones by memory still work reliably?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the computer to check each score automatically and build the new list itself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep updating it by hand whenever it changes.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This combines three things you already know: start with an **empty list** (`passing = []`), a **`for` loop** to go through every score, and an **`if` check** inside it. When the condition is true, `.append()` adds that score to the new list. None of these three pieces alone solves it it's their combination that builds a filtered list."
+            },
+            "stage3": {
+              "codeTemplate": "scores = [45, 88, 60, 30, 92, 55]\npassing = ___\nfor score in scores:\n    if score >= 60:\n        _______________________________\nprint(passing)",
+              "correctOrder": ["[]", "passing.append(score)"],
+              "tokens": [
+                {
+                  "value": "[]",
+                  "correct": true
+                },
+                {
+                  "value": "{}",
+                  "correct": false,
+                  "hint": "Curly braces {} create an empty dictionary or set, not a list. Use `[]`."
+                },
+                {
+                  "value": "passing.append(score)",
+                  "correct": true
+                },
+                {
+                  "value": "scores.append(score)",
+                  "correct": false,
+                  "hint": "This appends back onto the *original* list, not the new passing list."
+                },
+                {
+                  "value": "passing.append(scores)",
+                  "correct": false,
+                  "hint": "This appends the *entire* scores list, not the single current score."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "li5_c1",
+            "scenario": "Design a new case study that teaches **sorting a list** (using `sorted()` or `.sort()`) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), the reflective prompts, the concept reveal, and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I'll design all three stages myself: the logic test (with a scenario and plausible wrong options), the concept reveal (explaining the syntax clearly), and the guided code build (with a template and token set).",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for sorting a list. You're not just using `.sort()` or `sorted()` correctly, you're designing how to teach it."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "dictionaries",
+    "topicName": "Dictionaries",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: Two Lists Falling Out of Sync",
+        "caseStudies": [
+          {
+            "id": "d1_c1",
+            "scenario": "You're tracking players and their scores using two separate lists: names = ['Aditi', 'Ravi', 'Meera'] and scores = [88, 92, 79]. You need to look up Ravi's score.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Store each name paired directly with its own score, so looking one up doesn't depend on two lists staying in the same order.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Find Ravi's position in the names list, then use that same position number to look up the score in the scores list.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Just remember the pairing in your head Ravi is always second in both lists.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What happens if someone sorts the scores list by highest first, but forgets to sort the names list the same way would the pairing still be correct?",
+                  "attempt2": [
+                    {
+                      "text": "No that's risky since the two lists could easily fall out of sync. I need the name and score bound together directly, not linked by matching position.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "It's fine as long as I'm careful to keep both lists in the same order.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That works for 3 players. What about 300 would you still be able to reliably remember every pairing?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the computer to store the pairing directly, not rely on my memory.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd just keep memorizing more pairings as the list grows.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'pair each name directly with its score' is written in Python as a **dictionary**. Breaking it down piece by piece: Curly braces `{ }` mark the start and end. Each entry is written as `key: value` here, a name paired with its score. Commas separate multiple pairs. You look up a value using its key in square brackets, not a position number: `scores['Ravi']`."
+            },
+            "stage3": {
+              "codeTemplate": "_______________________________________________\nprint(scores['Ravi'])",
+              "tokens": [
+                {
+                  "value": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}",
+                  "correct": true
+                },
+                {
+                  "value": "scores = ['Aditi': 88, 'Ravi': 92, 'Meera': 79]",
+                  "correct": false,
+                  "hint": "Square brackets can't hold key:value pairs. Dictionaries use curly braces { }."
+                },
+                {
+                  "value": "scores = {'Aditi'=88, 'Ravi'=92, 'Meera'=79}",
+                  "correct": false,
+                  "hint": "Dictionaries use `:` to separate key from value, not `=`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "d2_c1",
+            "scenario": "A new player, Kabir, joins with a score of 74. Add him to the existing scores dictionary.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Assign the new score directly to a new key, and Python will add it to the dictionary automatically.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Rebuild the whole dictionary from scratch, retyping every existing pair plus the new one.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Add Kabir's score to the end of the dictionary, the same way you'd append to a list.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "If the dictionary already held hundreds of players, would retyping all of them just to add one more make sense?",
+                  "attempt2": [
+                    {
+                      "text": "No I want to add just the one new pair, leaving everything else untouched.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still prefer to retype the whole thing.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Dictionaries don't have a position-based 'end' the way lists do pairs aren't ordered by when you added them for lookup purposes. What might actually work for adding a *new key*, specifically?",
+                  "attempt2": [
+                    {
+                      "text": "I should assign a value directly to the new key using square brackets, not use a list method like append.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just try `.append()` on it anyway.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "To add a new pair, assign directly: `scores['Kabir'] = 74`. If the key `'Kabir'` doesn't already exist, Python creates it. There's no `.append()` for dictionaries assignment *is* how you add."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\n_______________________________\nprint(scores)",
+              "tokens": [
+                {
+                  "value": "scores['Kabir'] = 74",
+                  "correct": true
+                },
+                {
+                  "value": "scores.append('Kabir', 74)",
+                  "correct": false,
+                  "hint": "Dictionaries have no `.append()`. Use direct assignment: `scores['Kabir'] = 74`."
+                },
+                {
+                  "value": "scores['Kabir'] == 74",
+                  "correct": false,
+                  "hint": "`==` checks equality, it doesn't store anything. Use `=` to assign."
+                }
+              ]
+            }
+          },
+          {
+            "id": "d2_c2",
+            "scenario": "Before printing a score, check whether 'Zara' is actually in the scores dictionary she might not have played yet.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Directly ask Python whether that key exists in the dictionary before trying to use it.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Just try to look up the score anyway, and assume it'll show something like 'None' or blank if she's missing.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Loop through every key in the dictionary by hand, comparing each one to 'Zara'.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "What actually happens in Python when you look up a key that isn't there does it quietly give you nothing, or does it stop your program with an error?",
+                  "attempt2": [
+                    {
+                      "text": "I should check first, since looking up a missing key actually causes an error, not a quiet blank result.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just look it up directly and hope it's fine.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Checking membership one key at a time works, but is there something built directly into Python that already asks 'is this key in here?' without you writing the loop yourself?",
+                  "attempt2": [
+                    {
+                      "text": "Yes a direct built-in way to check membership, without looping myself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "No, I'd always write my own loop to check.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Python's `in` keyword checks membership directly: `'Zara' in scores` returns `True` or `False` depending on whether that key exists no loop needed, and no risk of an error from a missing key."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\nif _______________________:\n    print(scores['Aditi'])\nelse:\n    print(\"No score yet\")",
+              "tokens": [
+                {
+                  "value": "'Aditi' in scores",
+                  "correct": true
+                },
+                {
+                  "value": "scores in 'Aditi'",
+                  "correct": false,
+                  "hint": "Wrong order. This checks if the whole dictionary is inside the name. Use `'Aditi' in scores`."
+                },
+                {
+                  "value": "'Aditi' == scores",
+                  "correct": false,
+                  "hint": "`==` compares the name to the whole dictionary. Use `'Aditi' in scores` to check membership."
+                }
+              ]
+            }
+          },
+          {
+            "id": "d2_c3",
+            "scenario": "Ravi's score was entered wrong. Update it from 92 to 95.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Assign the new value directly to the existing key Python will overwrite the old value automatically.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Remove Ravi's entry entirely first, then add a brand-new pair with the corrected score.",
+                  "status": "partial",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Add a second entry for Ravi with the new score, keeping the old one too.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Since assigning to an existing key just replaces its value automatically, is that extra remove-then-add step actually necessary?",
+                  "attempt2": [
+                    {
+                      "text": "No I can just assign directly to the existing key and the old value gets overwritten automatically.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll still remove it first, just to be safe.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "A dictionary key can only point to *one* value at a time what actually happens if you assign to a key that already exists, rather than adding a new one?",
+                  "attempt2": [
+                    {
+                      "text": "Assigning to an existing key overwrites its current value it doesn't create a duplicate.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I believe both values would somehow be kept.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Updating uses the exact same syntax as adding: `scores['Ravi'] = 95`. If the key already exists, Python overwrites its value instead of creating a new one one key always maps to exactly one value."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\n_______________________________\nprint(scores['Ravi'])",
+              "tokens": [
+                {
+                  "value": "scores['Ravi'] = 95",
+                  "correct": true
+                },
+                {
+                  "value": "scores['Ravi'] += 92",
+                  "correct": false,
+                  "hint": "This adds to the existing value (giving 184), not replacing it. Use `scores['Ravi'] = 95`."
+                },
+                {
+                  "value": "scores.update(95)",
+                  "correct": false,
+                  "hint": "`.update()` needs a key:value pair or another dictionary, not a lone number."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: Two Case Studies",
+        "caseStudies": [
+          {
+            "id": "d3_c1",
+            "scenario": "Print every player's name in the scores dictionary, one per line you don't need their scores for this.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Loop through just the keys of the dictionary, printing each one directly.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Loop through the whole dictionary and print each item as though it were a score.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Convert the dictionary into a list of names first, typing them out by hand from what you remember.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "A dictionary holds pairs, not a single flat sequence what specifically do you get if you loop over a dictionary directly, without asking for keys or values?",
+                  "attempt2": [
+                    {
+                      "text": "Looping over a dictionary directly gives me the keys, not the values so I should loop over it (or `.keys()`) to get names.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd assume looping gives me the values automatically.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If the dictionary had 200 players, would retyping their names from memory be accurate or realistic?",
+                  "attempt2": [
+                    {
+                      "text": "No I want Python to pull the actual names directly from the dictionary itself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still try to recall and retype them.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Looping over a dictionary directly `for name in scores:` automatically gives you each **key**, one at a time (that's the default behavior). You can also be explicit with `.keys()`: `for name in scores.keys():` both do the same thing here."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\n_______________________:\n    print(name)",
+              "tokens": [
+                {
+                  "value": "for name in scores",
+                  "correct": true
+                },
+                {
+                  "value": "for name in scores.values()",
+                  "correct": false,
+                  "hint": "`.values()` gives scores (numbers), not names. Use `for name in scores` or `scores.keys()`."
+                },
+                {
+                  "value": "for name, score in scores",
+                  "correct": false,
+                  "hint": "Looping bare gives just one value per round (the key), so unpacking two names would error."
+                }
+              ]
+            }
+          },
+          {
+            "id": "d3_c2",
+            "scenario": "Add up every score in the dictionary to find the class total names don't matter for this.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Loop through just the values of the dictionary, adding each one to a running total.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Loop through the dictionary's keys, and try adding the names themselves as if they were numbers.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Manually type in each score from what you remember seeing, and add those together.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Names are text, not numbers what actually happens if you try to add a piece of text to a running numeric total with `+`?",
+                  "attempt2": [
+                    {
+                      "text": "That would raise an error immediately, since you can't add text to a number that way I need the *values*, not the keys, to add numbers.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just try adding the names and see what happens.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "What if scores change frequently, or the dictionary grows large would manually re-adding remembered numbers stay accurate?",
+                  "attempt2": [
+                    {
+                      "text": "No I want Python to pull the current values directly and add them up itself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd keep recalculating by hand each time.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "`.values()` gives you just the values from a dictionary, ignoring the keys entirely: `for score in scores.values():` lets you loop through only the numbers, ready to add up."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\ntotal = 0\n_______________________:\n    total = total + score\nprint(total)",
+              "tokens": [
+                {
+                  "value": "for score in scores.values()",
+                  "correct": true
+                },
+                {
+                  "value": "for score in scores.keys()",
+                  "correct": false,
+                  "hint": "`.keys()` gives names (text), not numbers. Use `.values()` to get the scores."
+                },
+                {
+                  "value": "for score in scores",
+                  "correct": false,
+                  "hint": "Looping bare gives keys (names) by default. Use `.values()` to get the scores."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Full Leaderboard",
+        "caseStudies": [
+          {
+            "id": "d4_c1",
+            "scenario": "Print a full leaderboard line for every player, formatted like 'Aditi: 88' you need both the name *and* the score together, for every entry.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Loop through the dictionary in a way that gives you *both* the key and the value together, for each pair, in a single step.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Loop through just the keys, then separately loop through just the values, and hope they line up in the same order.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Loop through the keys, and inside the loop, look up each score separately using the key each time.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Even if both loops technically go in the same order, you'd need to run two separate loops and carefully keep them in sync. Is there a way to get both pieces *together*, in one loop, one pair at a time?",
+                  "attempt2": [
+                    {
+                      "text": "Yes I want one loop that gives me the key and value together for each pair, not two separate loops to keep in sync.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just trust two separate loops to line up correctly.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That actually works, but it means doing an extra lookup step inside every round of the loop. Is there a way the loop just *hands you* both pieces directly, without a separate lookup?",
+                  "attempt2": [
+                    {
+                      "text": "Yes I want the loop to give me both the key and its value directly, together, without a separate lookup each time.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll keep doing the separate lookup it works fine.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This combines two things: a `for` loop, and Python's `.items()` method, which hands you *both* the key and value together, each round: `for name, score in scores.items():`. Neither `.keys()` alone nor `.values()` alone gives you both `.items()` is what pairs them."
+            },
+            "stage3": {
+              "codeTemplate": "scores = {'Aditi': 88, 'Ravi': 92, 'Meera': 79}\n_______________________________________:\n    print(name, \":\", score)",
+              "tokens": [
+                {
+                  "value": "for name, score in scores.items()",
+                  "correct": true
+                },
+                {
+                  "value": "for name, score in scores",
+                  "correct": false,
+                  "hint": "Looping bare only gives one value per round (the key), so unpacking two names would error. Use `.items()`."
+                },
+                {
+                  "value": "for name, score in scores.keys()",
+                  "correct": false,
+                  "hint": "`.keys()` gives only names, not pairs. Use `.items()` to get both key and value."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "d5_c1",
+            "scenario": "Design a new case study that teaches using `.get()` with a default value (to safely look up a key that might not exist, without an error) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), the reflective prompts, the concept reveal, and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I'll design all three stages myself: the logic test (with a scenario and plausible wrong options), the concept reveal (explaining `.get()` and its default parameter), and the guided code build (with a template and token set).",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for dictionary `.get()` with a default value. You're not just using it correctly, you're designing how to teach it."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": "file-handling",
+    "topicName": "File Handling",
+    "levels": [
+      {
+        "levelId": 1,
+        "title": "Level 1: The Scores That Vanish",
+        "caseStudies": [
+          {
+            "id": "fh1_c1",
+            "scenario": "Your quiz game keeps player scores in a list while it runs, but every time you close and reopen the program, all the scores are gone.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Save the scores somewhere outside the program's memory, on the computer's storage, so they're still there next time the program runs.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Just keep the program running forever, so the list in memory never has a chance to disappear.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Print the scores to the screen before closing, so you can remember them and retype them next time.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Is it realistic or even possible to guarantee a program never gets closed, restarted, or crashes?",
+                  "attempt2": [
+                    {
+                      "text": "No that's not realistic. I need the data to survive even if the program closes.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just try to never close it.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If there were 500 scores, would reading them off the screen and retyping them next time be practical, or error-free?",
+                  "attempt2": [
+                    {
+                      "text": "No I want the data saved automatically somewhere that persists, not something I retype myself.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still copy them down and retype them.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "The idea you landed on 'save data outside the program's memory so it survives' is written in Python using **file handling**. `open('scores.txt', 'w')` opens (or creates) a file named `scores.txt` in **write mode** (`'w'`), ready for you to save data into it data that stays on disk even after the program closes."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nfile = ___________________________\nfile.write(\"88\\n\")\nfile.close()\nprint(\"Score saved!\")",
+              "tokens": [
+                {
+                  "value": "io.StringIO()",
+                  "correct": true
+                },
+                {
+                  "value": "io.StringIO('r')",
+                  "correct": false,
+                  "hint": "Almost 'r' is read mode. To write, use `io.StringIO()` (write is the default for StringIO)."
+                },
+                {
+                  "value": "open('scores.txt')",
+                  "correct": false,
+                  "hint": "Leaving the mode out defaults to read-only, so writing would fail. Use the correct writable approach."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 2,
+        "title": "Level 2: Three Case Studies",
+        "caseStudies": [
+          {
+            "id": "fh2_c1",
+            "scenario": "Next time the program starts, load the previously saved scores from a file and print them.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Open the file in a mode meant for reading, then read its contents back into the program.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Open the file in write mode again, since that's how you opened it last time, and try to read from it.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Open the file by double-clicking it outside the program, and copy the numbers in manually.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Write mode ('w') is for saving new data and it actually clears the file's existing content first. What would happen to your saved scores if you reopened the file in write mode again?",
+                  "attempt2": [
+                    {
+                      "text": "Write mode would erase what's already there I need read mode specifically to safely get data back out.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just use write mode again, it should be fine.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That defeats the purpose of saving it in the file at all, if the program can't read it back itself. Is there a way for the *program* to read the saved file directly, on its own?",
+                  "attempt2": [
+                    {
+                      "text": "Yes I want the program itself to open and read the file directly, not rely on me copying data by hand.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll keep opening it manually myself.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Reading uses **read mode**: `open('scores.txt', 'r')`. Once open, `.read()` pulls the entire contents of the file back as one piece of text: `contents = file.read()`."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nfile = io.StringIO(\"88\\n92\\n79\\n\")  # simulated saved file\ncontents = file.______()\nprint(contents)\nfile.close()",
+              "tokens": [
+                {
+                  "value": "read",
+                  "correct": true
+                },
+                {
+                  "value": "write",
+                  "correct": false,
+                  "hint": "`.write()` saves new data instead of retrieving existing content. Use `.read()`."
+                },
+                {
+                  "value": "readline",
+                  "correct": false,
+                  "hint": "`.readline()` reads only one line at a time. Use `.read()` to get all content at once."
+                }
+              ]
+            }
+          },
+          {
+            "id": "fh2_c2",
+            "scenario": "A new score comes in mid-game. Add it to the end of the saved scores without erasing the scores already saved there.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Open the file in a mode that adds new content onto the end, keeping everything already saved intact.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Open the file in the same write mode used the very first time, and write the new score.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Read the whole file first, add the new score to that text inside the program, then decide what to do next.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "You already learned write mode clears a file's existing content first. If you open the file in write mode again, what happens to the scores already saved there?",
+                  "attempt2": [
+                    {
+                      "text": "They'd be erased I need a mode that adds on without clearing what's already there.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll use write mode again, it should just add to what's there.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That's a reasonable start, but it still leaves the question once you have the old content plus the new score, which *mode* would you then use to save all of it, without losing anything?",
+                  "attempt2": [
+                    {
+                      "text": "I'd still need a mode that safely adds new content instead of overwriting so I should just use that mode directly instead of an extra read step.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'd still just resave everything using write mode.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is **append mode**: `open('scores.txt', 'a')`. Unlike `'w'`, which clears the file first, `'a'` adds new content onto the *end*, leaving everything already saved untouched."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nfile = io.StringIO(\"88\\n92\\n\")  # existing saved scores\nfile.seek(0, 2)  # move to end (simulate append)\nfile.write(\"74\\n\")\nfile.seek(0)\nprint(file.read())\nfile.close()\nprint(\"New score appended!\")",
+              "tokens": [],
+              "correctOrder": []
+            }
+          },
+          {
+            "id": "fh2_c3",
+            "scenario": "Print each saved score on its own separate line not as one big block of text.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Loop through the open file directly, treating each line as a separate item to work with one at a time.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Use .read() to get the whole file as one block of text, then print that single block.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Read the file, then manually search through the text for line breaks yourself.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "`.read()` gives you everything as one single piece of text. If you print that directly, does it come out as neatly separated lines, or as one dense block?",
+                  "attempt2": [
+                    {
+                      "text": "It prints as one block I need something that gives me each line separately, not the whole thing at once.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just print the whole block, it's close enough.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Python already knows how to recognize where each line ends. Is manually searching through the text for line breaks yourself really necessary?",
+                  "attempt2": [
+                    {
+                      "text": "No I want to loop through the file directly and let Python hand me each line automatically.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll keep searching for line breaks myself.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "An open file can be looped over directly, just like a list: `for line in file:` hands you each line, one at a time, already split at the line breaks no manual searching needed."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nfile = io.StringIO(\"88\\n92\\n79\\n\")  # simulated file\n_______________________:\n    print(line.strip())\nfile.close()",
+              "tokens": [
+                {
+                  "value": "for line in file",
+                  "correct": true
+                },
+                {
+                  "value": "for line in file.read()",
+                  "correct": false,
+                  "hint": "`.read()` collapses everything into one block, so this loops character by character, not line by line."
+                },
+                {
+                  "value": "for line of file",
+                  "correct": false,
+                  "hint": "Python uses `in`, not `of`. Use `for line in file`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 3,
+        "title": "Level 3: Two Case Studies",
+        "caseStudies": [
+          {
+            "id": "fh3_c1",
+            "scenario": "You keep forgetting to call file.close() after opening files, which can leave data unsaved or the file locked.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Use an approach that automatically closes the file for you when you're done with it, so you don't have to remember.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Just try to remember to always call .close() at the very end of every block of file code.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Open and close the file twice, just to be extra sure it's really closed.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "You've already noticed you keep forgetting. Is 'trying harder to remember' actually a reliable fix, or does the real problem need a structural solution?",
+                  "attempt2": [
+                    {
+                      "text": "I need something that closes the file automatically, so forgetting isn't even possible.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just try to be more careful about remembering.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "Opening and closing twice doesn't address forgetting the *first* close, and adds confusion. Is there something built to guarantee closing happens, without you managing it directly at all?",
+                  "attempt2": [
+                    {
+                      "text": "Yes something that handles closing automatically and reliably, without needing my manual close call at all.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just add extra close calls, just in case.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This is the `with` statement: `with open('scores.txt', 'r') as file:`. Everything indented underneath runs with the file open, and Python **automatically closes it** the moment that block ends even if something goes wrong inside it. No `.close()` call needed."
+            },
+            "stage3": {
+              "codeTemplate": "import io\n___________________________________________:\n    contents = file.read()\nprint(contents)",
+              "tokens": [
+                {
+                  "value": "with io.StringIO(\"88\\n92\\n79\\n\") as file",
+                  "correct": true
+                },
+                {
+                  "value": "with io.StringIO(\"88\\n92\\n79\\n\")",
+                  "correct": false,
+                  "hint": "Missing `as file` there'd be no name to refer to the open file by inside the block."
+                },
+                {
+                  "value": "io.StringIO(\"88\\n92\\n79\\n\") as file",
+                  "correct": false,
+                  "hint": "Missing `with` at the start. The full syntax is `with ... as file:`."
+                }
+              ]
+            }
+          },
+          {
+            "id": "fh3_c2",
+            "scenario": "When printing each saved score, there are odd extra blank lines appearing between them that shouldn't be there.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Recognize that each line already carries an invisible line-break character at the end, and remove it before using the line's content.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Assume the file itself was saved incorrectly, and manually go edit the raw text file to fix it.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Add extra blank print statements to try to visually balance out the spacing.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Every line read from a file naturally keeps its trailing line-break character that's how Python marks where lines end, not a mistake in the file. Given that, what needs to happen to *each line's text*, not the file itself?",
+                  "attempt2": [
+                    {
+                      "text": "The line-break character needs to be removed from each line's text after reading it, not fixed in the file.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I still think the file itself needs to be edited.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "That treats the *symptom* by adding more spacing rather than removing the actual extra character causing it. Is there a way to clean the line's text directly, instead of compensating around it?",
+                  "attempt2": [
+                    {
+                      "text": "Yes I want to directly remove the extra character from each line's text, not just add more spacing around it.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep adjusting spacing to compensate.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "Each line read from a file keeps its trailing `\\n` (newline) character. `.strip()` removes leading and trailing whitespace including that `\\n` from a piece of text: `line.strip()` gives you the clean value, with the invisible line-break gone."
+            },
+            "stage3": {
+              "codeTemplate": "import io\nfile = io.StringIO(\"88\\n92\\n79\\n\")\nfor line in file:\n    print(line.________())\nfile.close()",
+              "tokens": [
+                {
+                  "value": "strip",
+                  "correct": true
+                },
+                {
+                  "value": "close",
+                  "correct": false,
+                  "hint": "`.close()` closes the file, it's unrelated to cleaning whitespace from text. Use `.strip()`."
+                },
+                {
+                  "value": "read",
+                  "correct": false,
+                  "hint": "`.read()` is for whole-file content, not cleaning a single line's whitespace. Use `.strip()`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 4,
+        "title": "Level 4: Calculating the Average",
+        "caseStudies": [
+          {
+            "id": "fh4_c1",
+            "scenario": "A scores file has one score per line, saved as text. Read the file and calculate the average score but the numbers were saved as text, and text can't be added together like numbers.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "Read the file line by line, convert each line's text into an actual number, and only then add them together to calculate the average.",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                },
+                {
+                  "text": "Read the file and try adding the lines together directly, since they look like numbers on the page.",
+                  "status": "incorrect",
+                  "routesTo": "reflection_1"
+                },
+                {
+                  "text": "Read the file, and just hard-code the average based on the values you remember seeing.",
+                  "status": "partial",
+                  "routesTo": "reflection_2"
+                }
+              ],
+              "reflections": {
+                "reflection_1": {
+                  "prompt": "Text that *looks* like a number isn't automatically treated as one what actually happens when you try to add a piece of text to a running numeric total in Python?",
+                  "attempt2": [
+                    {
+                      "text": "Adding text to a number that way raises an error it doesn't add their numeric values. I need to convert each line to a real number first.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just try adding them directly and see what happens.",
+                      "status": "incorrect"
+                    }
+                  ]
+                },
+                "reflection_2": {
+                  "prompt": "If the file's contents change new scores added, old ones removed would a hard-coded average still be accurate?",
+                  "attempt2": [
+                    {
+                      "text": "No I need the average calculated freshly from whatever is actually in the file, every time.",
+                      "status": "correct"
+                    },
+                    {
+                      "text": "I'll just keep updating the hard-coded number myself.",
+                      "status": "incorrect"
+                    }
+                  ]
+                }
+              }
+            },
+            "stage2": {
+              "conceptReveal": "This combines opening and looping through a file, `.strip()` to clean each line, plus one new piece: `int()`, which **converts text into a whole number**. `int(line.strip())` takes cleaned text like `'88'` and turns it into the actual number `88`, ready for arithmetic. Skip `int()` entirely, and Python still treats the line as text `total + score` would then try to add a number to text, which raises an error rather than calculating a sum."
+            },
+            "stage3": {
+              "codeTemplate": "import io\ntotal = 0\ncount = 0\nfile = io.StringIO(\"88\\n92\\n79\\n\")\nfor line in file:\n    score = _______________________\n    total = total + score\n    count = count + 1\nfile.close()\nprint(total / count)",
+              "tokens": [
+                {
+                  "value": "int(line.strip())",
+                  "correct": true
+                },
+                {
+                  "value": "line.strip()",
+                  "correct": false,
+                  "hint": "This is still text; adding it to `total` raises an error. Wrap it with `int()`: `int(line.strip())`."
+                },
+                {
+                  "value": "line.strip().int()",
+                  "correct": false,
+                  "hint": "`int()` is a function you wrap *around* a value, not a method. Use `int(line.strip())`."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "levelId": 5,
+        "title": "Level 5: Teach-Back",
+        "caseStudies": [
+          {
+            "id": "fh5_c1",
+            "scenario": "Design a new case study that teaches checking whether a file exists before opening it (so the program doesn't crash trying to read a file that isn't there) for a peer. Write the scenario, the plain-English logic options (with at least one believable wrong one), the reflective prompts, the concept reveal, and the syntax token set for the guided build afterward.",
+            "stage1": {
+              "attempt1": [
+                {
+                  "text": "I'll design all three stages myself: the logic test (with a scenario and plausible wrong options), the concept reveal (explaining how to check file existence), and the guided code build (with a template and token set).",
+                  "status": "correct",
+                  "routesTo": "reveal"
+                }
+              ],
+              "reflections": {}
+            },
+            "stage2": {
+              "conceptReveal": "This stage explicitly asks you to build *all three stages* of the engine yourself logic test, concept reveal, and guided build for checking whether a file exists before opening it. You're not just handling it correctly, you're designing how to teach it."
+            },
+            "stage3": {
+              "codeTemplate": "# Write your scenario, options, and code below\n\n\n",
+              "tokens": []
+            }
+          }
+        ]
+      }
+    ]
+  }
 ]
