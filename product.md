@@ -339,6 +339,63 @@ Scenarios are chosen to be:
 | 6 | Consolidation | Type Conversion | Survey form `int()`, `str()`, `float()` casting |
 | 7 | Extended Abstract | Nested Structures | Library catalog (list of dicts) + Teach-back |
 
+### Topic 4: Functions 4 Levels, 6 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | Report Card Averages | `def`, parameters, `return` defining a basic reusable function |
+| 2 | Unistructural | Three Case Studies | Welcome Screen, Tip Calculator, Shipping Confirmation |
+| 3 | Multistructural | Movie Ticket Pricing | Early `return` as a guard clause |
+| 4 | Relational | Order Total Calculator | Function composition functions calling other functions |
+
+### Topic 5: String Manipulation 4 Levels, 6 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | Conference Badge Initials | Introduction to string concepts |
+| 2 | Unistructural | Three Case Studies | Area Code Extractor, Messy Signup Form, Comment Filter |
+| 3 | Multistructural | Masked Card Number | Intermediate string manipulation |
+| 4 | Relational | Business Card Formatter | Combining String Mechanics |
+
+### Topic 6: Error Handling 4 Levels, 6 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | Quiz Age Crash | Handling unexpected inputs |
+| 2 | Unistructural | Three Case Studies | Calculator Guard, Login Success, File Cleanup |
+| 3 | Multistructural | ATM Withdrawal Guard | Intermediate error handling |
+| 4 | Relational | Complete ATM Transaction | Combining Error-Handling Mechanics |
+
+### Topic 7: Dictionaries 5 Levels, 8 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | Two Lists Falling Out of Sync | Introduction to key-value pairs |
+| 2 | Unistructural | Three Case Studies | New Player Registers, Does This Player Exist?, Correcting a Score |
+| 3 | Multistructural | Two Case Studies | Announce All Player Names, Total of All Scores |
+| 4 | Relational | Full Leaderboard | Combining Keys and Values |
+| 5 | Extended Abstract | Teach-Back | Design a case study for a peer |
+
+### Topic 8: File Handling 5 Levels, 8 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | The Scores That Vanish | Why files are needed (persistent storage) |
+| 2 | Unistructural | Three Case Studies | Loading Saved Scores, Adding Without Erasing, Reading Line by Line |
+| 3 | Multistructural | Two Case Studies | Forgetting to Close (`with`), Stray Blank Lines |
+| 4 | Relational | Calculating the Average | Combining Read + Convert + Loop |
+| 5 | Extended Abstract | Teach-Back | Design a case study for a peer |
+
+### Topic 9: Lists 5 Levels, 8 Case Studies
+
+| Level | SOLO Stage | Title | Case Studies |
+|---|---|---|---|
+| 1 | Prestructural | Quiz Scoreboard | Why lists are needed |
+| 2 | Unistructural | Three Case Studies | New Player Joins, Last Score Check, How Many Scores? |
+| 3 | Multistructural | Two Case Studies | Top 3 Leaderboard, Disqualified Player |
+| 4 | Relational | Filtering Passing Scores | Combining Loop + Condition + List |
+| 5 | Extended Abstract | Teach-Back | Design a case study for a peer |
+
 ---
 
 ## 📝 5. Adding New Topics (Content Integration)
