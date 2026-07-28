@@ -31,9 +31,9 @@ to implementing the solution in Python.
 
 | Name | Email | Contribution |
 | :--- | :--- | :--- |
-| Saksham Sharma | sakshammayoor@gmail.com | Core feature design, bug fixing, case study template, Added Case Study (Loops, Conditions, Data Types) |
-| Vedhanth M | vedhanthmanju@gmail.com | Added Case Study (Functions, String Manuplation, Error Handling) |
-| Aarsh Sohane | suhaniaarsh@gmail.com | Added Case Study (Distionaries,File Handling, Lists)  |
+| Saksham Sharma | sakshammayoor@gmail.com | Core Feature Design, Bug Fixing, Case Study template, Added Case Study (Loops, Conditions, Data Types) |
+| Vedhanth M | vedhanthmanju@gmail.com | Added Case Study (Functions, String Manipulation, Error Handling) |
+| Aarsh Sohane | suhaniaarsh@gmail.com | Added Case Study (Dictionaries, File Handling, Lists) and Helped with documentation |
 
 ---
 ## 📖 Table of Contents
@@ -146,7 +146,7 @@ pybe/
 │       ├── styles.css
 │       └── learning/
 │           ├── CaseStudyEngine.jsx
-│           ├── LearningPage.jsx
+│           ├── LearningPage.jsx               ← Topic selector + Level grid
 │           ├── Stage1LogicTest.jsx
 │           ├── Stage2ConceptReveal.jsx
 │           ├── Stage3CodeBuild.jsx
@@ -157,10 +157,10 @@ pybe/
     ├── package.json
     ├── package-lock.json
     └── src/
-        ├── index.js
+        ├── index.js                  ← Express API: GET /api/topics, /api/topics/:id
         ├── seed.js
         ├── data/
-        │   └── content.json
+        │   └── content.json             ← All topic/level/case study data
         ├── routes/
         │   ├── analytics.js
         │   ├── roadmap.js
@@ -191,6 +191,44 @@ pybe/
 | **`src/data/content.json`** | The core data file containing all topics, levels, and case study JSON structures. |
 
 ---
+### Data Model (`content.json`)
+
+The entire content tree is stored in `content.json`. The structure is:
+
+```
+Array of Topics
+└── Topic
+    ├── topicId          (e.g. "loops")
+    ├── topicName        (e.g. "Loops (For/While)")
+    └── levels[]
+        └── Level
+            ├── levelId          (integer: 1, 2, 3…)
+            ├── title            (e.g. "Level 1: Birthday App")
+            └── caseStudies[]
+                └── CaseStudy
+                    ├── id              (e.g. "l1_c1")
+                    ├── scenario        (the problem description string)
+                    ├── stage1          ← Logic Test data
+                    │   ├── attempt1[]
+                    │   │   ├── text         (option label)
+                    │   │   ├── status       ("correct" | "incorrect")
+                    │   │   └── routesTo     ("reveal" | "reflection_X")
+                    │   └── reflections{}
+                    │       └── reflection_X
+                    │           ├── prompt       (reflection question text)
+                    │           └── attempt2[]
+                    │               ├── text     (option label)
+                    │               └── status   ("correct" | "incorrect")
+                    ├── stage2          ← Concept Reveal data
+                    │   └── conceptReveal  (markdown string with **bold**, `code`, *italic*)
+                    └── stage3          ← Code Build data
+                        ├── codeTemplate   (string with _____ blanks for fills)
+                        ├── correctOrder[] (optional ordered list of correct values)
+                        └── tokens[]
+                            ├── value        (the token label)
+                            ├── correct      (boolean)
+                            └── hint         (shown on wrong selection)
+```
 
 ## 📐 3. How Case Studies Are Designed
 
