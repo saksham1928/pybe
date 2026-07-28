@@ -27,6 +27,15 @@ Each stage is designed to move learners from reasoning about a problem
 to implementing the solution in Python.
 
 ---
+## 👥 Team Members
+
+| Name | Email | Contribution |
+| :--- | :--- | :--- |
+| Saksham Sharma | sakshammayoor@gmail.com | Core feature design, bug fixing, case study template, Added Case Study (Loops, Conditions, Data Types) |
+| Vedhanth M | vedhanthmanju@gmail.com | Added Case Study (Functions, String Manuplation, Error Handling) |
+| Aarsh Sohane | suhaniaarsh@gmail.com | Added Case Study (Distionaries,File Handling, Lists)  |
+
+---
 ## 📖 Table of Contents
 
 - [Pedagogical Framework & Methodology](#-1-pedagogical-framework--methodology)
@@ -151,7 +160,7 @@ pybe/
         ├── index.js
         ├── seed.js
         ├── data/
-        │   └── db.json (generated after seeding)
+        │   └── content.json
         ├── routes/
         │   ├── analytics.js
         │   ├── roadmap.js
@@ -359,15 +368,6 @@ New topics (e.g., Functions, Classes) can be added by:
 | 4 | Relational | A scenario that **breaks** unless mechanics are combined |
 | 5+ | Extended Abstract | **Teach-back** design a case study for a peer |
 
----
-
-## 👥 Team Members
-
-| Name | Email | Contribution |
-| :--- | :--- | :--- |
-| [Name 1] | [Email 1] | [Contribution 1] |
-| [Name 2] | [Email 2] | [Contribution 2] |
-| [Name 3] | [Email 3] | [Contribution 3] |
 
 ---
 

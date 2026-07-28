@@ -31,7 +31,7 @@ pybe/
         ├── index.js
         ├── seed.js
         ├── data/
-        │   └── db.json (generated after seeding)
+        │   └── content.json
         ├── routes/
         │   ├── analytics.js
         │   ├── roadmap.js
